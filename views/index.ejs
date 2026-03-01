@@ -1,0 +1,645 @@
+<%- include('partials/header') %>
+
+  <!-- ============================================ -->
+  <!-- HERO SECTION -->
+  <!-- ============================================ -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Animated background -->
+    <div class="hero-bg-gradient"></div>
+    <div class="hero-grid"></div>
+
+    <!-- Floating orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+      <div data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300 mb-8 backdrop-blur-sm">
+          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          Agence IA — Disponible pour vos projets
+        </div>
+      </div>
+
+      <h1 data-aos="fade-up" data-aos-delay="100" class="text-5xl sm:text-6xl lg:text-8xl font-black leading-tight mb-6">
+        On transforme vos
+        <span class="gradient-text block">idées en digital</span>
+      </h1>
+
+      <p data-aos="fade-up" data-aos-delay="200" class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Sites web, applications et automatisations IA sur-mesure pour propulser votre business vers le futur.
+      </p>
+
+      <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#contact" class="btn-gradient px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-violet-500/25">
+          Démarrer un projet
+        </a>
+        <a href="#portfolio" class="group flex items-center gap-2 px-8 py-4 rounded-full border border-white/10 hover:border-white/30 text-gray-300 hover:text-white transition-all duration-300">
+          Voir nos réalisations
+          <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div data-aos="fade-up" data-aos-delay="400" class="grid grid-cols-3 gap-8 mt-20 max-w-lg mx-auto">
+        <div>
+          <div class="text-3xl font-bold gradient-text counter" data-target="50">0</div>
+          <div class="text-gray-500 text-sm mt-1">Projets livrés</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold gradient-text counter" data-target="30">0</div>
+          <div class="text-gray-500 text-sm mt-1">Clients satisfaits</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold gradient-text counter" data-target="99">0</div>
+          <div class="text-gray-500 text-sm mt-1">% Satisfaction</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <i data-lucide="chevron-down" class="w-6 h-6 text-gray-500"></i>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SERVICES SECTION -->
+  <!-- ============================================ -->
+  <section id="services" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-violet-400 font-semibold text-sm uppercase tracking-wider">Nos services</span>
+        <h2 class="text-4xl sm:text-5xl font-bold mt-3 mb-4">Ce qu'on fait de <span class="gradient-text">mieux</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Des solutions digitales complètes pour donner vie à vos ambitions.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Service 1: Sites Web -->
+        <div data-aos="fade-up" data-aos-delay="0" class="service-card group relative bg-dark-card/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:border-violet-500/30 transition-all duration-500">
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-violet-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <div class="w-14 h-14 rounded-xl bg-violet-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <i data-lucide="globe" class="w-7 h-7 text-violet-400"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Sites Web</h3>
+            <p class="text-gray-400 leading-relaxed mb-6">Sites vitrines, e-commerce et landing pages modernes, rapides et optimisés pour le SEO.</p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-violet-400"></i>Design responsive</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-violet-400"></i>Optimisation SEO</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-violet-400"></i>Performance maximale</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 2: Applications -->
+        <div data-aos="fade-up" data-aos-delay="100" class="service-card group relative bg-dark-card/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:border-pink-500/30 transition-all duration-500">
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <div class="w-14 h-14 rounded-xl bg-pink-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <i data-lucide="smartphone" class="w-7 h-7 text-pink-400"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Applications</h3>
+            <p class="text-gray-400 leading-relaxed mb-6">Applications web et mobiles sur-mesure avec une expérience utilisateur fluide et intuitive.</p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-pink-400"></i>Web & Mobile</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-pink-400"></i>UX/UI soigné</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-pink-400"></i>Scalable & sécurisé</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 3: Automatisation IA -->
+        <div data-aos="fade-up" data-aos-delay="200" class="service-card group relative bg-dark-card/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:border-cyan-500/30 transition-all duration-500">
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <div class="w-14 h-14 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <i data-lucide="bot" class="w-7 h-7 text-cyan-400"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Automatisation IA</h3>
+            <p class="text-gray-400 leading-relaxed mb-6">Chatbots, workflows automatisés et intégrations IA pour gagner du temps et de l'efficacité.</p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>Chatbots intelligents</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>Workflows n8n/Make</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>Intégration API</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PORTFOLIO SECTION -->
+  <!-- ============================================ -->
+  <section id="portfolio" class="py-24 bg-dark-light/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-pink-400 font-semibold text-sm uppercase tracking-wider">Portfolio</span>
+        <h2 class="text-4xl sm:text-5xl font-bold mt-3 mb-4">Nos <span class="gradient-text">réalisations</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Quelques projets qui illustrent notre savoir-faire.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Project 1 -->
+        <div data-aos="fade-up" class="group relative overflow-hidden rounded-2xl bg-dark-card border border-white/5 hover:border-violet-500/30 transition-all duration-500">
+          <div class="aspect-video bg-gradient-to-br from-violet-600/20 via-pink-500/20 to-cyan-500/20 flex items-center justify-center">
+            <i data-lucide="shopping-cart" class="w-12 h-12 text-violet-400 group-hover:scale-110 transition-transform"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="font-bold text-lg mb-2">E-commerce Mode</h3>
+            <p class="text-gray-400 text-sm mb-4">Boutique en ligne complète avec paiement et gestion des stocks.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-full bg-violet-500/10 text-violet-400 text-xs font-medium">Next.js</span>
+              <span class="px-3 py-1 rounded-full bg-pink-500/10 text-pink-400 text-xs font-medium">Stripe</span>
+              <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-medium">Prisma</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div data-aos="fade-up" data-aos-delay="100" class="group relative overflow-hidden rounded-2xl bg-dark-card border border-white/5 hover:border-pink-500/30 transition-all duration-500">
+          <div class="aspect-video bg-gradient-to-br from-pink-600/20 via-yellow-500/20 to-violet-500/20 flex items-center justify-center">
+            <i data-lucide="message-circle" class="w-12 h-12 text-pink-400 group-hover:scale-110 transition-transform"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="font-bold text-lg mb-2">Chatbot Service Client</h3>
+            <p class="text-gray-400 text-sm mb-4">Assistant IA pour automatiser le support client 24h/24.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-full bg-pink-500/10 text-pink-400 text-xs font-medium">OpenAI</span>
+              <span class="px-3 py-1 rounded-full bg-violet-500/10 text-violet-400 text-xs font-medium">Node.js</span>
+              <span class="px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 text-xs font-medium">WhatsApp</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div data-aos="fade-up" data-aos-delay="200" class="group relative overflow-hidden rounded-2xl bg-dark-card border border-white/5 hover:border-cyan-500/30 transition-all duration-500">
+          <div class="aspect-video bg-gradient-to-br from-cyan-600/20 via-violet-500/20 to-pink-500/20 flex items-center justify-center">
+            <i data-lucide="bar-chart-3" class="w-12 h-12 text-cyan-400 group-hover:scale-110 transition-transform"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="font-bold text-lg mb-2">Dashboard Analytics</h3>
+            <p class="text-gray-400 text-sm mb-4">Tableau de bord interactif avec visualisation de données en temps réel.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-medium">React</span>
+              <span class="px-3 py-1 rounded-full bg-violet-500/10 text-violet-400 text-xs font-medium">D3.js</span>
+              <span class="px-3 py-1 rounded-full bg-pink-500/10 text-pink-400 text-xs font-medium">Firebase</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div data-aos="fade-up" class="group relative overflow-hidden rounded-2xl bg-dark-card border border-white/5 hover:border-yellow-500/30 transition-all duration-500">
+          <div class="aspect-video bg-gradient-to-br from-yellow-600/20 via-pink-500/20 to-violet-500/20 flex items-center justify-center">
+            <i data-lucide="calendar" class="w-12 h-12 text-yellow-400 group-hover:scale-110 transition-transform"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="font-bold text-lg mb-2">App de Réservation</h3>
+            <p class="text-gray-400 text-sm mb-4">Système de réservation en ligne avec paiement et notifications.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 text-xs font-medium">Vue.js</span>
+              <span class="px-3 py-1 rounded-full bg-pink-500/10 text-pink-400 text-xs font-medium">Supabase</span>
+              <span class="px-3 py-1 rounded-full bg-violet-500/10 text-violet-400 text-xs font-medium">Twilio</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div data-aos="fade-up" data-aos-delay="100" class="group relative overflow-hidden rounded-2xl bg-dark-card border border-white/5 hover:border-green-500/30 transition-all duration-500">
+          <div class="aspect-video bg-gradient-to-br from-green-600/20 via-cyan-500/20 to-violet-500/20 flex items-center justify-center">
+            <i data-lucide="workflow" class="w-12 h-12 text-green-400 group-hover:scale-110 transition-transform"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="font-bold text-lg mb-2">Automatisation CRM</h3>
+            <p class="text-gray-400 text-sm mb-4">Workflow automatisé connectant CRM, email et outils de gestion.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-xs font-medium">n8n</span>
+              <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-medium">HubSpot</span>
+              <span class="px-3 py-1 rounded-full bg-violet-500/10 text-violet-400 text-xs font-medium">Zapier</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div data-aos="fade-up" data-aos-delay="200" class="group relative overflow-hidden rounded-2xl bg-dark-card border border-white/5 hover:border-violet-500/30 transition-all duration-500">
+          <div class="aspect-video bg-gradient-to-br from-violet-600/20 via-yellow-500/20 to-cyan-500/20 flex items-center justify-center">
+            <i data-lucide="brain" class="w-12 h-12 text-violet-400 group-hover:scale-110 transition-transform"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="font-bold text-lg mb-2">Générateur de Contenu IA</h3>
+            <p class="text-gray-400 text-sm mb-4">Outil SaaS de génération de contenu marketing avec IA.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-full bg-violet-500/10 text-violet-400 text-xs font-medium">Claude API</span>
+              <span class="px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 text-xs font-medium">Next.js</span>
+              <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-medium">Vercel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- TESTIMONIALS SECTION -->
+  <!-- ============================================ -->
+  <section id="testimonials" class="py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-cyan-400 font-semibold text-sm uppercase tracking-wider">Témoignages</span>
+        <h2 class="text-4xl sm:text-5xl font-bold mt-3 mb-4">Ce que disent <span class="gradient-text">nos clients</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">La satisfaction de nos clients est notre meilleure carte de visite.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div data-aos="fade-up" class="bg-dark-card/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:border-violet-500/20 transition-all duration-300">
+          <div class="flex items-center gap-1 mb-4">
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+          </div>
+          <p class="text-gray-300 leading-relaxed mb-6">"Digitme.fun a transformé notre présence en ligne. Le site est magnifique et les résultats sont au rendez-vous. Je recommande à 100% !"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-pink-500 flex items-center justify-center font-bold text-sm">MC</div>
+            <div>
+              <div class="font-semibold text-sm">Marie Dupont</div>
+              <div class="text-gray-500 text-xs">CEO, FashionStore</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div data-aos="fade-up" data-aos-delay="100" class="bg-dark-card/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:border-pink-500/20 transition-all duration-300">
+          <div class="flex items-center gap-1 mb-4">
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+          </div>
+          <p class="text-gray-300 leading-relaxed mb-6">"Le chatbot IA qu'ils ont créé a réduit nos tickets support de 60%. Un travail incroyable et une équipe super réactive."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-yellow-500 flex items-center justify-center font-bold text-sm">TL</div>
+            <div>
+              <div class="font-semibold text-sm">Thomas Laurent</div>
+              <div class="text-gray-500 text-xs">CTO, TechService</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div data-aos="fade-up" data-aos-delay="200" class="bg-dark-card/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:border-cyan-500/20 transition-all duration-300">
+          <div class="flex items-center gap-1 mb-4">
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+          </div>
+          <p class="text-gray-300 leading-relaxed mb-6">"L'automatisation de nos processus nous fait gagner 20h par semaine. L'investissement le plus rentable de l'année !"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center font-bold text-sm">SB</div>
+            <div>
+              <div class="font-semibold text-sm">Sophie Bernard</div>
+              <div class="text-gray-500 text-xs">Directrice, AgenceMarketing</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- ABOUT SECTION -->
+  <!-- ============================================ -->
+  <section id="about" class="py-24 bg-dark-light/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <!-- Left: Content -->
+        <div data-aos="fade-right">
+          <span class="text-yellow-400 font-semibold text-sm uppercase tracking-wider">À propos</span>
+          <h2 class="text-4xl sm:text-5xl font-bold mt-3 mb-6">Une agence <span class="gradient-text">passionnée</span> par l'innovation</h2>
+          <p class="text-gray-400 leading-relaxed mb-6">
+            Chez Digitme.fun, on croit que la technologie doit être fun et accessible. Notre équipe d'experts en IA, développement web et design crée des solutions qui font la différence.
+          </p>
+          <p class="text-gray-400 leading-relaxed mb-8">
+            Notre mission : transformer vos idées en expériences digitales exceptionnelles, en utilisant les dernières technologies et les meilleures pratiques de l'industrie.
+          </p>
+
+          <!-- Values -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-violet-500/10 flex items-center justify-center">
+                <i data-lucide="zap" class="w-5 h-5 text-violet-400"></i>
+              </div>
+              <span class="font-medium text-sm">Innovation</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center">
+                <i data-lucide="heart" class="w-5 h-5 text-pink-400"></i>
+              </div>
+              <span class="font-medium text-sm">Passion</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center">
+                <i data-lucide="shield-check" class="w-5 h-5 text-cyan-400"></i>
+              </div>
+              <span class="font-medium text-sm">Qualité</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center">
+                <i data-lucide="users" class="w-5 h-5 text-yellow-400"></i>
+              </div>
+              <span class="font-medium text-sm">Proximité</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Visual -->
+        <div data-aos="fade-left" class="relative">
+          <div class="relative rounded-2xl overflow-hidden border border-white/5">
+            <div class="aspect-square bg-gradient-to-br from-violet-600/20 via-pink-500/20 to-cyan-500/20 flex items-center justify-center">
+              <div class="text-center">
+                <div class="w-24 h-24 mx-auto rounded-2xl bg-gradient-to-br from-violet-500 via-pink-500 to-cyan-400 flex items-center justify-center mb-6 shadow-2xl shadow-violet-500/30">
+                  <i data-lucide="sparkles" class="w-12 h-12 text-white"></i>
+                </div>
+                <div class="text-2xl font-bold mb-2">Digitme.fun</div>
+                <div class="text-gray-400">L'IA au service de votre business</div>
+              </div>
+            </div>
+          </div>
+          <!-- Decorative elements -->
+          <div class="absolute -top-4 -right-4 w-24 h-24 bg-violet-500/10 rounded-2xl blur-xl"></div>
+          <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-pink-500/10 rounded-2xl blur-xl"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PRICING SECTION -->
+  <!-- ============================================ -->
+  <section id="pricing" class="py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-violet-400 font-semibold text-sm uppercase tracking-wider">Tarifs</span>
+        <h2 class="text-4xl sm:text-5xl font-bold mt-3 mb-4">Des offres <span class="gradient-text">adaptées</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Des forfaits clairs et transparents pour chaque besoin.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Starter -->
+        <div data-aos="fade-up" class="relative bg-dark-card/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:border-violet-500/20 transition-all duration-300">
+          <div class="mb-6">
+            <h3 class="text-xl font-bold mb-2">Starter</h3>
+            <p class="text-gray-400 text-sm">Idéal pour démarrer votre présence en ligne.</p>
+          </div>
+          <div class="mb-6">
+            <span class="text-4xl font-black">990€</span>
+            <span class="text-gray-500 text-sm ml-1">/ projet</span>
+          </div>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2 text-sm text-gray-300">
+              <i data-lucide="check-circle" class="w-4 h-4 text-violet-400 flex-shrink-0"></i>
+              Site vitrine (5 pages)
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-300">
+              <i data-lucide="check-circle" class="w-4 h-4 text-violet-400 flex-shrink-0"></i>
+              Design responsive
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-300">
+              <i data-lucide="check-circle" class="w-4 h-4 text-violet-400 flex-shrink-0"></i>
+              Optimisation SEO de base
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-300">
+              <i data-lucide="check-circle" class="w-4 h-4 text-violet-400 flex-shrink-0"></i>
+              Formulaire de contact
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-300">
+              <i data-lucide="check-circle" class="w-4 h-4 text-violet-400 flex-shrink-0"></i>
+              Livraison en 2 semaines
+            </li>
+          </ul>
+          <a href="#contact" class="block text-center py-3 rounded-full border border-white/10 hover:border-violet-500/50 hover:bg-violet-500/5 text-sm font-semibold transition-all duration-300">
+            Choisir Starter
+          </a>
+        </div>
+
+        <!-- Pro (Popular) -->
+        <div data-aos="fade-up" data-aos-delay="100" class="relative bg-dark-card/50 backdrop-blur-sm border-2 border-violet-500/50 rounded-2xl p-8 scale-105 shadow-xl shadow-violet-500/10">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-violet-500 to-pink-500 text-xs font-bold">
+            Populaire
+          </div>
+          <div class="mb-6">
+            <h3 class="text-xl font-bold mb-2">Pro</h3>
+            <p class="text-gray-400 text-sm">Pour les entreprises ambitieuses.</p>
+          </div>
+          <div class="mb-6">
+            <span class="text-4xl font-black gradient-text">2 490€</span>
+            <span class="text-gray-500 text-sm ml-1">/ projet</span>
+          </div>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2 text-sm text-gray-300">
+              <i data-lucide="check-circle" class="w-4 h-4 text-pink-400 flex-shrink-0"></i>
+              Tout le plan Starter
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-300">
+              <i data-lucide="check-circle" class="w-4 h-4 text-pink-400 flex-shrink-0"></i>
+              Application web custom
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-300">
+              <i data-lucide="check-circle" class="w-4 h-4 text-pink-400 flex-shrink-0"></i>
+              Intégration IA (chatbot)
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-300">
+              <i data-lucide="check-circle" class="w-4 h-4 text-pink-400 flex-shrink-0"></i>
+              SEO avancé
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-300">
+              <i data-lucide="check-circle" class="w-4 h-4 text-pink-400 flex-shrink-0"></i>
+              Support 3 mois inclus
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-300">
+              <i data-lucide="check-circle" class="w-4 h-4 text-pink-400 flex-shrink-0"></i>
+              Livraison en 4 semaines
+            </li>
+          </ul>
+          <a href="#contact" class="block text-center py-3 rounded-full btn-gradient text-sm font-semibold hover:scale-105 transition-all duration-300">
+            Choisir Pro
+          </a>
+        </div>
+
+        <!-- Enterprise -->
+        <div data-aos="fade-up" data-aos-delay="200" class="relative bg-dark-card/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:border-cyan-500/20 transition-all duration-300">
+          <div class="mb-6">
+            <h3 class="text-xl font-bold mb-2">Enterprise</h3>
+            <p class="text-gray-400 text-sm">Solutions sur-mesure pour les grands projets.</p>
+          </div>
+          <div class="mb-6">
+            <span class="text-4xl font-black">Sur devis</span>
+          </div>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2 text-sm text-gray-300">
+              <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 flex-shrink-0"></i>
+              Tout le plan Pro
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-300">
+              <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 flex-shrink-0"></i>
+              Architecture sur-mesure
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-300">
+              <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 flex-shrink-0"></i>
+              Automatisations avancées
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-300">
+              <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 flex-shrink-0"></i>
+              Formation équipe
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-300">
+              <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 flex-shrink-0"></i>
+              Support prioritaire 12 mois
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-300">
+              <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 flex-shrink-0"></i>
+              Chef de projet dédié
+            </li>
+          </ul>
+          <a href="#contact" class="block text-center py-3 rounded-full border border-white/10 hover:border-cyan-500/50 hover:bg-cyan-500/5 text-sm font-semibold transition-all duration-300">
+            Nous contacter
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FAQ SECTION -->
+  <!-- ============================================ -->
+  <section id="faq" class="py-24 bg-dark-light/30">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-pink-400 font-semibold text-sm uppercase tracking-wider">FAQ</span>
+        <h2 class="text-4xl sm:text-5xl font-bold mt-3 mb-4">Questions <span class="gradient-text">fréquentes</span></h2>
+        <p class="text-gray-400">Tout ce que vous devez savoir avant de démarrer.</p>
+      </div>
+
+      <div class="space-y-4" data-aos="fade-up">
+        <!-- FAQ 1 -->
+        <div class="faq-item bg-dark-card/50 backdrop-blur-sm border border-white/5 rounded-xl overflow-hidden">
+          <button class="faq-toggle w-full flex items-center justify-between p-6 text-left">
+            <span class="font-semibold pr-4">Combien de temps pour réaliser un projet ?</span>
+            <i data-lucide="plus" class="w-5 h-5 text-gray-400 flex-shrink-0 faq-icon transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6">
+            <p class="text-gray-400 text-sm leading-relaxed">Tout dépend de la complexité du projet. Un site vitrine prend généralement 2 semaines, une application web 4 à 8 semaines, et un projet d'automatisation IA 2 à 6 semaines. On définit ensemble un planning précis dès le début.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item bg-dark-card/50 backdrop-blur-sm border border-white/5 rounded-xl overflow-hidden">
+          <button class="faq-toggle w-full flex items-center justify-between p-6 text-left">
+            <span class="font-semibold pr-4">Quelles technologies utilisez-vous ?</span>
+            <i data-lucide="plus" class="w-5 h-5 text-gray-400 flex-shrink-0 faq-icon transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6">
+            <p class="text-gray-400 text-sm leading-relaxed">Nous utilisons les technologies les plus modernes : React, Next.js, Vue.js, Node.js, Python pour l'IA, n8n et Make pour l'automatisation, et des APIs comme OpenAI, Claude, Stripe, etc. On choisit la stack la plus adaptée à votre projet.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item bg-dark-card/50 backdrop-blur-sm border border-white/5 rounded-xl overflow-hidden">
+          <button class="faq-toggle w-full flex items-center justify-between p-6 text-left">
+            <span class="font-semibold pr-4">Proposez-vous de la maintenance ?</span>
+            <i data-lucide="plus" class="w-5 h-5 text-gray-400 flex-shrink-0 faq-icon transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6">
+            <p class="text-gray-400 text-sm leading-relaxed">Oui ! Nous proposons des forfaits de maintenance mensuels pour assurer le bon fonctionnement de votre projet : mises à jour, corrections, améliorations et support technique. Les plans Pro et Enterprise incluent déjà du support.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item bg-dark-card/50 backdrop-blur-sm border border-white/5 rounded-xl overflow-hidden">
+          <button class="faq-toggle w-full flex items-center justify-between p-6 text-left">
+            <span class="font-semibold pr-4">Comment se déroule un projet ?</span>
+            <i data-lucide="plus" class="w-5 h-5 text-gray-400 flex-shrink-0 faq-icon transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6">
+            <p class="text-gray-400 text-sm leading-relaxed">Notre processus est simple : 1) Appel découverte gratuit 2) Proposition et devis 3) Design et validation 4) Développement avec points réguliers 5) Tests et livraison 6) Support post-lancement. Vous êtes impliqué à chaque étape.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item bg-dark-card/50 backdrop-blur-sm border border-white/5 rounded-xl overflow-hidden">
+          <button class="faq-toggle w-full flex items-center justify-between p-6 text-left">
+            <span class="font-semibold pr-4">Travaillez-vous avec des clients internationaux ?</span>
+            <i data-lucide="plus" class="w-5 h-5 text-gray-400 flex-shrink-0 faq-icon transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6">
+            <p class="text-gray-400 text-sm leading-relaxed">Absolument ! Nous travaillons avec des clients en France et à l'international. Grâce aux outils collaboratifs modernes, la distance n'est jamais un obstacle. Nos échanges se font en français et en anglais.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- CONTACT / CTA SECTION -->
+  <!-- ============================================ -->
+  <section id="contact" class="py-24 relative overflow-hidden">
+    <!-- Background decoration -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-violet-500/5 to-transparent"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div data-aos="fade-up">
+        <span class="text-yellow-400 font-semibold text-sm uppercase tracking-wider">Contact</span>
+        <h2 class="text-4xl sm:text-5xl font-bold mt-3 mb-4">Prêt à <span class="gradient-text">démarrer</span> ?</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto mb-12">Discutons de votre projet. Prenez rendez-vous ou contactez-nous directement sur WhatsApp.</p>
+      </div>
+
+      <div data-aos="fade-up" data-aos-delay="100" class="flex flex-col sm:flex-row items-center justify-center gap-6">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/33600000000?text=Bonjour%20Digitme.fun%20!%20Je%20souhaite%20discuter%20d'un%20projet." target="_blank" rel="noopener"
+           class="group flex items-center gap-3 px-8 py-4 rounded-full bg-green-500 hover:bg-green-600 text-white font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg shadow-green-500/25">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+
+        <!-- Calendly Button -->
+        <a href="https://calendly.com/digitme-fun" target="_blank" rel="noopener"
+           class="group flex items-center gap-3 px-8 py-4 rounded-full btn-gradient font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg shadow-violet-500/25">
+          <i data-lucide="calendar" class="w-6 h-6"></i>
+          Prendre rendez-vous
+        </a>
+      </div>
+
+      <!-- Extra info -->
+      <div data-aos="fade-up" data-aos-delay="200" class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center">
+            <i data-lucide="clock" class="w-6 h-6 text-violet-400"></i>
+          </div>
+          <span class="font-semibold text-sm">Réponse sous 24h</span>
+          <span class="text-gray-500 text-xs">Lun - Ven, 9h - 18h</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center">
+            <i data-lucide="video" class="w-6 h-6 text-pink-400"></i>
+          </div>
+          <span class="font-semibold text-sm">Appel découverte gratuit</span>
+          <span class="text-gray-500 text-xs">30 min sans engagement</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center">
+            <i data-lucide="map-pin" class="w-6 h-6 text-cyan-400"></i>
+          </div>
+          <span class="font-semibold text-sm">100% Remote</span>
+          <span class="text-gray-500 text-xs">France & International</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<%- include('partials/footer') %>

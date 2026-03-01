@@ -1,0 +1,14 @@
+{
+  "name": "digitme-fun",
+  "version": "1.0.0",
+  "description": "Site vitrine de l'agence IA Digitme.fun",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "ejs": "^3.1.10"
+  }
+}
