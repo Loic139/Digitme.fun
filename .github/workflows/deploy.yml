@@ -9,6 +9,7 @@ jobs:
   deploy:
     name: Deploy via FTP
     runs-on: ubuntu-latest
+    environment: github-pages
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
