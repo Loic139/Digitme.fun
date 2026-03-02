@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reverse — Reverse Your Voice. Discover Hidden Words.</title>
+  <meta name="description" content="Record any sound and play it in reverse. Challenge yourself with the built-in word guessing game. Fun for all ages!">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: '#0a0a0a',
+            'dark-light': '#111111',
+            'dark-card': '#161625',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, #f97316, #ec4899, #8b5cf6);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradient-shift 6s ease infinite;
+    }
+
+    .btn-gradient {
+      background: linear-gradient(135deg, #f97316, #ec4899, #8b5cf6);
+      background-size: 200% 200%;
+      animation: gradient-shift 4s ease infinite;
+      color: white;
+    }
+
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Soundwave animation */
+    .soundwave {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      height: 40px;
+    }
+    .soundwave span {
+      display: block;
+      width: 4px;
+      border-radius: 4px;
+      background: linear-gradient(to top, #f97316, #ec4899);
+      animation: wave 1.2s ease-in-out infinite;
+    }
+    .soundwave span:nth-child(1) { height: 20%; animation-delay: 0s; }
+    .soundwave span:nth-child(2) { height: 60%; animation-delay: 0.1s; }
+    .soundwave span:nth-child(3) { height: 100%; animation-delay: 0.2s; }
+    .soundwave span:nth-child(4) { height: 40%; animation-delay: 0.3s; }
+    .soundwave span:nth-child(5) { height: 80%; animation-delay: 0.4s; }
+    .soundwave span:nth-child(6) { height: 30%; animation-delay: 0.5s; }
+    .soundwave span:nth-child(7) { height: 70%; animation-delay: 0.6s; }
+    .soundwave span:nth-child(8) { height: 50%; animation-delay: 0.7s; }
+    .soundwave span:nth-child(9) { height: 90%; animation-delay: 0.8s; }
+    .soundwave span:nth-child(10) { height: 35%; animation-delay: 0.9s; }
+
+    @keyframes wave {
+      0%, 100% { transform: scaleY(0.3); }
+      50% { transform: scaleY(1); }
+    }
+
+    /* Floating orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.35;
+      animation: float 20s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -30px) scale(1.05); }
+      50% { transform: translate(-20px, 20px) scale(0.95); }
+      75% { transform: translate(20px, 10px) scale(1.02); }
+    }
+
+    /* Phone mockup */
+    .phone-mockup {
+      width: 280px;
+      height: 560px;
+      border-radius: 40px;
+      border: 3px solid rgba(255,255,255,0.1);
+      background: linear-gradient(145deg, #161625, #0a0a0a);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    .phone-notch {
+      width: 120px;
+      height: 28px;
+      background: #0a0a0a;
+      border-radius: 0 0 16px 16px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+    .phone-screen {
+      position: absolute;
+      inset: 12px;
+      border-radius: 30px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(ellipse at center, rgba(249,115,22,0.08), transparent 70%);
+    }
+
+    /* Reverse arrow animation */
+    @keyframes spin-reverse {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(-360deg); }
+    }
+    .spin-reverse {
+      animation: spin-reverse 3s linear infinite;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+    ::selection { background: rgba(249,115,22,0.3); color: white; }
+  </style>
+</head>
+<body class="bg-dark text-white font-sans antialiased overflow-x-hidden">
+
+  <!-- ============================================ -->
+  <!-- NAVBAR -->
+  <!-- ============================================ -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-xl border-b border-white/5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-2 group">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 via-pink-500 to-cyan-400 flex items-center justify-center font-black text-sm group-hover:scale-110 transition-transform">D</div>
+          <span class="text-sm font-bold text-gray-400">Digitme.fun</span>
+        </a>
+        <a href="#download" class="btn-gradient px-5 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-transform">
+          Download
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================ -->
+  <!-- HERO -->
+  <!-- ============================================ -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <!-- Orbs -->
+    <div class="orb w-[400px] h-[400px] bg-orange-500/30 top-[10%] left-[-5%]"></div>
+    <div class="orb w-[300px] h-[300px] bg-pink-500/25 bottom-[10%] right-[-5%]" style="animation-delay:-7s"></div>
+    <div class="orb w-[350px] h-[350px] bg-violet-500/20 top-[50%] left-[40%]" style="animation-delay:-14s"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Left: Text -->
+      <div data-aos="fade-right">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300 mb-6 backdrop-blur-sm">
+          <i data-lucide="mic" class="w-4 h-4 text-orange-400"></i>
+          Voice App
+        </div>
+
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6">
+          Reverse Your
+          <span class="gradient-text block">Voice.</span>
+          <span class="text-3xl sm:text-4xl lg:text-5xl text-gray-400 font-bold block mt-2">Discover Hidden Words.</span>
+        </h1>
+
+        <p class="text-lg text-gray-400 leading-relaxed mb-8 max-w-lg">
+          Record any sound and play it in reverse instantly. Challenge yourself with the built-in guessing game and discover words hidden backwards.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#download" class="btn-gradient px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-orange-500/20 text-center">
+            <span class="flex items-center justify-center gap-2">
+              <i data-lucide="download" class="w-5 h-5"></i>
+              Download Free
+            </span>
+          </a>
+          <a href="#features" class="group flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/10 hover:border-white/30 text-gray-300 hover:text-white transition-all duration-300">
+            Learn more
+            <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Phone Mockup -->
+      <div data-aos="fade-left" class="flex justify-center">
+        <div class="relative">
+          <div class="phone-mockup">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <!-- App UI mockup -->
+              <div class="text-center px-6">
+                <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-orange-500 via-pink-500 to-violet-500 flex items-center justify-center mb-6 shadow-xl shadow-orange-500/30">
+                  <i data-lucide="rotate-ccw" class="w-10 h-10 text-white spin-reverse"></i>
+                </div>
+                <div class="text-lg font-bold mb-4">Reverse</div>
+
+                <!-- Soundwave -->
+                <div class="flex justify-center mb-6">
+                  <div class="soundwave">
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+
+                <!-- Record button -->
+                <div class="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-orange-500 to-pink-500 flex items-center justify-center shadow-lg shadow-orange-500/30 mb-4">
+                  <i data-lucide="mic" class="w-7 h-7 text-white"></i>
+                </div>
+                <div class="text-xs text-gray-500">Tap to record</div>
+              </div>
+            </div>
+          </div>
+          <!-- Glow behind phone -->
+          <div class="absolute inset-0 bg-gradient-to-br from-orange-500/15 via-pink-500/10 to-violet-500/15 blur-3xl -z-10 scale-125"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- HOW IT WORKS -->
+  <!-- ============================================ -->
+  <section class="py-24 bg-dark-light/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-orange-400 font-semibold text-sm uppercase tracking-wider">How it works</span>
+        <h2 class="text-4xl sm:text-5xl font-bold mt-3 mb-4">Simple as <span class="gradient-text">1-2-3</span></h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div data-aos="fade-up" class="text-center">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-orange-500/10 flex items-center justify-center mb-5">
+            <i data-lucide="mic" class="w-8 h-8 text-orange-400"></i>
+          </div>
+          <div class="text-orange-400 text-sm font-bold mb-2">Step 1</div>
+          <h3 class="text-xl font-bold mb-2">Record</h3>
+          <p class="text-gray-400 text-sm">Tap the button and record any word, sentence or sound you want.</p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="100" class="text-center">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-pink-500/10 flex items-center justify-center mb-5">
+            <i data-lucide="rotate-ccw" class="w-8 h-8 text-pink-400"></i>
+          </div>
+          <div class="text-pink-400 text-sm font-bold mb-2">Step 2</div>
+          <h3 class="text-xl font-bold mb-2">Reverse</h3>
+          <p class="text-gray-400 text-sm">The app instantly flips your recording and plays it backwards.</p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="200" class="text-center">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-violet-500/10 flex items-center justify-center mb-5">
+            <i data-lucide="gamepad-2" class="w-8 h-8 text-violet-400"></i>
+          </div>
+          <div class="text-violet-400 text-sm font-bold mb-2">Step 3</div>
+          <h3 class="text-xl font-bold mb-2">Guess & Play</h3>
+          <p class="text-gray-400 text-sm">Try the guessing game and see if you can recognize words played backwards!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FEATURES -->
+  <!-- ============================================ -->
+  <section id="features" class="py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-pink-400 font-semibold text-sm uppercase tracking-wider">Features</span>
+        <h2 class="text-4xl sm:text-5xl font-bold mt-3 mb-4">Everything you <span class="gradient-text">need</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">A powerful yet simple app packed with fun features.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Feature 1 -->
+        <div data-aos="fade-up" class="group bg-dark-card/50 border border-white/5 rounded-2xl p-6 hover:border-orange-500/20 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="mic" class="w-6 h-6 text-orange-400"></i>
+          </div>
+          <h3 class="font-bold mb-2">Instant Recording</h3>
+          <p class="text-gray-400 text-sm">Record your voice with a single tap. No setup, no complications.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div data-aos="fade-up" data-aos-delay="50" class="group bg-dark-card/50 border border-white/5 rounded-2xl p-6 hover:border-pink-500/20 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="rotate-ccw" class="w-6 h-6 text-pink-400"></i>
+          </div>
+          <h3 class="font-bold mb-2">Reverse Playback</h3>
+          <p class="text-gray-400 text-sm">Play any recording in reverse instantly and hear your voice like never before.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div data-aos="fade-up" data-aos-delay="100" class="group bg-dark-card/50 border border-white/5 rounded-2xl p-6 hover:border-violet-500/20 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="save" class="w-6 h-6 text-violet-400"></i>
+          </div>
+          <h3 class="font-bold mb-2">Save Your Clips</h3>
+          <p class="text-gray-400 text-sm">Keep your favorite reversed recordings and replay them anytime.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div data-aos="fade-up" data-aos-delay="150" class="group bg-dark-card/50 border border-white/5 rounded-2xl p-6 hover:border-yellow-500/20 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="gamepad-2" class="w-6 h-6 text-yellow-400"></i>
+          </div>
+          <h3 class="font-bold mb-2">Word Guessing Game</h3>
+          <p class="text-gray-400 text-sm">Challenge yourself to recognize words spoken backwards. How many can you guess?</p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div data-aos="fade-up" data-aos-delay="200" class="group bg-dark-card/50 border border-white/5 rounded-2xl p-6 hover:border-cyan-500/20 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="sparkles" class="w-6 h-6 text-cyan-400"></i>
+          </div>
+          <h3 class="font-bold mb-2">Clean Interface</h3>
+          <p class="text-gray-400 text-sm">Simple, beautiful and intuitive design. No clutter, just fun.</p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div data-aos="fade-up" data-aos-delay="250" class="group bg-dark-card/50 border border-white/5 rounded-2xl p-6 hover:border-green-500/20 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="users" class="w-6 h-6 text-green-400"></i>
+          </div>
+          <h3 class="font-bold mb-2">Fun for All Ages</h3>
+          <p class="text-gray-400 text-sm">Kids, teens, adults — everyone loves hearing their voice played backwards!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FUN CTA SECTION -->
+  <!-- ============================================ -->
+  <section class="py-24 bg-dark-light/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div data-aos="fade-up" class="relative bg-dark-card/80 border border-white/5 rounded-3xl p-10 sm:p-14 text-center overflow-hidden">
+        <!-- Background glow -->
+        <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 via-pink-500/5 to-violet-500/5"></div>
+
+        <div class="relative z-10">
+          <div class="flex justify-center mb-6">
+            <div class="soundwave" style="height:60px">
+              <span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+            Every recording is a <span class="gradient-text">surprise</span>
+          </h2>
+          <p class="text-gray-400 max-w-xl mx-auto mb-8">
+            Whether you want to experiment with sound, laugh with friends, or challenge your listening skills — Reverse makes it all possible.
+          </p>
+
+          <a href="#download" class="inline-flex items-center gap-2 btn-gradient px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-orange-500/20">
+            <i data-lucide="play" class="w-5 h-5"></i>
+            Start Playing Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- DOWNLOAD SECTION -->
+  <!-- ============================================ -->
+  <section id="download" class="py-24 relative overflow-hidden">
+    <div class="orb w-[300px] h-[300px] bg-orange-500/20 top-[20%] right-[-5%]" style="animation-delay:-5s"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div data-aos="fade-up">
+        <span class="text-violet-400 font-semibold text-sm uppercase tracking-wider">Download</span>
+        <h2 class="text-4xl sm:text-5xl font-bold mt-3 mb-4">Get <span class="gradient-text">Reverse</span> now</h2>
+        <p class="text-gray-400 max-w-xl mx-auto mb-10">Free to download. Start playing with sound in a whole new way.</p>
+      </div>
+
+      <div data-aos="fade-up" data-aos-delay="100" class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <!-- App Store -->
+        <a href="#" class="group flex items-center gap-3 px-8 py-4 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300">
+          <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <div class="text-left">
+            <div class="text-[10px] text-gray-400 uppercase">Download on the</div>
+            <div class="text-lg font-semibold leading-tight">App Store</div>
+          </div>
+        </a>
+
+        <!-- Google Play -->
+        <a href="#" class="group flex items-center gap-3 px-8 py-4 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300">
+          <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.67c-.2-.1-.18-.26-.18-.43V.76C3 .59 2.98.43 3.18.33L13.65 12 3.18 23.67zm1.25.08L15.1 13.14l2.63 2.63-13.3 7.98zM15.1 10.86L4.43.25l13.3 7.98-2.63 2.63zm3.5 2.05l3.08-1.85c.44-.26.44-.86 0-1.12l-3.08-1.85-2.87 2.41 2.87 2.41z"/></svg>
+          <div class="text-left">
+            <div class="text-[10px] text-gray-400 uppercase">Get it on</div>
+            <div class="text-lg font-semibold leading-tight">Google Play</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FOOTER -->
+  <!-- ============================================ -->
+  <footer class="bg-dark-light border-t border-white/5 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-500 via-pink-500 to-violet-500 flex items-center justify-center">
+            <i data-lucide="rotate-ccw" class="w-4 h-4 text-white"></i>
+          </div>
+          <span class="font-bold">Reverse</span>
+          <span class="text-gray-500 text-sm">by</span>
+          <a href="/" class="text-sm font-semibold bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent hover:opacity-80 transition-opacity">Digitme.fun</a>
+        </div>
+        <div class="flex gap-6 text-sm text-gray-500">
+          <a href="/" class="hover:text-white transition-colors">Home</a>
+          <a href="mailto:contact@digitme.fun" class="hover:text-white transition-colors">Contact</a>
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="text-center mt-6 text-gray-600 text-xs">
+        &copy; 2026 Digitme.fun — All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+  </script>
+  <script>lucide.createIcons();</script>
+
+  <!-- Smooth scroll -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) window.scrollTo({ top: t.offsetTop - 70, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
