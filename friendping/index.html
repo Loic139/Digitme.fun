@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FriendPing — Garde le contact avec ceux qui comptent.</title>
+  <meta name="description" content="FriendPing sélectionne un ami au hasard dans tes contacts et t'invite à lui passer un appel ou lui envoyer un message. Parce que 5 minutes suffisent pour raviver une amitié.">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: '#0a0a0a',
+            'dark-light': '#111111',
+            'dark-card': '#0f1a14',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, #10b981, #34d399, #6ee7b7);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradient-shift 6s ease infinite;
+    }
+
+    .gradient-text-warm {
+      background: linear-gradient(135deg, #10b981, #06b6d4, #3b82f6);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradient-shift 6s ease infinite;
+    }
+
+    .btn-gradient {
+      background: linear-gradient(135deg, #10b981, #06b6d4, #3b82f6);
+      background-size: 200% 200%;
+      animation: gradient-shift 4s ease infinite;
+      color: white;
+    }
+
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Ping animation */
+    @keyframes ping-slow {
+      0% { transform: scale(1); opacity: 0.6; }
+      70% { transform: scale(1.8); opacity: 0; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+    .ping-slow {
+      animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+    .ping-slow-delay {
+      animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+      animation-delay: 0.5s;
+    }
+
+    /* Spin random contact */
+    @keyframes spin-select {
+      0% { transform: translateY(0); }
+      20% { transform: translateY(-40px); }
+      40% { transform: translateY(-80px); }
+      60% { transform: translateY(-120px); }
+      80% { transform: translateY(-80px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Floating orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.35;
+      animation: float 20s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -30px) scale(1.05); }
+      50% { transform: translate(-20px, 20px) scale(0.95); }
+      75% { transform: translate(20px, 10px) scale(1.02); }
+    }
+
+    /* Phone mockup */
+    .phone-mockup {
+      width: 260px;
+      height: 520px;
+      border-radius: 40px;
+      border: 3px solid rgba(255,255,255,0.08);
+      background: linear-gradient(145deg, #0f1a14, #0a0a0a);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    .phone-notch {
+      width: 110px;
+      height: 26px;
+      background: #0a0a0a;
+      border-radius: 0 0 16px 16px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+    .phone-screen {
+      position: absolute;
+      inset: 10px;
+      border-radius: 32px;
+      overflow: hidden;
+      background: radial-gradient(ellipse at top, rgba(16,185,129,0.08), transparent 70%);
+      display: flex;
+      flex-direction: column;
+      padding-top: 40px;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+    ::selection { background: rgba(16,185,129,0.3); color: white; }
+  </style>
+</head>
+<body class="bg-dark text-white font-sans antialiased overflow-x-hidden">
+
+  <!-- ============================================ -->
+  <!-- NAVBAR -->
+  <!-- ============================================ -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-xl border-b border-white/5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-2 group">
+          <img src="images/friendping-logo.svg" alt="FriendPing" class="h-9 w-auto group-hover:scale-110 transition-transform drop-shadow-lg"/>
+        </a>
+        <a href="#download" class="btn-gradient px-5 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-transform">
+          Télécharger
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================ -->
+  <!-- HERO -->
+  <!-- ============================================ -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <!-- Orbs -->
+    <div class="orb w-[420px] h-[420px] bg-emerald-500/25 top-[5%] left-[-8%]"></div>
+    <div class="orb w-[300px] h-[300px] bg-cyan-500/20 bottom-[10%] right-[-5%]" style="animation-delay:-7s"></div>
+    <div class="orb w-[350px] h-[350px] bg-blue-500/15 top-[50%] left-[45%]" style="animation-delay:-14s"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Left: Text -->
+      <div data-aos="fade-right">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300 mb-6 backdrop-blur-sm">
+          <i data-lucide="users" class="w-4 h-4 text-emerald-400"></i>
+          Application mobile
+        </div>
+
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6">
+          Garde le
+          <span class="gradient-text block">contact</span>
+          <span class="text-2xl sm:text-3xl lg:text-4xl text-gray-400 font-bold block mt-2">avec ceux qui comptent vraiment.</span>
+        </h1>
+
+        <p class="text-lg text-gray-300 leading-relaxed mb-8 max-w-lg">
+          Tu as 5 minutes de libre. Au lieu de scroller sans fin, pourquoi ne pas appeler un ami ? <strong class="text-white">FriendPing</strong> choisit un contact au hasard et t'invite à lui passer un coup de fil. Juste comme ça.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#download" class="btn-gradient px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-emerald-500/20 text-center">
+            <span class="flex items-center justify-center gap-2">
+              <i data-lucide="download" class="w-5 h-5"></i>
+              Télécharger gratuitement
+            </span>
+          </a>
+          <a href="#comment-ca-marche" class="group flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/10 hover:border-white/30 text-gray-300 hover:text-white transition-all duration-300">
+            Comment ça marche ?
+            <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Phone Mockup -->
+      <div data-aos="fade-left" class="flex justify-center">
+        <div class="relative">
+          <div class="phone-mockup">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <!-- App Header -->
+              <div class="px-5 pt-2 pb-3 border-b border-white/5">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-1">
+                    <img src="images/friendping-logo.svg" alt="FriendPing" class="h-7 w-auto"/>
+                  </div>
+                  <i data-lucide="bell" class="w-4 h-4 text-gray-500"></i>
+                </div>
+              </div>
+
+              <!-- Main content -->
+              <div class="flex-1 flex flex-col items-center justify-center px-5 py-4">
+                <!-- Ping circle -->
+                <div class="relative flex items-center justify-center mb-6">
+                  <div class="ping-slow absolute w-20 h-20 rounded-full bg-emerald-500/30"></div>
+                  <div class="ping-slow-delay absolute w-20 h-20 rounded-full bg-emerald-500/20"></div>
+                  <div class="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center shadow-xl shadow-emerald-500/30 relative z-10">
+                    <span class="text-3xl font-black text-white">M</span>
+                  </div>
+                </div>
+
+                <!-- Contact name -->
+                <div class="text-center mb-5">
+                  <div class="text-base font-bold mb-0.5">Marie D.</div>
+                  <div class="text-xs text-gray-500">Pas parlé depuis 3 mois</div>
+                </div>
+
+                <!-- Action buttons -->
+                <div class="flex gap-3 w-full mb-4">
+                  <button class="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+                    <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+                    Appeler
+                  </button>
+                  <button class="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 text-xs font-semibold">
+                    <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                    Message
+                  </button>
+                </div>
+
+                <!-- Skip -->
+                <button class="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-300">
+                  <i data-lucide="shuffle" class="w-3 h-3"></i>
+                  Autre contact
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Glow behind phone -->
+          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/15 via-cyan-500/10 to-blue-500/15 blur-3xl -z-10 scale-125"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- ACCROCHE EMOTIONNELLE -->
+  <!-- ============================================ -->
+  <section class="py-16 bg-dark-light/40">
+    <div class="max-w-4xl mx-auto px-4 text-center" data-aos="fade-up">
+      <p class="text-2xl sm:text-3xl font-bold text-gray-200 leading-relaxed">
+        "Tu as des amis que tu n'as pas revus depuis des mois.
+        <span class="gradient-text"> Ils pensent à toi, toi aussi à eux.</span>
+        <br class="hidden sm:block">Alors pourquoi ne pas juste… leur écrire ?"
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- COMMENT CA MARCHE -->
+  <!-- ============================================ -->
+  <section id="comment-ca-marche" class="py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-emerald-400 font-semibold text-sm uppercase tracking-wider">Comment ça marche</span>
+        <h2 class="text-4xl sm:text-5xl font-bold mt-3 mb-4">Aussi simple que <span class="gradient-text">1-2-3</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">En 3 étapes, tu renoues avec quelqu'un qui compte.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Step 1 -->
+        <div data-aos="fade-up" class="relative text-center">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5">
+            <i data-lucide="smartphone" class="w-8 h-8 text-emerald-400"></i>
+          </div>
+          <div class="text-emerald-400 text-sm font-bold mb-2">Étape 1</div>
+          <h3 class="text-xl font-bold mb-3">Ouvre l'application</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Lance FriendPing. En un instant, l'app sélectionne au hasard un contact parmi tes amis.</p>
+          <!-- Connector -->
+          <div class="hidden md:block absolute top-8 left-[calc(50%+48px)] w-[calc(100%-96px)] h-px bg-gradient-to-r from-emerald-500/30 to-transparent"></div>
+        </div>
+
+        <!-- Step 2 -->
+        <div data-aos="fade-up" data-aos-delay="100" class="relative text-center">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-5">
+            <i data-lucide="user-check" class="w-8 h-8 text-cyan-400"></i>
+          </div>
+          <div class="text-cyan-400 text-sm font-bold mb-2">Étape 2</div>
+          <h3 class="text-xl font-bold mb-3">Découvre qui c'est</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Le hasard t'indique un ami. Tu choisis : passer un appel ou lui envoyer un message avec un template prêt à l'emploi.</p>
+          <!-- Connector -->
+          <div class="hidden md:block absolute top-8 left-[calc(50%+48px)] w-[calc(100%-96px)] h-px bg-gradient-to-r from-cyan-500/30 to-transparent"></div>
+        </div>
+
+        <!-- Step 3 -->
+        <div data-aos="fade-up" data-aos-delay="200" class="text-center">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-5">
+            <i data-lucide="heart" class="w-8 h-8 text-blue-400"></i>
+          </div>
+          <div class="text-blue-400 text-sm font-bold mb-2">Étape 3</div>
+          <h3 class="text-xl font-bold mb-3">Reconnecte-toi</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Passe les 5 prochaines minutes à échanger. Tu vas apprendre des choses, te rappeler de bons souvenirs, et sentir que vous n'avez jamais vraiment perdu le contact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FEATURES -->
+  <!-- ============================================ -->
+  <section id="fonctionnalites" class="py-24 bg-dark-light/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-cyan-400 font-semibold text-sm uppercase tracking-wider">Fonctionnalités</span>
+        <h2 class="text-4xl sm:text-5xl font-bold mt-3 mb-4">Tout ce dont tu <span class="gradient-text">as besoin</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Simple, rapide, efficace. Parce que l'important c'est la connexion, pas l'app.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Feature 1 -->
+        <div data-aos="fade-up" class="group bg-dark-card/60 border border-white/5 rounded-2xl p-6 hover:border-emerald-500/25 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="shuffle" class="w-6 h-6 text-emerald-400"></i>
+          </div>
+          <h3 class="font-bold mb-2">Sélection aléatoire</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">L'app pioche un contact au hasard dans ton téléphone. Fini le dilemme "qui appeler ?".</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div data-aos="fade-up" data-aos-delay="50" class="group bg-dark-card/60 border border-white/5 rounded-2xl p-6 hover:border-cyan-500/25 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="phone" class="w-6 h-6 text-cyan-400"></i>
+          </div>
+          <h3 class="font-bold mb-2">Appel en un tap</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Lance un appel téléphonique directement depuis l'app. Rien de plus simple.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div data-aos="fade-up" data-aos-delay="100" class="group bg-dark-card/60 border border-white/5 rounded-2xl p-6 hover:border-blue-500/25 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="message-circle" class="w-6 h-6 text-blue-400"></i>
+          </div>
+          <h3 class="font-bold mb-2">Envoyer un message</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Préfères-tu écrire ? Envoie un SMS ou un message directement depuis l'application.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div data-aos="fade-up" data-aos-delay="150" class="group bg-dark-card/60 border border-white/5 rounded-2xl p-6 hover:border-teal-500/25 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-teal-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="layout-template" class="w-6 h-6 text-teal-400"></i>
+          </div>
+          <h3 class="font-bold mb-2">Templates de messages</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Tu ne sais pas quoi écrire ? Choisis parmi plusieurs modèles de messages sympas et personnalise-les.</p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div data-aos="fade-up" data-aos-delay="200" class="group bg-dark-card/60 border border-white/5 rounded-2xl p-6 hover:border-green-500/25 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="clock" class="w-6 h-6 text-green-400"></i>
+          </div>
+          <h3 class="font-bold mb-2">5 minutes suffisent</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Conçu pour les petits moments libres. Pas besoin de bloquer une heure — un échange rapide fait toute la différence.</p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div data-aos="fade-up" data-aos-delay="250" class="group bg-dark-card/60 border border-white/5 rounded-2xl p-6 hover:border-emerald-500/25 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="heart" class="w-6 h-6 text-emerald-400"></i>
+          </div>
+          <h3 class="font-bold mb-2">Entretiens tes amitiés</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Les vraies amitiés se nourrissent de petits gestes réguliers. FriendPing t'aide à ne jamais perdre le fil.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- CTA EMOTIONNEL -->
+  <!-- ============================================ -->
+  <section class="py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div data-aos="fade-up" class="relative bg-dark-card/80 border border-white/5 rounded-3xl p-10 sm:p-14 text-center overflow-hidden">
+        <!-- Background glow -->
+        <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-cyan-500/5 to-blue-500/5"></div>
+
+        <div class="relative z-10">
+          <!-- Icon cluster -->
+          <div class="flex justify-center gap-3 mb-8">
+            <div class="w-12 h-12 rounded-full bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
+              <span class="text-xl">😊</span>
+            </div>
+            <div class="w-14 h-14 rounded-full bg-cyan-500/15 border border-cyan-500/20 flex items-center justify-center self-end">
+              <span class="text-2xl">📞</span>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-blue-500/15 border border-blue-500/20 flex items-center justify-center">
+              <span class="text-xl">💬</span>
+            </div>
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+            Moins de scroll,
+            <span class="gradient-text"> plus de vraies conversations.</span>
+          </h2>
+          <p class="text-gray-400 max-w-xl mx-auto mb-8 text-lg leading-relaxed">
+            La prochaine fois que tu t'apprêtes à ouvrir Instagram, ouvre plutôt FriendPing. Un contact. Un appel. Des souvenirs qui remontent. C'est ça, la vraie connexion.
+          </p>
+
+          <a href="#download" class="inline-flex items-center gap-2 btn-gradient px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-emerald-500/20">
+            <i data-lucide="zap" class="w-5 h-5"></i>
+            Télécharger FriendPing
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- TÉLÉCHARGEMENT -->
+  <!-- ============================================ -->
+  <section id="download" class="py-24 relative overflow-hidden">
+    <div class="orb w-[300px] h-[300px] bg-emerald-500/20 top-[20%] right-[-5%]" style="animation-delay:-5s"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div data-aos="fade-up">
+        <span class="text-blue-400 font-semibold text-sm uppercase tracking-wider">Téléchargement</span>
+        <h2 class="text-4xl sm:text-5xl font-bold mt-3 mb-4">Télécharge <span class="gradient-text">FriendPing</span></h2>
+        <p class="text-gray-400 max-w-xl mx-auto mb-10">Gratuit. Disponible sur iOS et Android. Commence à renouer avec tes amis dès aujourd'hui.</p>
+      </div>
+
+      <div data-aos="fade-up" data-aos-delay="100" class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <!-- App Store -->
+        <a href="#" class="group flex items-center gap-3 px-8 py-4 rounded-2xl bg-white/5 border border-white/10 hover:border-emerald-500/30 hover:bg-white/10 transition-all duration-300">
+          <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <div class="text-left">
+            <div class="text-[10px] text-gray-400 uppercase">Télécharger sur l'</div>
+            <div class="text-lg font-semibold leading-tight">App Store</div>
+          </div>
+        </a>
+
+        <!-- Google Play -->
+        <a href="#" class="group flex items-center gap-3 px-8 py-4 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-500/30 hover:bg-white/10 transition-all duration-300">
+          <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.67c-.2-.1-.18-.26-.18-.43V.76C3 .59 2.98.43 3.18.33L13.65 12 3.18 23.67zm1.25.08L15.1 13.14l2.63 2.63-13.3 7.98zM15.1 10.86L4.43.25l13.3 7.98-2.63 2.63zm3.5 2.05l3.08-1.85c.44-.26.44-.86 0-1.12l-3.08-1.85-2.87 2.41 2.87 2.41z"/></svg>
+          <div class="text-left">
+            <div class="text-[10px] text-gray-400 uppercase">Disponible sur</div>
+            <div class="text-lg font-semibold leading-tight">Google Play</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FOOTER -->
+  <!-- ============================================ -->
+  <footer class="bg-dark-light border-t border-white/5 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <img src="images/friendping-logo.svg" alt="FriendPing" class="h-10 w-auto"/>
+          <span class="font-bold">FriendPing</span>
+          <span class="text-gray-500 text-sm">by</span>
+          <a href="/" class="text-sm font-semibold bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent hover:opacity-80 transition-opacity">Digitme.fun</a>
+        </div>
+        <div class="flex gap-6 text-sm text-gray-500">
+          <a href="/" class="hover:text-white transition-colors">Accueil</a>
+          <a href="mailto:contact@digitme.fun" class="hover:text-white transition-colors">Contact</a>
+          <a href="#" class="hover:text-white transition-colors">Politique de confidentialité</a>
+        </div>
+      </div>
+      <div class="text-center mt-6 text-gray-600 text-xs">
+        &copy; 2026 Digitme.fun — Tous droits réservés.
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+  </script>
+  <script>lucide.createIcons();</script>
+
+  <!-- Smooth scroll -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) window.scrollTo({ top: t.offsetTop - 70, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
