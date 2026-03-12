@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mentions Légales — Digitme.fun</title>
-  <meta name="description" content="Mentions légales du site Digitme.fun.">
+  <title>Legal Notice — Digitme.fun</title>
+  <meta name="description" content="Legal notice for the Digitme.fun website.">
+  <link rel="alternate" hreflang="en" href="/mentions-legales/">
+  <link rel="alternate" hreflang="fr" href="/fr/mentions-legales/">
+
+  <!-- Language Detection -->
+  <script src="/js/lang.js"></script>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -44,6 +49,19 @@
     ::-webkit-scrollbar-track { background: #0a0a0a; }
     ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
     ::selection { background: rgba(139,92,246,0.3); color: white; }
+
+    [data-lang-switcher].lang-active {
+      background: rgba(255,255,255,0.15);
+      color: white;
+      border-radius: 9999px;
+    }
+    [data-lang-switcher] {
+      color: #9ca3af;
+      transition: color 0.2s;
+    }
+    [data-lang-switcher]:hover {
+      color: white;
+    }
   </style>
 </head>
 <body class="bg-dark text-white font-sans antialiased">
@@ -56,10 +74,18 @@
           <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 via-pink-500 to-cyan-400 flex items-center justify-center font-black text-sm group-hover:scale-110 transition-transform">D</div>
           <span class="text-sm font-bold bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">Digitme.fun</span>
         </a>
-        <a href="/" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1">
-          <i data-lucide="arrow-left" class="w-4 h-4"></i>
-          Retour à l'accueil
-        </a>
+        <div class="flex items-center gap-3">
+          <!-- Language Switcher -->
+          <div class="flex items-center gap-0.5 text-sm font-semibold border border-white/20 rounded-full px-1.5 py-1">
+            <a href="#" data-lang-switcher data-lang="en" class="px-2 py-0.5 rounded-full transition-all">EN</a>
+            <span class="text-white/20 text-xs">|</span>
+            <a href="#" data-lang-switcher data-lang="fr" class="px-2 py-0.5 rounded-full transition-all">FR</a>
+          </div>
+          <a href="/" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            Back to home
+          </a>
+        </div>
       </div>
     </div>
   </nav>
@@ -70,8 +96,8 @@
 
       <!-- Header -->
       <div class="mb-12">
-        <h1 class="text-4xl sm:text-5xl font-bold mb-4">Mentions <span class="gradient-text">Légales</span></h1>
-        <p class="text-gray-400">Dernière mise à jour : 6 mars 2026</p>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-4">Legal <span class="gradient-text">Notice</span></h1>
+        <p class="text-gray-400">Last updated: March 6, 2026</p>
       </div>
 
       <!-- Sections -->
@@ -81,12 +107,12 @@
         <section>
           <h2 class="text-2xl font-bold text-white mb-3 flex items-center gap-2">
             <span class="w-8 h-8 rounded-lg bg-violet-500/10 flex items-center justify-center text-sm font-black text-violet-400">1</span>
-            Éditeur du site
+            Website Publisher
           </h2>
           <div class="bg-dark-card/50 border border-white/5 rounded-xl p-6 space-y-2">
-            <p><strong class="text-white">Nom du site :</strong> Digitme.fun</p>
-            <p><strong class="text-white">URL :</strong> <a href="https://digitme.fun" class="text-violet-400 hover:text-violet-300 transition-colors">https://digitme.fun</a></p>
-            <p><strong class="text-white">Contact :</strong> <a href="mailto:contact@digitme.fun" class="text-violet-400 hover:text-violet-300 transition-colors">contact@digitme.fun</a></p>
+            <p><strong class="text-white">Site name:</strong> Digitme.fun</p>
+            <p><strong class="text-white">URL:</strong> <a href="https://digitme.fun" class="text-violet-400 hover:text-violet-300 transition-colors">https://digitme.fun</a></p>
+            <p><strong class="text-white">Contact:</strong> <a href="mailto:contact@digitme.fun" class="text-violet-400 hover:text-violet-300 transition-colors">contact@digitme.fun</a></p>
           </div>
         </section>
 
@@ -94,12 +120,12 @@
         <section>
           <h2 class="text-2xl font-bold text-white mb-3 flex items-center gap-2">
             <span class="w-8 h-8 rounded-lg bg-pink-500/10 flex items-center justify-center text-sm font-black text-pink-400">2</span>
-            Hébergement
+            Hosting
           </h2>
           <div class="bg-dark-card/50 border border-white/5 rounded-xl p-6 space-y-2">
-            <p><strong class="text-white">Hébergeur :</strong> Infomaniak Network SA</p>
-            <p><strong class="text-white">Adresse :</strong> Rue Eugène-Marziano 25, 1227 Les Acacias, Genève, Suisse</p>
-            <p><strong class="text-white">Site web :</strong> <a href="https://www.infomaniak.com" target="_blank" rel="noopener" class="text-pink-400 hover:text-pink-300 transition-colors">www.infomaniak.com</a></p>
+            <p><strong class="text-white">Host:</strong> Infomaniak Network SA</p>
+            <p><strong class="text-white">Address:</strong> Rue Eugène-Marziano 25, 1227 Les Acacias, Geneva, Switzerland</p>
+            <p><strong class="text-white">Website:</strong> <a href="https://www.infomaniak.com" target="_blank" rel="noopener" class="text-pink-400 hover:text-pink-300 transition-colors">www.infomaniak.com</a></p>
           </div>
         </section>
 
@@ -107,55 +133,55 @@
         <section>
           <h2 class="text-2xl font-bold text-white mb-3 flex items-center gap-2">
             <span class="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center text-sm font-black text-cyan-400">3</span>
-            Propriété intellectuelle
+            Intellectual Property
           </h2>
-          <p>L'ensemble du contenu de ce site (textes, images, graphismes, logo, icônes, etc.) est la propriété exclusive de Digitme.fun, sauf mention contraire. Toute reproduction, distribution, modification ou utilisation de ces contenus sans autorisation préalable écrite est strictement interdite.</p>
+          <p>All content on this site (text, images, graphics, logo, icons, etc.) is the exclusive property of Digitme.fun, unless otherwise stated. Any reproduction, distribution, modification or use of this content without prior written authorization is strictly prohibited.</p>
         </section>
 
         <!-- Section 4 -->
         <section>
           <h2 class="text-2xl font-bold text-white mb-3 flex items-center gap-2">
             <span class="w-8 h-8 rounded-lg bg-yellow-500/10 flex items-center justify-center text-sm font-black text-yellow-400">4</span>
-            Limitation de responsabilité
+            Limitation of Liability
           </h2>
-          <p>Digitme.fun s'efforce de fournir des informations aussi précises que possible sur ce site. Toutefois, Digitme.fun ne pourra être tenu responsable des omissions, inexactitudes ou carences dans la mise à jour des informations, qu'elles soient de son fait ou du fait de tiers partenaires qui lui fournissent ces informations.</p>
-          <p class="mt-3">Digitme.fun ne pourra être tenu responsable des dommages directs ou indirects causés au matériel de l'utilisateur lors de l'accès au site.</p>
+          <p>Digitme.fun strives to provide information as accurate as possible on this site. However, Digitme.fun cannot be held responsible for omissions, inaccuracies or deficiencies in the updating of information, whether due to itself or to third-party partners who provide such information.</p>
+          <p class="mt-3">Digitme.fun cannot be held responsible for direct or indirect damage caused to the user's equipment when accessing the site.</p>
         </section>
 
         <!-- Section 5 -->
         <section>
           <h2 class="text-2xl font-bold text-white mb-3 flex items-center gap-2">
             <span class="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center text-sm font-black text-green-400">5</span>
-            Liens hypertextes
+            Hyperlinks
           </h2>
-          <p>Le site Digitme.fun peut contenir des liens hypertextes vers d'autres sites. Cependant, Digitme.fun n'a pas la possibilité de vérifier le contenu de ces sites et n'assumera en conséquence aucune responsabilité quant à leur contenu.</p>
+          <p>The Digitme.fun website may contain hyperlinks to other sites. However, Digitme.fun has no ability to verify the content of these sites and will therefore assume no responsibility for their content.</p>
         </section>
 
         <!-- Section 6 -->
         <section>
           <h2 class="text-2xl font-bold text-white mb-3 flex items-center gap-2">
             <span class="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center text-sm font-black text-orange-400">6</span>
-            Données personnelles
+            Personal Data
           </h2>
-          <p>Ce site ne collecte aucune donnée personnelle. Pour plus de détails, veuillez consulter notre <a href="/privacy-policy/" class="text-violet-400 hover:text-violet-300 transition-colors font-semibold">Politique de Confidentialité</a>.</p>
+          <p>This site does not collect any personal data. For more details, please consult our <a href="/privacy-policy/" class="text-violet-400 hover:text-violet-300 transition-colors font-semibold">Privacy Policy</a>.</p>
         </section>
 
         <!-- Section 7 -->
         <section>
           <h2 class="text-2xl font-bold text-white mb-3 flex items-center gap-2">
             <span class="w-8 h-8 rounded-lg bg-violet-500/10 flex items-center justify-center text-sm font-black text-violet-400">7</span>
-            Droit applicable
+            Applicable Law
           </h2>
-          <p>Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
+          <p>These legal notices are governed by French law. In the event of a dispute, the French courts shall have sole jurisdiction.</p>
         </section>
 
         <!-- Section 8 -->
         <section>
           <h2 class="text-2xl font-bold text-white mb-3 flex items-center gap-2">
             <span class="w-8 h-8 rounded-lg bg-pink-500/10 flex items-center justify-center text-sm font-black text-pink-400">8</span>
-            Contact
+            Contact Us
           </h2>
-          <p>Pour toute question relative aux mentions légales, vous pouvez nous contacter :</p>
+          <p>For any questions regarding this legal notice, you can contact us:</p>
           <div class="mt-4 bg-dark-card/50 border border-white/5 rounded-xl p-6">
             <div class="flex items-center gap-3 mb-3">
               <i data-lucide="mail" class="w-5 h-5 text-violet-400"></i>
@@ -175,7 +201,7 @@
   <!-- Footer -->
   <footer class="bg-dark-light border-t border-white/5 py-8">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-gray-600 text-sm">&copy; 2026 Digitme.fun — Tous droits réservés.</p>
+      <p class="text-gray-600 text-sm">&copy; 2026 Digitme.fun — All rights reserved.</p>
     </div>
   </footer>
 
