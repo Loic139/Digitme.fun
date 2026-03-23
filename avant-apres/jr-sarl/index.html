@@ -126,6 +126,11 @@
   <!-- HERO SECTION -->
   <!-- ============================================ -->
   <section class="hero-gradient relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden">
+    <!-- Background image -->
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80" alt="" class="w-full h-full object-cover opacity-15">
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/95 to-slate-950/70"></div>
+    </div>
     <!-- Background elements -->
     <div class="absolute inset-0">
       <div class="absolute top-20 right-10 w-72 h-72 bg-brand-500/10 rounded-full blur-3xl"></div>
@@ -212,7 +217,11 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
         <!-- Ferblanterie -->
-        <div data-aos="fade-up" data-aos-delay="0" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl p-8 card-hover">
+        <div data-aos="fade-up" data-aos-delay="0" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80" alt="Ferblanterie — travail du zinc et du cuivre" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-8">
           <div class="flex items-center gap-4 mb-6">
             <div class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center group-hover:bg-brand-500/20 transition-colors">
               <i data-lucide="wrench" class="w-7 h-7 text-brand-400"></i>
@@ -232,10 +241,15 @@
           <div class="mt-4 pt-4 border-t border-white/5">
             <p class="text-xs text-gray-500">Matériaux : cuivre, zinc, inox, uginox, mattplus inox, galvanisé</p>
           </div>
+          </div>
         </div>
 
         <!-- Couverture -->
-        <div data-aos="fade-up" data-aos-delay="100" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl p-8 card-hover">
+        <div data-aos="fade-up" data-aos-delay="100" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1632178050091-84e6a31a28fd?w=800&q=80" alt="Couverture — toiture en tuiles" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-8">
           <div class="flex items-center gap-4 mb-6">
             <div class="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
               <i data-lucide="home" class="w-7 h-7 text-blue-400"></i>
@@ -255,10 +269,15 @@
           <div class="mt-4 pt-4 border-t border-white/5">
             <p class="text-xs text-gray-500">Entretien : nettoyage haute pression, inspections, nettoyage chéneaux</p>
           </div>
+          </div>
         </div>
 
         <!-- Sanitaire -->
-        <div data-aos="fade-up" data-aos-delay="200" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl p-8 card-hover">
+        <div data-aos="fade-up" data-aos-delay="200" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800&q=80" alt="Sanitaire — salle de bain moderne" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-8">
           <div class="flex items-center gap-4 mb-6">
             <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
               <i data-lucide="droplets" class="w-7 h-7 text-cyan-400"></i>
@@ -278,10 +297,15 @@
           <div class="mt-4 pt-4 border-t border-white/5">
             <p class="text-xs text-gray-500">Intervention rapide dans tout le canton de Fribourg</p>
           </div>
+          </div>
         </div>
 
         <!-- Chauffage -->
-        <div data-aos="fade-up" data-aos-delay="300" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl p-8 card-hover">
+        <div data-aos="fade-up" data-aos-delay="300" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80" alt="Chauffage — pompe à chaleur moderne" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-8">
           <div class="flex items-center gap-4 mb-6">
             <div class="w-14 h-14 rounded-2xl bg-red-500/10 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
               <i data-lucide="flame" class="w-7 h-7 text-red-400"></i>
@@ -300,6 +324,7 @@
           </ul>
           <div class="mt-4 pt-4 border-t border-white/5">
             <p class="text-xs text-gray-500">Conseil en transition énergétique & solutions durables</p>
+          </div>
           </div>
         </div>
 
@@ -362,9 +387,9 @@
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div data-aos="fade-up" data-aos-delay="0" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover">
-          <div class="aspect-video bg-gradient-to-br from-brand-600/20 to-brand-500/10 flex items-center justify-center">
-            <i data-lucide="home" class="w-12 h-12 text-brand-400/50"></i>
+        <div data-aos="fade-up" data-aos-delay="0" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover group">
+          <div class="aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Villa familiale Marly" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-5">
             <h4 class="font-bold text-white mb-1">Villa familiale — Marly</h4>
@@ -373,9 +398,9 @@
           </div>
         </div>
 
-        <div data-aos="fade-up" data-aos-delay="100" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover">
-          <div class="aspect-video bg-gradient-to-br from-blue-600/20 to-blue-500/10 flex items-center justify-center">
-            <i data-lucide="building-2" class="w-12 h-12 text-blue-400/50"></i>
+        <div data-aos="fade-up" data-aos-delay="100" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover group">
+          <div class="aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=600&q=80" alt="Immeuble Chavannes-les-Forts" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-5">
             <h4 class="font-bold text-white mb-1">Immeuble — Chavannes-les-Forts</h4>
@@ -384,9 +409,9 @@
           </div>
         </div>
 
-        <div data-aos="fade-up" data-aos-delay="200" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover">
-          <div class="aspect-video bg-gradient-to-br from-brand-600/20 to-yellow-500/10 flex items-center justify-center">
-            <i data-lucide="store" class="w-12 h-12 text-yellow-400/50"></i>
+        <div data-aos="fade-up" data-aos-delay="200" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover group">
+          <div class="aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&q=80" alt="Café des Arcades Fribourg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-5">
             <h4 class="font-bold text-white mb-1">Café des Arcades — Fribourg</h4>
@@ -395,9 +420,9 @@
           </div>
         </div>
 
-        <div data-aos="fade-up" data-aos-delay="300" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover">
-          <div class="aspect-video bg-gradient-to-br from-blue-600/20 to-indigo-500/10 flex items-center justify-center">
-            <i data-lucide="home" class="w-12 h-12 text-indigo-400/50"></i>
+        <div data-aos="fade-up" data-aos-delay="300" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover group">
+          <div class="aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80" alt="Maison individuelle Bulle" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-5">
             <h4 class="font-bold text-white mb-1">Maison individuelle — Bulle</h4>
@@ -406,9 +431,9 @@
           </div>
         </div>
 
-        <div data-aos="fade-up" data-aos-delay="400" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover">
-          <div class="aspect-video bg-gradient-to-br from-blue-600/20 to-slate-500/10 flex items-center justify-center">
-            <i data-lucide="building" class="w-12 h-12 text-slate-400/50"></i>
+        <div data-aos="fade-up" data-aos-delay="400" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover group">
+          <div class="aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="Grand-Rue Fribourg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-5">
             <h4 class="font-bold text-white mb-1">Grand-Rue — Fribourg</h4>
@@ -417,9 +442,9 @@
           </div>
         </div>
 
-        <div data-aos="fade-up" data-aos-delay="500" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover">
-          <div class="aspect-video bg-gradient-to-br from-brand-600/20 to-brand-500/10 flex items-center justify-center">
-            <i data-lucide="home" class="w-12 h-12 text-brand-400/50"></i>
+        <div data-aos="fade-up" data-aos-delay="500" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover group">
+          <div class="aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1622993288089-3763e92dab92?w=600&q=80" alt="Toiture plate et balcon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-5">
             <h4 class="font-bold text-white mb-1">Toitures plates & balcons</h4>
