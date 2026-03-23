@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patrick Berger Sàrl — Installations Sanitaires à Fribourg | Redesign par Digitme.fun</title>
+  <meta name="description" content="Patrick Berger Sàrl — Installations sanitaires, rénovations et dépannages dans le canton de Fribourg. Agréé SSIGE eau et gaz.">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: '#0a0a0a',
+            'dark-light': '#111111',
+            'dark-card': '#161625',
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              300: '#93c5fd',
+              400: '#60a5fa',
+              500: '#2563eb',
+              600: '#1d4ed8',
+              700: '#1e40af',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    .text-gradient {
+      background: linear-gradient(135deg, #2563eb, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #0a0a0a 0%, #0f172a 50%, #0a0a0a 100%);
+    }
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(37,99,235,0.1);
+    }
+    .float-anim {
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: #1e40af; border-radius: 4px; }
+    ::selection { background: rgba(37,99,235,0.3); color: white; }
+  </style>
+</head>
+<body class="bg-dark text-white font-sans antialiased">
+
+  <!-- ============================================ -->
+  <!-- BANDEAU PROMO DIGITME.FUN -->
+  <!-- ============================================ -->
+  <div class="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-violet-600 via-pink-500 to-cyan-500 text-white text-center py-2 px-4 text-sm font-medium">
+    ✨ Redesign proposé par <a href="https://digitme.fun" class="font-bold underline underline-offset-2 hover:text-yellow-200 transition-colors">Digitme.fun</a> —
+    <a href="https://wa.me/41XXXXXXXXXX" class="font-bold underline underline-offset-2 hover:text-yellow-200 transition-colors">WhatsApp</a> ·
+    <a href="https://calendly.com/digitme-fun" class="font-bold underline underline-offset-2 hover:text-yellow-200 transition-colors">Prendre RDV</a>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- NAVBAR -->
+  <!-- ============================================ -->
+  <nav class="fixed top-10 left-0 right-0 z-50 bg-dark/90 backdrop-blur-xl border-b border-white/5 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <img src="https://le-de.cdn-website.com/42c57c0b25564eb9ba4bff43991561cd/dms3rep/multi/opt/logo-1-redimentionn-C3-A9-2--Copie-654w.jpg" alt="Patrick Berger Sàrl" class="h-10 w-auto rounded-lg group-hover:scale-105 transition-transform">
+          <div class="hidden sm:block">
+            <span class="text-white font-bold text-sm">Patrick Berger Sàrl</span>
+            <span class="block text-blue-400 text-xs">Installations sanitaires</span>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#prestations" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Prestations</a>
+          <a href="#realisations" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Réalisations</a>
+          <a href="#apropos" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Qui suis-je</a>
+          <a href="#contact" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Contact</a>
+          <a href="tel:0264700279" class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-500 hover:bg-brand-600 text-white text-sm font-semibold transition-all hover:scale-105 shadow-lg shadow-brand-500/25">
+            <i data-lucide="phone" class="w-4 h-4"></i>
+            026 470 02 79
+          </a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="mobile-toggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
+          <span class="w-6 h-0.5 bg-white transition-all"></span>
+          <span class="w-6 h-0.5 bg-white transition-all"></span>
+          <span class="w-6 h-0.5 bg-white transition-all"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-xl border-b border-white/5">
+      <div class="px-4 py-6 space-y-4 text-center">
+        <a href="#prestations" class="block text-gray-300 hover:text-brand-400 font-medium">Prestations</a>
+        <a href="#realisations" class="block text-gray-300 hover:text-brand-400 font-medium">Réalisations</a>
+        <a href="#apropos" class="block text-gray-300 hover:text-brand-400 font-medium">Qui suis-je</a>
+        <a href="#contact" class="block text-gray-300 hover:text-brand-400 font-medium">Contact</a>
+        <a href="tel:0264700279" class="inline-block px-6 py-3 rounded-full bg-brand-500 text-white font-semibold">026 470 02 79</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================ -->
+  <!-- HERO SECTION -->
+  <!-- ============================================ -->
+  <section class="hero-gradient relative min-h-screen flex items-center pt-36 pb-20 overflow-hidden">
+    <!-- Background image -->
+    <div class="absolute inset-0">
+      <img src="https://le-de.cdn-website.com/42c57c0b25564eb9ba4bff43991561cd/dms3rep/multi/opt/20200213_143858_617_561_712_64_401-683w.jpeg" alt="" class="w-full h-full object-cover opacity-15">
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/95 to-slate-950/70"></div>
+    </div>
+    <!-- Decorative elements -->
+    <div class="absolute inset-0">
+      <div class="absolute top-20 right-10 w-72 h-72 bg-brand-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 left-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Left content -->
+        <div data-aos="fade-right">
+          <div class="flex items-center gap-2 mb-6">
+            <span class="px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-semibold border border-brand-500/20">Noréaz / Fribourg</span>
+            <span class="px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-xs font-semibold border border-green-500/20">Agréé SSIGE</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-6">
+            Votre expert en
+            <span class="text-gradient">installations sanitaires</span>
+          </h1>
+
+          <p class="text-gray-400 text-lg leading-relaxed mb-8 max-w-xl">
+            Qu'il s'agisse de nouvelles constructions, rénovations ou dépannages, <strong class="text-white">Patrick Berger Sàrl</strong> vous garantit un travail soigné et professionnel dans tout le canton de Fribourg.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="tel:0264700279" class="group flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-brand-500/25">
+              <i data-lucide="phone" class="w-5 h-5"></i>
+              Devis gratuit
+            </a>
+            <a href="#prestations" class="group flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-white/10 hover:border-brand-500/50 text-white font-semibold transition-all hover:bg-white/5">
+              Nos prestations
+              <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right - Stats cards -->
+        <div data-aos="fade-left" class="grid grid-cols-2 gap-4">
+          <div class="bg-slate-800/50 backdrop-blur border border-white/5 rounded-2xl p-6 card-hover">
+            <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center mb-3">
+              <i data-lucide="award" class="w-6 h-6 text-brand-400"></i>
+            </div>
+            <p class="text-3xl font-black text-white">16+</p>
+            <p class="text-gray-400 text-sm">Années d'expérience</p>
+          </div>
+          <div class="bg-slate-800/50 backdrop-blur border border-white/5 rounded-2xl p-6 card-hover float-anim" style="animation-delay: 0.5s;">
+            <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-3">
+              <i data-lucide="shield-check" class="w-6 h-6 text-green-400"></i>
+            </div>
+            <p class="text-3xl font-black text-white">SSIGE</p>
+            <p class="text-gray-400 text-sm">Agréé eau & gaz</p>
+          </div>
+          <div class="bg-slate-800/50 backdrop-blur border border-white/5 rounded-2xl p-6 card-hover float-anim" style="animation-delay: 1s;">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-3">
+              <i data-lucide="wrench" class="w-6 h-6 text-cyan-400"></i>
+            </div>
+            <p class="text-3xl font-black text-white">CFC</p>
+            <p class="text-gray-400 text-sm">Contremaître sanitaire</p>
+          </div>
+          <div class="bg-slate-800/50 backdrop-blur border border-white/5 rounded-2xl p-6 card-hover">
+            <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-3">
+              <i data-lucide="map-pin" class="w-6 h-6 text-purple-400"></i>
+            </div>
+            <p class="text-3xl font-black text-white">Fribourg</p>
+            <p class="text-gray-400 text-sm">& environs</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PRESTATIONS SECTION -->
+  <!-- ============================================ -->
+  <section id="prestations" class="py-24 bg-slate-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-brand-400 font-semibold text-sm uppercase tracking-wider">Nos prestations</span>
+        <h2 class="text-4xl sm:text-5xl font-black mt-3 mb-4">Un savoir-faire <span class="text-gradient">complet</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">De la conception à la réalisation, nous couvrons tous vos besoins en installations sanitaires.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Prestation 1 -->
+        <div data-aos="fade-up" data-aos-delay="0" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80" alt="Salle de bains moderne" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center">
+                <i data-lucide="bath" class="w-6 h-6 text-brand-400"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">Salle de bains</h3>
+            </div>
+            <p class="text-gray-400 text-sm">Conception et réalisation complète de salles de bains modernes. Rénovation ou nouvelle construction.</p>
+          </div>
+        </div>
+
+        <!-- Prestation 2 -->
+        <div data-aos="fade-up" data-aos-delay="100" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
+          <div class="h-48 overflow-hidden">
+            <img src="https://le-de.cdn-website.com/42c57c0b25564eb9ba4bff43991561cd/dms3rep/multi/opt/20200213_143858_617_561_712_64_401-683w.jpeg" alt="Local technique" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center">
+                <i data-lucide="settings" class="w-6 h-6 text-cyan-400"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">Installations sanitaires</h3>
+            </div>
+            <p class="text-gray-400 text-sm">Local technique, incorporés en dalle, châssis sanitaire. Nouvelles constructions et rénovations complètes.</p>
+          </div>
+        </div>
+
+        <!-- Prestation 3 -->
+        <div data-aos="fade-up" data-aos-delay="200" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=600&q=80" alt="Dépannage sanitaire" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center">
+                <i data-lucide="alert-circle" class="w-6 h-6 text-red-400"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">Dépannage</h3>
+            </div>
+            <p class="text-gray-400 text-sm">Intervention rapide pour tous vos problèmes sanitaires. Débouchage, curage et inspection de canalisations.</p>
+          </div>
+        </div>
+
+        <!-- Prestation 4 -->
+        <div data-aos="fade-up" data-aos-delay="0" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&q=80" alt="Rénovation" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center">
+                <i data-lucide="hard-hat" class="w-6 h-6 text-yellow-400"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">Rénovation</h3>
+            </div>
+            <p class="text-gray-400 text-sm">Rénovation complète de vos installations. Étude de projet et mise à disposition de plans professionnels.</p>
+          </div>
+        </div>
+
+        <!-- Prestation 5 -->
+        <div data-aos="fade-up" data-aos-delay="100" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1585128903994-9788298932a4?w=600&q=80" alt="Entretien détartrage" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center">
+                <i data-lucide="droplets" class="w-6 h-6 text-green-400"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">Entretien</h3>
+            </div>
+            <p class="text-gray-400 text-sm">Détartrage de chauffe-eau, installation d'adoucisseur d'eau et entretien régulier de vos installations.</p>
+          </div>
+        </div>
+
+        <!-- Prestation 6 -->
+        <div data-aos="fade-up" data-aos-delay="200" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80" alt="Aspirateur central" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center">
+                <i data-lucide="wind" class="w-6 h-6 text-purple-400"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">Aspirateur central</h3>
+            </div>
+            <p class="text-gray-400 text-sm">Pose et installation d'aspirateur central pour maisons individuelles et immeubles.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- CERTIFICATIONS -->
+  <!-- ============================================ -->
+  <section class="py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-brand-400 font-semibold text-sm uppercase tracking-wider">Qualité certifiée</span>
+        <h2 class="text-4xl sm:text-5xl font-black mt-3 mb-4">Pourquoi choisir <span class="text-gradient">Patrick Berger</span> ?</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="text-center p-6">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-brand-500/10 flex items-center justify-center mb-4">
+            <i data-lucide="shield-check" class="w-8 h-8 text-brand-400"></i>
+          </div>
+          <h3 class="font-bold text-white mb-2">Agréé SSIGE</h3>
+          <p class="text-gray-400 text-sm">Concessions SSIGE eau et gaz — votre garantie de qualité et de conformité.</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-cyan-500/10 flex items-center justify-center mb-4">
+            <i data-lucide="award" class="w-8 h-8 text-cyan-400"></i>
+          </div>
+          <h3 class="font-bold text-white mb-2">Brevet fédéral</h3>
+          <p class="text-gray-400 text-sm">Contremaître sanitaire diplômé avec brevet fédéral reconnu.</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-green-500/10 flex items-center justify-center mb-4">
+            <i data-lucide="clock" class="w-8 h-8 text-green-400"></i>
+          </div>
+          <h3 class="font-bold text-white mb-2">Réactivité</h3>
+          <p class="text-gray-400 text-sm">Intervention rapide pour les dépannages, devis gratuit sous 48h.</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-purple-500/10 flex items-center justify-center mb-4">
+            <i data-lucide="map-pin" class="w-8 h-8 text-purple-400"></i>
+          </div>
+          <h3 class="font-bold text-white mb-2">100% local</h3>
+          <p class="text-gray-400 text-sm">Basé à Noréaz, nous intervenons dans tout le canton de Fribourg.</p>
+        </div>
+      </div>
+
+      <!-- SSIGE Badge -->
+      <div class="mt-12 flex justify-center" data-aos="fade-up">
+        <div class="bg-slate-800/30 border border-white/5 rounded-2xl p-6 flex items-center gap-6 max-w-md">
+          <img src="https://le-de.cdn-website.com/42c57c0b25564eb9ba4bff43991561cd/dms3rep/multi/opt/SSIGE-194w.jpeg" alt="SSIGE certification" class="h-16 w-auto rounded-lg">
+          <div>
+            <h4 class="font-bold text-white">Nous sommes agréés SSIGE eau et gaz</h4>
+            <p class="text-gray-400 text-sm mt-1">Gage de qualité et respect des normes suisses.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- RÉALISATIONS SECTION -->
+  <!-- ============================================ -->
+  <section id="realisations" class="py-24 bg-slate-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-brand-400 font-semibold text-sm uppercase tracking-wider">Portfolio</span>
+        <h2 class="text-4xl sm:text-5xl font-black mt-3 mb-4">Nos <span class="text-gradient">réalisations</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Quelques projets réalisés dans la région de Fribourg et environs.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div data-aos="fade-up" data-aos-delay="0" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover group">
+          <div class="aspect-video overflow-hidden">
+            <img src="https://le-de.cdn-website.com/42c57c0b25564eb9ba4bff43991561cd/dms3rep/multi/opt/20200213_143858_617_561_712_64_401-683w.jpeg" alt="Local technique" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-5">
+            <h4 class="font-bold text-white mb-1">Local technique</h4>
+            <p class="text-gray-400 text-sm">Installation complète d'un local technique avec raccordements.</p>
+            <span class="mt-2 inline-block px-2 py-0.5 rounded-full bg-brand-500/10 text-brand-400 text-xs font-medium">Sanitaire</span>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="100" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover group">
+          <div class="aspect-video overflow-hidden">
+            <img src="https://le-de.cdn-website.com/42c57c0b25564eb9ba4bff43991561cd/dms3rep/multi/opt/AdobeStock_54933137_892-680w.jpeg" alt="Salle de bains" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-5">
+            <h4 class="font-bold text-white mb-1">Salle de bains</h4>
+            <p class="text-gray-400 text-sm">Rénovation complète avec douche à l'italienne et robinetterie moderne.</p>
+            <span class="mt-2 inline-block px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-medium">Rénovation</span>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="200" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover group">
+          <div class="aspect-video overflow-hidden">
+            <img src="https://le-de.cdn-website.com/42c57c0b25564eb9ba4bff43991561cd/dms3rep/multi/opt/FourgonPatrickBerger2_218_679-687w.jpeg" alt="Fourgon Patrick Berger" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-5">
+            <h4 class="font-bold text-white mb-1">Intervention sur site</h4>
+            <p class="text-gray-400 text-sm">Équipement professionnel pour des interventions rapides et efficaces.</p>
+            <span class="mt-2 inline-block px-2 py-0.5 rounded-full bg-green-500/10 text-green-400 text-xs font-medium">Dépannage</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- QUI SUIS-JE SECTION -->
+  <!-- ============================================ -->
+  <section id="apropos" class="py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <img src="https://le-de.cdn-website.com/42c57c0b25564eb9ba4bff43991561cd/dms3rep/multi/opt/logopatrickberger-1920w.jpeg" alt="Patrick Berger Sàrl" class="rounded-2xl border border-white/5 shadow-2xl w-full">
+        </div>
+        <div data-aos="fade-left">
+          <span class="text-brand-400 font-semibold text-sm uppercase tracking-wider">Qui suis-je ?</span>
+          <h2 class="text-4xl font-black mt-3 mb-6">Patrick <span class="text-gradient">Berger</span></h2>
+          <p class="text-gray-300 leading-relaxed mb-6">
+            Après 16 années passées au sein d'une entreprise fribourgeoise réputée dans les domaines du sanitaire et de la ferblanterie, le brevet fédéral de contremaître sanitaire et les concessions SSIGE eau et gaz en poche, j'ai eu l'envie de prendre mon envol.
+          </p>
+          <p class="text-gray-400 leading-relaxed mb-8">
+            Aujourd'hui, Patrick Berger Sàrl met cette expertise au service de vos projets — nouvelles constructions, rénovations ou dépannages — avec le souci du détail et la proximité d'un artisan local.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 rounded-full bg-brand-500/10 text-brand-400 text-sm font-medium border border-brand-500/20">Brevet fédéral</span>
+            <span class="px-4 py-2 rounded-full bg-green-500/10 text-green-400 text-sm font-medium border border-green-500/20">SSIGE eau & gaz</span>
+            <span class="px-4 py-2 rounded-full bg-cyan-500/10 text-cyan-400 text-sm font-medium border border-cyan-500/20">16+ ans d'expérience</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- HORAIRES & CONTACT -->
+  <!-- ============================================ -->
+  <section id="contact" class="py-24 bg-slate-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-brand-400 font-semibold text-sm uppercase tracking-wider">Contact</span>
+        <h2 class="text-4xl sm:text-5xl font-black mt-3 mb-4">Contactez-<span class="text-gradient">nous</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Nouvelles constructions, rénovations ou dépannages ? Contactez-nous !</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Coordonnées -->
+        <div data-aos="fade-up" class="bg-slate-800/30 border border-white/5 rounded-2xl p-8">
+          <h3 class="font-bold text-white text-lg mb-6">Coordonnées</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <i data-lucide="phone" class="w-5 h-5 text-brand-400 mt-0.5"></i>
+              <div>
+                <p class="text-white font-semibold">Téléphone</p>
+                <a href="tel:0264700279" class="text-gray-400 hover:text-brand-400 transition-colors">026 470 02 79</a>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="mail" class="w-5 h-5 text-brand-400 mt-0.5"></i>
+              <div>
+                <p class="text-white font-semibold">E-mails</p>
+                <a href="mailto:info@patrickbergersarl.ch" class="text-gray-400 hover:text-brand-400 transition-colors text-sm">info@patrickbergersarl.ch</a><br>
+                <a href="mailto:p.berger@patrickbergersarl.ch" class="text-gray-400 hover:text-brand-400 transition-colors text-sm">p.berger@patrickbergersarl.ch</a><br>
+                <a href="mailto:technique@patrickbergersarl.ch" class="text-gray-400 hover:text-brand-400 transition-colors text-sm">technique@patrickbergersarl.ch</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Adresses -->
+        <div data-aos="fade-up" data-aos-delay="100" class="bg-slate-800/30 border border-white/5 rounded-2xl p-8">
+          <h3 class="font-bold text-white text-lg mb-6">Adresses</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <i data-lucide="building-2" class="w-5 h-5 text-cyan-400 mt-0.5"></i>
+              <div>
+                <p class="text-white font-semibold">Siège</p>
+                <p class="text-gray-400 text-sm">Route du Pâqui 6<br>1720 Corminboeuf</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="warehouse" class="w-5 h-5 text-cyan-400 mt-0.5"></i>
+              <div>
+                <p class="text-white font-semibold">Bureau & atelier</p>
+                <p class="text-gray-400 text-sm">Impasse du Ferrajoz 28<br>1757 Noréaz</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Horaires -->
+        <div data-aos="fade-up" data-aos-delay="200" class="bg-slate-800/30 border border-white/5 rounded-2xl p-8">
+          <h3 class="font-bold text-white text-lg mb-6">Heures d'ouverture</h3>
+          <ul class="space-y-3">
+            <li class="flex items-center justify-between">
+              <span class="text-gray-400">Lun - Ven</span>
+              <span class="text-white font-semibold">07:30 – 17:30</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span class="text-gray-400">Sam - Dim</span>
+              <span class="text-red-400 font-semibold">Fermé</span>
+            </li>
+          </ul>
+          <div class="mt-6 pt-6 border-t border-white/5">
+            <a href="tel:0264700279" class="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-semibold transition-all hover:scale-105 shadow-lg shadow-brand-500/25">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+              Appeler maintenant
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- CTA SECTION -->
+  <!-- ============================================ -->
+  <section class="py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
+      <h2 class="text-3xl sm:text-4xl font-black mb-4">Un projet en tête ?</h2>
+      <p class="text-gray-400 mb-8 max-w-xl mx-auto">Demandez votre devis gratuit dès aujourd'hui. Nous vous répondons sous 48h.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="tel:0264700279" class="flex items-center gap-2 px-8 py-4 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-brand-500/25">
+          <i data-lucide="phone" class="w-5 h-5"></i>
+          026 470 02 79
+        </a>
+        <a href="mailto:info@patrickbergersarl.ch" class="flex items-center gap-2 px-8 py-4 rounded-full border-2 border-white/10 hover:border-brand-500/50 text-white font-semibold transition-all hover:bg-white/5">
+          <i data-lucide="mail" class="w-5 h-5"></i>
+          Envoyer un email
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FOOTER SPÉCIAL DIGITME.FUN -->
+  <!-- ============================================ -->
+  <footer class="bg-dark-light border-t border-white/5">
+    <!-- Promo Digitme.fun -->
+    <div class="bg-gradient-to-r from-violet-600/10 via-pink-500/10 to-cyan-500/10 border-b border-white/5 py-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-gray-400 text-sm mb-2">Ce redesign a été proposé par</p>
+        <a href="https://digitme.fun" class="inline-flex items-center gap-2 mb-4 group">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 via-pink-500 to-cyan-400 flex items-center justify-center font-black text-sm group-hover:scale-110 transition-transform">D</div>
+          <span class="text-xl font-bold bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">Digitme.fun</span>
+        </a>
+        <h3 class="text-2xl font-bold text-white mb-3">Vous aussi, modernisez votre site web</h3>
+        <p class="text-gray-400 max-w-lg mx-auto mb-6">Sites web modernes, applications et automatisation pour PME suisses. À partir de 990 CHF.</p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="https://wa.me/41XXXXXXXXXX" class="flex items-center gap-2 px-6 py-3 rounded-full bg-green-500 hover:bg-green-600 text-white font-semibold transition-all hover:scale-105">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href="https://calendly.com/digitme-fun" class="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-violet-500 to-pink-500 text-white font-semibold transition-all hover:scale-105">
+            <i data-lucide="calendar" class="w-5 h-5"></i>
+            Prendre rendez-vous
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom footer -->
+    <div class="py-6">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-gray-600 text-sm">&copy; 2026 Patrick Berger Sàrl — Tous droits réservés. Redesign par <a href="https://digitme.fun" class="text-violet-400 hover:text-violet-300">Digitme.fun</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+  </script>
+
+  <!-- Lucide Icons -->
+  <script>lucide.createIcons();</script>
+
+  <!-- Mobile Menu -->
+  <script>
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+  </script>
+</body>
+</html>
