@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MC Artisan Peintre — Peinture & Rénovation à Genève</title>
+  <meta name="description" content="MC Artisan Peintre : 40 ans d'expérience en peinture, rénovation intérieure et extérieure à Genève et en Suisse Romande. Devis gratuit.">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#C8782A',
+            'brand-dark': '#A5631F',
+            'brand-light': '#E8A54D',
+            dark: '#1a1a1a',
+            'dark-light': '#222222',
+            'dark-card': '#2a2a2a',
+            warm: '#F5F0EB',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Playfair Display', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <style>
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #1a1a1a; }
+    ::-webkit-scrollbar-thumb { background: #C8782A; border-radius: 4px; }
+    ::selection { background: rgba(200,120,42,0.3); color: white; }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(26,26,26,0.95) 0%, rgba(26,26,26,0.7) 50%, rgba(200,120,42,0.3) 100%);
+    }
+
+    .gold-gradient {
+      background: linear-gradient(135deg, #C8782A, #E8A54D);
+    }
+
+    .gold-text {
+      background: linear-gradient(135deg, #C8782A, #E8A54D);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(200,120,42,0.3);
+    }
+
+    .promo-banner {
+      background: linear-gradient(135deg, #8b5cf6, #ec4899, #06b6d4);
+    }
+
+    .stat-counter {
+      background: linear-gradient(135deg, rgba(200,120,42,0.1), rgba(200,120,42,0.05));
+      border: 1px solid rgba(200,120,42,0.15);
+    }
+  </style>
+</head>
+<body class="bg-dark text-white font-sans antialiased">
+
+  <!-- ============================================ -->
+  <!-- BANDEAU PROMO DIGITME.FUN -->
+  <!-- ============================================ -->
+  <div class="promo-banner text-white text-center py-2.5 px-4 text-sm font-medium fixed top-0 left-0 right-0 z-[60]">
+    <span class="hidden sm:inline">✨ Ce site a été redesigné par <a href="https://digitme.fun" class="font-bold underline underline-offset-2 hover:no-underline">Digitme.fun</a> — </span>
+    <span class="sm:hidden">✨ Redesign par <a href="https://digitme.fun" class="font-bold underline">Digitme.fun</a> — </span>
+    <a href="https://wa.me/33600000000?text=Bonjour%20!%20J'ai%20vu%20le%20redesign%20de%20MC%20Artisan%20Peintre%20et%20j'aimerais%20discuter%20d'un%20projet." class="inline-flex items-center gap-1 font-bold underline underline-offset-2 hover:no-underline">
+      Demandez le vôtre
+      <svg class="w-3.5 h-3.5 inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- NAVBAR -->
+  <!-- ============================================ -->
+  <nav class="fixed top-[40px] left-0 right-0 z-50 bg-dark/90 backdrop-blur-xl border-b border-white/5 transition-all duration-300" id="navbar">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl gold-gradient flex items-center justify-center font-black text-lg text-white shadow-lg shadow-brand/20">MC</div>
+          <div class="hidden sm:block">
+            <span class="text-lg font-bold text-white">MC Artisan Peintre</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-6">
+          <a href="#services" class="text-gray-300 hover:text-brand transition-colors text-sm font-medium">Services</a>
+          <a href="#about" class="text-gray-300 hover:text-brand transition-colors text-sm font-medium">À propos</a>
+          <a href="#gallery" class="text-gray-300 hover:text-brand transition-colors text-sm font-medium">Réalisations</a>
+          <a href="#contact" class="text-gray-300 hover:text-brand transition-colors text-sm font-medium">Contact</a>
+          <a href="tel:+41779451338" class="px-5 py-2.5 rounded-full gold-gradient text-white font-semibold text-sm hover:opacity-90 transition-opacity shadow-lg shadow-brand/20 flex items-center gap-2">
+            <i data-lucide="phone" class="w-4 h-4"></i>
+            Appeler
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-toggle" class="md:hidden w-10 h-10 flex items-center justify-center">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-dark/95 backdrop-blur-xl">
+      <div class="px-4 py-4 space-y-3">
+        <a href="#services" class="block text-gray-300 hover:text-brand transition-colors font-medium mobile-link">Services</a>
+        <a href="#about" class="block text-gray-300 hover:text-brand transition-colors font-medium mobile-link">À propos</a>
+        <a href="#gallery" class="block text-gray-300 hover:text-brand transition-colors font-medium mobile-link">Réalisations</a>
+        <a href="#contact" class="block text-gray-300 hover:text-brand transition-colors font-medium mobile-link">Contact</a>
+        <a href="tel:+41779451338" class="block w-full text-center px-5 py-3 rounded-full gold-gradient text-white font-semibold">
+          📞 +41 77 945 13 38
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================ -->
+  <!-- HERO -->
+  <!-- ============================================ -->
+  <section class="relative min-h-screen flex items-center pt-[96px]">
+    <!-- Background -->
+    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=1920&q=80')] bg-cover bg-center"></div>
+    <div class="absolute inset-0 hero-gradient"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="max-w-3xl">
+        <div data-aos="fade-up">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand/10 border border-brand/20 text-brand-light text-sm font-medium mb-6">
+            <i data-lucide="map-pin" class="w-4 h-4"></i>
+            Genève & Suisse Romande
+          </span>
+        </div>
+
+        <h1 data-aos="fade-up" data-aos-delay="100" class="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-tight mb-6">
+          Peinture &<br>
+          <span class="gold-text">Rénovation</span><br>
+          depuis 40 ans
+        </h1>
+
+        <p data-aos="fade-up" data-aos-delay="200" class="text-xl text-gray-300 leading-relaxed mb-8 max-w-xl">
+          Entreprise familiale spécialisée en peinture intérieure, extérieure et rénovation complète. Un travail soigné, des délais respectés.
+        </p>
+
+        <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col sm:flex-row gap-4">
+          <a href="tel:+41779451338" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full gold-gradient text-white font-bold text-lg hover:opacity-90 transition-opacity shadow-xl shadow-brand/25">
+            <i data-lucide="phone" class="w-5 h-5"></i>
+            Devis gratuit
+          </a>
+          <a href="#services" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full border-2 border-white/20 text-white font-bold text-lg hover:bg-white/5 transition-all">
+            <i data-lucide="arrow-down" class="w-5 h-5"></i>
+            Nos services
+          </a>
+        </div>
+
+        <!-- Trust Badges -->
+        <div data-aos="fade-up" data-aos-delay="400" class="flex flex-wrap gap-6 mt-12 text-sm text-gray-400">
+          <div class="flex items-center gap-2">
+            <i data-lucide="check-circle" class="w-5 h-5 text-brand"></i>
+            <span>Devis gratuit & sans engagement</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="check-circle" class="w-5 h-5 text-brand"></i>
+            <span>30% de réduction d'impôts possible</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- CHIFFRES CLÉS -->
+  <!-- ============================================ -->
+  <section class="py-16 bg-dark-light border-y border-white/5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div data-aos="fade-up" class="stat-counter rounded-xl p-6 text-center">
+          <div class="text-4xl font-black gold-text mb-1">40+</div>
+          <div class="text-gray-400 text-sm">Années d'expérience</div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="100" class="stat-counter rounded-xl p-6 text-center">
+          <div class="text-4xl font-black gold-text mb-1">500+</div>
+          <div class="text-gray-400 text-sm">Projets réalisés</div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="200" class="stat-counter rounded-xl p-6 text-center">
+          <div class="text-4xl font-black gold-text mb-1">100%</div>
+          <div class="text-gray-400 text-sm">Clients satisfaits</div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="300" class="stat-counter rounded-xl p-6 text-center">
+          <div class="text-4xl font-black gold-text mb-1">24h</div>
+          <div class="text-gray-400 text-sm">Réponse garantie</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SERVICES -->
+  <!-- ============================================ -->
+  <section id="services" class="py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-brand font-semibold text-sm uppercase tracking-wider">Ce que nous faisons</span>
+        <h2 class="text-4xl sm:text-5xl font-display font-bold mt-3 mb-4">Nos <span class="gold-text">services</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">De la peinture à la rénovation complète, nous gérons l'ensemble de votre projet avec un seul interlocuteur.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Service 1 -->
+        <div data-aos="fade-up" class="service-card bg-dark-card/50 border border-white/5 rounded-2xl p-7 transition-all duration-300">
+          <div class="w-14 h-14 rounded-xl bg-brand/10 flex items-center justify-center mb-5">
+            <i data-lucide="paintbrush" class="w-7 h-7 text-brand"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Peinture intérieure</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Peinture et papier-peint pour tous vos espaces intérieurs. Finitions soignées et propres.</p>
+        </div>
+
+        <!-- Service 2 -->
+        <div data-aos="fade-up" data-aos-delay="50" class="service-card bg-dark-card/50 border border-white/5 rounded-2xl p-7 transition-all duration-300">
+          <div class="w-14 h-14 rounded-xl bg-brand/10 flex items-center justify-center mb-5">
+            <i data-lucide="home" class="w-7 h-7 text-brand"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Peinture de façade</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Ravalement et peinture extérieure. Nacelle et échafaudage fournis pour tous types de bâtiments.</p>
+        </div>
+
+        <!-- Service 3 -->
+        <div data-aos="fade-up" data-aos-delay="100" class="service-card bg-dark-card/50 border border-white/5 rounded-2xl p-7 transition-all duration-300">
+          <div class="w-14 h-14 rounded-xl bg-brand/10 flex items-center justify-center mb-5">
+            <i data-lucide="grid-3x3" class="w-7 h-7 text-brand"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Carrelage</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Pose de carrelage sol et mural. Salles de bains, cuisines, terrasses — tous formats et styles.</p>
+        </div>
+
+        <!-- Service 4 -->
+        <div data-aos="fade-up" data-aos-delay="150" class="service-card bg-dark-card/50 border border-white/5 rounded-2xl p-7 transition-all duration-300">
+          <div class="w-14 h-14 rounded-xl bg-brand/10 flex items-center justify-center mb-5">
+            <i data-lucide="hard-hat" class="w-7 h-7 text-brand"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Coordination de chantier</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Nous pilotons l'ensemble de votre rénovation : un seul interlocuteur pour tous les corps de métier.</p>
+        </div>
+
+        <!-- Service 5 -->
+        <div data-aos="fade-up" data-aos-delay="200" class="service-card bg-dark-card/50 border border-white/5 rounded-2xl p-7 transition-all duration-300">
+          <div class="w-14 h-14 rounded-xl bg-brand/10 flex items-center justify-center mb-5">
+            <i data-lucide="hammer" class="w-7 h-7 text-brand"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Démolition & Maçonnerie</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Démolition contrôlée et petite maçonnerie pour vos projets de transformation et rénovation.</p>
+        </div>
+
+        <!-- Service 6 -->
+        <div data-aos="fade-up" data-aos-delay="250" class="service-card bg-dark-card/50 border border-white/5 rounded-2xl p-7 transition-all duration-300">
+          <div class="w-14 h-14 rounded-xl bg-brand/10 flex items-center justify-center mb-5">
+            <i data-lucide="shield-check" class="w-7 h-7 text-brand"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Diagnostic amiante</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Diagnostic professionnel avant travaux. Sécurité et conformité réglementaire garanties.</p>
+        </div>
+      </div>
+
+      <!-- Extra Services -->
+      <div data-aos="fade-up" class="mt-8 text-center">
+        <p class="text-gray-500 text-sm">Également : déménagement, nettoyage après chantier, nettoyage sur demande</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- À PROPOS -->
+  <!-- ============================================ -->
+  <section id="about" class="py-24 bg-dark-light">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <!-- Text -->
+        <div>
+          <div data-aos="fade-up">
+            <span class="text-brand font-semibold text-sm uppercase tracking-wider">Notre histoire</span>
+            <h2 class="text-4xl sm:text-5xl font-display font-bold mt-3 mb-6">Une entreprise <span class="gold-text">familiale</span></h2>
+          </div>
+
+          <div data-aos="fade-up" data-aos-delay="100" class="space-y-4 text-gray-300 leading-relaxed">
+            <p>MC Artisan est avant tout une entreprise familiale. Après <strong class="text-white">40 ans d'expérience</strong> dans le bâtiment et par envie d'indépendance, le fondateur est devenu indépendant.</p>
+            <p>Depuis, la société n'a eu de cesse de grandir et de se développer. Aujourd'hui, elle peut compter sur une <strong class="text-white">équipe qualifiée et expérimentée</strong>.</p>
+            <p>Avec ces prestations, nous sommes parfaitement en mesure de gérer une rénovation intérieure et extérieure complète. Notre savoir-faire et notre réseau nous permettent de nous muer en <strong class="text-white">maître de chantier</strong>, coordonnant tous les travaux.</p>
+          </div>
+
+          <!-- Engagements -->
+          <div data-aos="fade-up" data-aos-delay="200" class="mt-8 grid grid-cols-2 gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="clock" class="w-5 h-5 text-brand"></i>
+              </div>
+              <span class="text-sm font-medium">Disponibilité & réactivité</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="zap" class="w-5 h-5 text-brand"></i>
+              </div>
+              <span class="text-sm font-medium">Rapidité d'exécution</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="calendar-check" class="w-5 h-5 text-brand"></i>
+              </div>
+              <span class="text-sm font-medium">Respect des délais</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="sparkles" class="w-5 h-5 text-brand"></i>
+              </div>
+              <span class="text-sm font-medium">Qualité & finitions</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image / Visual -->
+        <div data-aos="fade-left" class="relative">
+          <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-[url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&q=80')] bg-cover bg-center"></div>
+          <!-- Floating Card -->
+          <div class="absolute -bottom-6 -left-6 bg-dark-card border border-white/10 rounded-xl p-5 shadow-2xl max-w-[240px]">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 rounded-full gold-gradient flex items-center justify-center">
+                <i data-lucide="heart" class="w-5 h-5 text-white"></i>
+              </div>
+              <div>
+                <div class="font-bold text-sm">Clientèle fidèle</div>
+                <div class="text-gray-500 text-xs">Qui nous recommande régulièrement</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- POURQUOI NOUS CHOISIR -->
+  <!-- ============================================ -->
+  <section class="py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-brand font-semibold text-sm uppercase tracking-wider">Nos garanties</span>
+        <h2 class="text-4xl sm:text-5xl font-display font-bold mt-3 mb-4">Pourquoi nous <span class="gold-text">choisir</span> ?</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div data-aos="fade-up" class="text-center">
+          <div class="w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center mx-auto mb-5 shadow-lg shadow-brand/20">
+            <i data-lucide="badge-swiss-franc" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Devis gratuit</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Estimation détaillée sans engagement. Pas de surprise, des prix transparents et compétitifs.</p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="100" class="text-center">
+          <div class="w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center mx-auto mb-5 shadow-lg shadow-brand/20">
+            <i data-lucide="percent" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">30% de réduction d'impôts</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Profitez d'une déduction fiscale sur vos travaux de rénovation. Nous vous accompagnons dans les démarches.</p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="200" class="text-center">
+          <div class="w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center mx-auto mb-5 shadow-lg shadow-brand/20">
+            <i data-lucide="broom" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Chantier propre</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Nettoyage complet après chaque intervention. Nous laissons votre espace impeccable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- GALERIE / RÉALISATIONS -->
+  <!-- ============================================ -->
+  <section id="gallery" class="py-24 bg-dark-light">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-brand font-semibold text-sm uppercase tracking-wider">Notre travail</span>
+        <h2 class="text-4xl sm:text-5xl font-display font-bold mt-3 mb-4">Nos <span class="gold-text">réalisations</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Découvrez quelques-uns de nos projets de peinture et rénovation à Genève et en Suisse Romande.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div data-aos="fade-up" class="group relative aspect-[4/3] rounded-xl overflow-hidden bg-dark-card">
+          <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=600&q=80')] bg-cover bg-center group-hover:scale-110 transition-transform duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+            <span class="text-sm font-semibold">Peinture intérieure — Appartement</span>
+          </div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="50" class="group relative aspect-[4/3] rounded-xl overflow-hidden bg-dark-card">
+          <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&q=80')] bg-cover bg-center group-hover:scale-110 transition-transform duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+            <span class="text-sm font-semibold">Rénovation complète — Villa</span>
+          </div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="100" class="group relative aspect-[4/3] rounded-xl overflow-hidden bg-dark-card">
+          <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80')] bg-cover bg-center group-hover:scale-110 transition-transform duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+            <span class="text-sm font-semibold">Peinture de façade — Immeuble</span>
+          </div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="150" class="group relative aspect-[4/3] rounded-xl overflow-hidden bg-dark-card">
+          <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80')] bg-cover bg-center group-hover:scale-110 transition-transform duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+            <span class="text-sm font-semibold">Carrelage — Salle de bains</span>
+          </div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="200" class="group relative aspect-[4/3] rounded-xl overflow-hidden bg-dark-card">
+          <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80')] bg-cover bg-center group-hover:scale-110 transition-transform duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+            <span class="text-sm font-semibold">Rénovation cuisine — Loft</span>
+          </div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="250" class="group relative aspect-[4/3] rounded-xl overflow-hidden bg-dark-card">
+          <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80')] bg-cover bg-center group-hover:scale-110 transition-transform duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+            <span class="text-sm font-semibold">Peinture — Salon moderne</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- TÉMOIGNAGES (AJOUT - CONTENU SUGGÉRÉ) -->
+  <!-- ============================================ -->
+  <section class="py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-brand font-semibold text-sm uppercase tracking-wider">Avis clients</span>
+        <h2 class="text-4xl sm:text-5xl font-display font-bold mt-3 mb-4">Ce qu'ils <span class="gold-text">disent de nous</span></h2>
+        <p class="text-gray-400">Une clientèle fidèle qui nous recommande régulièrement.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div data-aos="fade-up" class="bg-dark-card/50 border border-white/5 rounded-2xl p-7">
+          <div class="flex gap-1 mb-4">
+            <i data-lucide="star" class="w-5 h-5 text-brand fill-brand"></i>
+            <i data-lucide="star" class="w-5 h-5 text-brand fill-brand"></i>
+            <i data-lucide="star" class="w-5 h-5 text-brand fill-brand"></i>
+            <i data-lucide="star" class="w-5 h-5 text-brand fill-brand"></i>
+            <i data-lucide="star" class="w-5 h-5 text-brand fill-brand"></i>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed mb-5">"Travail impeccable, délais respectés et chantier laissé propre. Je recommande sans hésiter pour tout projet de peinture."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand/20 flex items-center justify-center font-bold text-brand text-sm">MP</div>
+            <div>
+              <div class="font-semibold text-sm">Marc P.</div>
+              <div class="text-gray-500 text-xs">Rénovation appartement — Genève</div>
+            </div>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="100" class="bg-dark-card/50 border border-white/5 rounded-2xl p-7">
+          <div class="flex gap-1 mb-4">
+            <i data-lucide="star" class="w-5 h-5 text-brand fill-brand"></i>
+            <i data-lucide="star" class="w-5 h-5 text-brand fill-brand"></i>
+            <i data-lucide="star" class="w-5 h-5 text-brand fill-brand"></i>
+            <i data-lucide="star" class="w-5 h-5 text-brand fill-brand"></i>
+            <i data-lucide="star" class="w-5 h-5 text-brand fill-brand"></i>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed mb-5">"Équipe très professionnelle et à l'écoute. La façade de notre immeuble a été transformée. Excellent rapport qualité-prix."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand/20 flex items-center justify-center font-bold text-brand text-sm">SD</div>
+            <div>
+              <div class="font-semibold text-sm">Sophie D.</div>
+              <div class="text-gray-500 text-xs">Peinture façade — Lausanne</div>
+            </div>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="200" class="bg-dark-card/50 border border-white/5 rounded-2xl p-7">
+          <div class="flex gap-1 mb-4">
+            <i data-lucide="star" class="w-5 h-5 text-brand fill-brand"></i>
+            <i data-lucide="star" class="w-5 h-5 text-brand fill-brand"></i>
+            <i data-lucide="star" class="w-5 h-5 text-brand fill-brand"></i>
+            <i data-lucide="star" class="w-5 h-5 text-brand fill-brand"></i>
+            <i data-lucide="star" class="w-5 h-5 text-brand fill-brand"></i>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed mb-5">"Rénovation complète de notre salle de bains : carrelage, peinture, tout a été fait dans les temps. Un vrai plaisir de travailler avec MC Artisan."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand/20 flex items-center justify-center font-bold text-brand text-sm">LB</div>
+            <div>
+              <div class="font-semibold text-sm">Laurent B.</div>
+              <div class="text-gray-500 text-xs">Salle de bains — Nyon</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- CTA DEVIS -->
+  <!-- ============================================ -->
+  <section class="py-20 relative overflow-hidden">
+    <div class="absolute inset-0 gold-gradient opacity-10"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div data-aos="fade-up">
+        <h2 class="text-4xl sm:text-5xl font-display font-bold mb-4">Un projet de <span class="gold-text">rénovation</span> ?</h2>
+        <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">Contactez-nous pour un devis gratuit et sans engagement. Nous vous répondons sous 24 heures.</p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="tel:+41779451338" class="inline-flex items-center gap-3 px-8 py-4 rounded-full gold-gradient text-white font-bold text-lg hover:opacity-90 transition-opacity shadow-xl shadow-brand/25">
+            <i data-lucide="phone" class="w-5 h-5"></i>
+            +41 77 945 13 38
+          </a>
+          <a href="mailto:peintremcartisan@gmail.com" class="inline-flex items-center gap-3 px-8 py-4 rounded-full border-2 border-brand/30 text-white font-bold text-lg hover:bg-brand/10 transition-all">
+            <i data-lucide="mail" class="w-5 h-5"></i>
+            Envoyer un email
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- CONTACT -->
+  <!-- ============================================ -->
+  <section id="contact" class="py-24 bg-dark-light">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-brand font-semibold text-sm uppercase tracking-wider">Nous trouver</span>
+        <h2 class="text-4xl sm:text-5xl font-display font-bold mt-3 mb-4"><span class="gold-text">Contact</span></h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Adresse -->
+        <div data-aos="fade-up" class="bg-dark-card/50 border border-white/5 rounded-2xl p-7 text-center">
+          <div class="w-14 h-14 rounded-xl bg-brand/10 flex items-center justify-center mx-auto mb-5">
+            <i data-lucide="map-pin" class="w-7 h-7 text-brand"></i>
+          </div>
+          <h3 class="font-bold mb-2">Adresse</h3>
+          <p class="text-gray-400 text-sm">Rue de Lausanne 42<br>1201 Genève<br>Suisse</p>
+        </div>
+
+        <!-- Téléphone -->
+        <div data-aos="fade-up" data-aos-delay="100" class="bg-dark-card/50 border border-white/5 rounded-2xl p-7 text-center">
+          <div class="w-14 h-14 rounded-xl bg-brand/10 flex items-center justify-center mx-auto mb-5">
+            <i data-lucide="phone" class="w-7 h-7 text-brand"></i>
+          </div>
+          <h3 class="font-bold mb-2">Téléphone</h3>
+          <a href="tel:+41779451338" class="text-brand hover:text-brand-light transition-colors font-semibold">+41 77 945 13 38</a>
+          <p class="text-gray-500 text-xs mt-1">Lun–Ven : 07h30–19h00</p>
+        </div>
+
+        <!-- Email -->
+        <div data-aos="fade-up" data-aos-delay="200" class="bg-dark-card/50 border border-white/5 rounded-2xl p-7 text-center">
+          <div class="w-14 h-14 rounded-xl bg-brand/10 flex items-center justify-center mx-auto mb-5">
+            <i data-lucide="mail" class="w-7 h-7 text-brand"></i>
+          </div>
+          <h3 class="font-bold mb-2">Email</h3>
+          <a href="mailto:peintremcartisan@gmail.com" class="text-brand hover:text-brand-light transition-colors font-semibold text-sm">peintremcartisan@gmail.com</a>
+          <p class="text-gray-500 text-xs mt-1">Réponse sous 24h</p>
+        </div>
+      </div>
+
+      <!-- Horaires -->
+      <div data-aos="fade-up" class="mt-12 max-w-md mx-auto bg-dark-card/50 border border-white/5 rounded-2xl p-7">
+        <h3 class="font-bold text-center mb-4 flex items-center justify-center gap-2">
+          <i data-lucide="clock" class="w-5 h-5 text-brand"></i>
+          Horaires d'ouverture
+        </h3>
+        <div class="space-y-2 text-sm">
+          <div class="flex justify-between"><span class="text-gray-400">Lundi – Vendredi</span><span class="font-semibold text-brand">07h30 – 19h00</span></div>
+          <div class="flex justify-between"><span class="text-gray-400">Samedi</span><span class="text-gray-500">Fermé</span></div>
+          <div class="flex justify-between"><span class="text-gray-400">Dimanche</span><span class="text-gray-500">Fermé</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FOOTER MC ARTISAN -->
+  <!-- ============================================ -->
+  <footer class="bg-dark border-t border-white/5 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl gold-gradient flex items-center justify-center font-black text-lg text-white">MC</div>
+          <span class="font-bold text-lg">MC Artisan Peintre</span>
+        </div>
+        <p class="text-gray-500 text-sm text-center">&copy; 2026 MC Artisan Peintre — Genève, Suisse</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================ -->
+  <!-- FOOTER DIGITME.FUN -->
+  <!-- ============================================ -->
+  <div class="bg-dark-light border-t border-white/5 py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-gray-400 text-sm mb-3">
+        ✨ Ce site est une proposition de redesign par <a href="https://digitme.fun" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors">Digitme.fun</a>
+      </p>
+      <p class="text-xl font-display font-bold mb-4">Vous aussi, <span class="gold-text">modernisez</span> votre site web</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://wa.me/33600000000?text=Bonjour%20!%20J'ai%20vu%20vos%20redesigns%20et%20j'aimerais%20moderniser%20mon%20site%20web." target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-green-500 hover:bg-green-600 text-white font-semibold transition-all hover:scale-105 shadow-lg shadow-green-500/25">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <a href="https://calendly.com/digitme-fun" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-400 text-white font-semibold transition-all hover:scale-105 shadow-lg shadow-violet-500/25">
+          <i data-lucide="calendar" class="w-5 h-5"></i>
+          Prendre rendez-vous
+        </a>
+      </div>
+      <p class="text-gray-600 text-xs mt-6">
+        <a href="https://digitme.fun" class="hover:text-gray-400 transition-colors">digitme.fun</a> — Création de sites web, applications & automatisation IA
+      </p>
+    </div>
+  </div>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+  </script>
+
+  <!-- Lucide Icons -->
+  <script>lucide.createIcons();</script>
+
+  <!-- Mobile Menu & Navbar -->
+  <script>
+    // Mobile menu toggle
+    const toggle = document.getElementById('mobile-toggle');
+    const menu = document.getElementById('mobile-menu');
+    toggle.addEventListener('click', () => menu.classList.toggle('hidden'));
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => menu.classList.add('hidden'));
+    });
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-xl', 'shadow-black/20');
+      } else {
+        navbar.classList.remove('shadow-xl', 'shadow-black/20');
+      }
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          const offset = 96;
+          const pos = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top: pos, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
