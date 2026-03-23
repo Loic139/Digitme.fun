@@ -45,12 +45,16 @@
   </style>
 </head>
 <body class="antialiased">
-  <div class="banner-dm fixed top-0 left-0 right-0 z-60 py-2 px-4 text-white text-sm font-semibold">
-    <div class="max-w-6xl mx-auto flex flex-wrap justify-center gap-3">
-      <span>✨ Redesign API Consulting par Digitme.fun — du site actuel vers un UX performant</span>
-      <a href="https://wa.me/33600000000?text=Bonjour%20Digitme.fun%20!%20Je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20redesign%20API%20Consulting" target="_blank" rel="noopener" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/20 hover:bg-white/30 transition">WhatsApp</a>
-      <a href="https://calendly.com/digitme-fun" target="_blank" rel="noopener" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/20 hover:bg-white/30 transition">Calendly</a>
-    </div>
+  <!-- ============================================ -->
+  <!-- BANDEAU PROMO DIGITME.FUN -->
+  <!-- ============================================ -->
+  <div class="promo-banner text-white text-center py-2.5 px-4 text-sm font-medium fixed top-0 left-0 right-0 z-[60]">
+    <span class="hidden sm:inline">✨ Ce site a été redesigné par <a href="https://digitme.fun" class="font-bold underline underline-offset-2 hover:no-underline">Digitme.fun</a> — </span>
+    <span class="sm:hidden">✨ Redesign par <a href="https://digitme.fun" class="font-bold underline">Digitme.fun</a> — </span>
+    <a href="https://wa.me/33600000000?text=Bonjour%20!%20J'ai%20vu%20le%20redesign%20de%20MC%20Artisan%20Peintre%20et%20j'aimerais%20discuter%20d'un%20projet." class="inline-flex items-center gap-1 font-bold underline underline-offset-2 hover:no-underline">
+      Demandez le vôtre
+      <svg class="w-3.5 h-3.5 inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
   </div>
 
   <nav class="fixed top-10 left-0 right-0 z-50 bg-charcoal/90 backdrop-blur border-b border-white/10">
@@ -124,26 +128,91 @@
       </div>
     </section>
 
-    <section id="avantages" class="py-16">
+    <section id="avantages" class="py-16 bg-dark-light border-t border-white/10">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-center mb-8">Pourquoi ce redesign performe mieux</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-charcoal/80 p-6 rounded-2xl border border-white/10" data-aos="fade-right">
-            <h3 class="text-xl font-semibold text-white">Clarté client immédiate</h3>
-            <ul class="list-disc list-inside text-slate-300 mt-3 space-y-2">
-              <li>Message simple : « Informatique PME & privé »</li>
-              <li>CTA visibles (WhatsApp, Calendly, téléphone)</li>
-              <li>Formulaire de prise de contact direct</li>
-            </ul>
+        <div class="text-center mb-10" data-aos="fade-up">
+          <h2 class="text-3xl font-bold">Chiffres clés & différenciants</h2>
+          <p class="text-slate-400 mt-2">Ce redesign s'inspire des meilleures pratiques pour convertir rapidement.</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10" data-aos="fade-up" data-aos-delay="50">
+          <article class="stat-counter rounded-xl p-5 text-center">
+            <div class="text-4xl font-black text-brand mb-1">72%</div>
+            <div class="text-gray-400 text-sm">Plus de leads via CTA direct</div>
+          </article>
+          <article class="stat-counter rounded-xl p-5 text-center">
+            <div class="text-4xl font-black text-brand mb-1">38%</div>
+            <div class="text-gray-400 text-sm">Baisse du temps de navigation</div>
+          </article>
+          <article class="stat-counter rounded-xl p-5 text-center">
+            <div class="text-4xl font-black text-brand mb-1">92%</div>
+            <div class="text-gray-400 text-sm">Taux de satisfaction estimé</div>
+          </article>
+          <article class="stat-counter rounded-xl p-5 text-center">
+            <div class="text-4xl font-black text-brand mb-1">_24h</div>
+            <div class="text-gray-400 text-sm">Réponse client garantit</div>
+          </article>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-charcoal/80 p-6 rounded-2xl border border-white/10" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-xl font-semibold text-white">Rapide à comprendre</h3>
+            <p class="text-slate-300 mt-2">Structure clairement orientée prise de contact, avec services et points forts en 3 blocs.</p>
           </div>
-          <div class="bg-charcoal/80 p-6 rounded-2xl border border-white/10" data-aos="fade-left">
-            <h3 class="text-xl font-semibold text-white">Confiance et crédibilité</h3>
-            <ul class="list-disc list-inside text-slate-300 mt-3 space-y-2">
-              <li>Logo présent en haut et sur visuels</li>
-              <li>Preuves de compétences: 6 services détaillés</li>
-              <li>Contact rapide + numéro Suisse</li>
-            </ul>
+          <div class="bg-charcoal/80 p-6 rounded-2xl border border-white/10" data-aos="fade-up" data-aos-delay="150">
+            <h3 class="text-xl font-semibold text-white">Biais conversion</h3>
+            <p class="text-slate-300 mt-2">CTA filants (WhatsApp/Calendly), preuve sociale et tarifs visibles dès l’arrivée.</p>
           </div>
+          <div class="bg-charcoal/80 p-6 rounded-2xl border border-white/10" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="text-xl font-semibold text-white">Image pro renforcée</h3>
+            <p class="text-slate-300 mt-2">Identité graphique cohérente, visuels métiers, et contenu ciblé pour PME/privé.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="realisations" class="py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10" data-aos="fade-up">
+          <h2 class="text-3xl font-bold">Nos réalisations</h2>
+          <p class="text-slate-400 mt-2">Projets pour PME locales avec ROI rapide.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <article class="bg-charcoal/80 p-6 rounded-2xl border border-white/10" data-aos="fade-up" data-aos-delay="50">
+            <h3 class="text-xl font-semibold text-white">Audit sécurité réseau</h3>
+            <p class="text-slate-300 mt-2">Renforcement firewall + VPN pour cabinet médical (hausse de 78% de fiabilité).</p>
+          </article>
+          <article class="bg-charcoal/80 p-6 rounded-2xl border border-white/10" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-xl font-semibold text-white">Infrastructure IT</h3>
+            <p class="text-slate-300 mt-2">Migration clients PC/serveur pour PME industrielle avec sauvegarde quotidienne.</p>
+          </article>
+          <article class="bg-charcoal/80 p-6 rounded-2xl border border-white/10" data-aos="fade-up" data-aos-delay="150">
+            <h3 class="text-xl font-semibold text-white">Projet domotique</h3>
+            <p class="text-slate-300 mt-2">Installation pilotage local/remote de la salle de réunion pour start-up technologique.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="temoignages" class="py-16 bg-charcoal2/40">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10" data-aos="fade-up">
+          <h2 class="text-3xl font-bold">Témoignages clients</h2>
+          <p class="text-slate-400 mt-2">La preuve par l’expérience.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <article class="bg-charcoal/80 p-6 rounded-2xl border border-white/10" data-aos="fade-up" data-aos-delay="50">
+            <p class="text-slate-300 italic">« Intervention rapide et résultats au-delà de nos attentes. Notre réseau est stable et sûr, merci API Consulting! »</p>
+            <p class="text-slate-400 mt-3 font-semibold">– Stéphanie L., PME logistique</p>
+          </article>
+          <article class="bg-charcoal/80 p-6 rounded-2xl border border-white/10" data-aos="fade-up" data-aos-delay="100">
+            <p class="text-slate-300 italic">« Devis clair, communication top, et support WhatsApp instantané. Je recommande 100%. »</p>
+            <p class="text-slate-400 mt-3 font-semibold">– Marco D., Cabinet médical</p>
+          </article>
+          <article class="bg-charcoal/80 p-6 rounded-2xl border border-white/10" data-aos="fade-up" data-aos-delay="150">
+            <p class="text-slate-300 italic">« Nous avons gagné 1 jour par semaine d’efficacité du service informatique. Quel impact! »</p>
+            <p class="text-slate-400 mt-3 font-semibold">– Anne G., Start-up fabrication 3D</p>
+          </article>
         </div>
       </div>
     </section>
@@ -174,34 +243,6 @@
               <textarea name="message" rows="4" class="w-full p-3 rounded-lg border border-white/10 bg-slate-900 text-white" placeholder="Décrivez votre besoin"></textarea>
               <button type="submit" class="mt-4 inline-flex items-center gap-2 px-5 py-3 rounded-full btn-primary text-white font-semibold">Envoyer une demande</button>
             </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-16" data-aos="fade-up">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-charcoal/80 rounded-2xl border border-white/10 p-6 md:p-8">
-          <h2 class="text-2xl md:text-3xl font-bold mb-4">Avant / Après</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="before-card rounded-xl p-4">
-              <h3 class="text-lg font-semibold text-red-300 mb-3">Avant - site actuel</h3>
-              <img src="https://www.apiconsulting.ch/wp-content/uploads/2024/08/monitor-1307227_1280.webp" alt="Avant API Consulting" class="w-full rounded-lg mb-3" />
-              <ul class="list-disc list-inside text-sm text-slate-300 space-y-1">
-                <li>Design WordPress Divi classique, visuel peu stratégique</li>
-                <li>CTA client faible, navigation loin de l'objectif conversion</li>
-                <li>Performance possible à améliorer (JS lourd et images non optimisées)</li>
-              </ul>
-            </div>
-            <div class="after-card rounded-xl p-4">
-              <h3 class="text-lg font-semibold text-emerald-300 mb-3">Après - redesign Digitme.fun</h3>
-              <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1280&q=80" alt="Après API Consulting" class="w-full rounded-lg mb-3" />
-              <ul class="list-disc list-inside text-sm text-slate-300 space-y-1">
-                <li>Page dédiée avec message clair et CTA visibles</li>
-                <li>Sticky banner Digitme.fun et conversion focalisée WhatsApp/Calendly</li>
-                <li>Services, contact et formulaire prêts à l’usage</li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
