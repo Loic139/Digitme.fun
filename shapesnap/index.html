@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShapeSnap — Memorize. Redraw. Master.</title>
+  <meta name="description" content="A shape memory game for iPhone. Memorize a shape, redraw it from memory with precision, and see how close you got.">
+  <meta name="theme-color" content="#F5F4F0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #F5F4F0;
+      --text: #111111;
+      --text2: #888888;
+      --card: #FFFFFF;
+      --shadow: rgba(0,0,0,0.08);
+      --dark: #111111;
+      --accent: #F24565;
+      --accent2: #F5943B;
+      --gradient: linear-gradient(135deg, #F24565, #F5943B);
+      --radius: 24px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeUp 0.8s ease-out forwards;
+    }
+
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero-content { max-width: 480px; }
+
+    .logo {
+      font-size: 56px;
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .tagline {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text2);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: var(--text2);
+      line-height: 1.5;
+      margin-bottom: 40px;
+    }
+
+    .app-store-badge {
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+
+    .app-store-badge:hover { transform: scale(1.05); }
+    .app-store-badge svg { height: 52px; width: auto; }
+
+    /* iPhone mockup */
+    .mockup-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .iphone {
+      width: 280px;
+      height: 570px;
+      background: #000;
+      border-radius: 48px;
+      padding: 14px;
+      position: relative;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05);
+    }
+
+    .iphone-screen {
+      width: 100%;
+      height: 100%;
+      background: var(--bg);
+      border-radius: 36px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .iphone-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .iphone-notch {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 28px;
+      background: #000;
+      border-radius: 0 0 20px 20px;
+      z-index: 2;
+    }
+
+    /* ========== SECTION STYLES ========== */
+    section { padding: 100px 0; }
+
+    .section-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text2);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      color: var(--text2);
+      max-width: 520px;
+      line-height: 1.6;
+    }
+
+    /* ========== HOW IT WORKS ========== */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+
+    .step-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      box-shadow: 0 2px 16px var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: var(--bg);
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .step-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .step-desc {
+      font-size: 15px;
+      color: var(--text2);
+      line-height: 1.6;
+    }
+
+    .step-visual {
+      margin-top: 24px;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .step-visual img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+
+    /* ========== FEATURES ========== */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      box-shadow: 0 2px 16px var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .feature-icon-1 { background: linear-gradient(135deg, #F24565, #F5943B); }
+    .feature-icon-2 { background: linear-gradient(135deg, #F5943B, #FCBA33); }
+    .feature-icon-3 { background: linear-gradient(135deg, #111, #333); }
+    .feature-icon-4 { background: linear-gradient(135deg, #38C773, #3F8DF2); }
+
+    .feature-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .feature-desc {
+      font-size: 15px;
+      color: var(--text2);
+      line-height: 1.6;
+    }
+
+    /* ========== PREMIUM ========== */
+    .unlimited {
+      background: var(--dark);
+      border-radius: 32px;
+      margin: 0 24px;
+      padding: 80px 0;
+      color: white;
+    }
+
+    .unlimited-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .unlimited .section-title { color: white; }
+    .unlimited .section-subtitle { color: rgba(255,255,255,0.6); }
+
+    .unlimited-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 32px;
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .unlimited-features li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .unlimited-check {
+      width: 24px;
+      height: 24px;
+      border-radius: 8px;
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .unlimited-check svg {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: white;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .price-section { margin-top: 40px; }
+
+    .price-badge {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 12px 24px;
+    }
+
+    .price-amount { font-size: 32px; font-weight: 800; }
+    .price-label { font-size: 14px; color: rgba(255,255,255,0.5); }
+
+    .unlimited-visual { display: flex; justify-content: center; }
+
+    .unlock-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 40px;
+      text-align: center;
+      max-width: 320px;
+    }
+
+    .unlock-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .unlock-title {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .unlock-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 24px;
+    }
+
+    .unlock-shapes {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .unlock-shape {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      opacity: 0.8;
+    }
+
+    /* ========== ALSO BY US ========== */
+    .also-section {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .also-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px 36px;
+      box-shadow: 0 2px 16px var(--shadow);
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .also-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+
+    .also-card img {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+    }
+
+    .also-card-text { text-align: left; }
+    .also-card-title { font-size: 18px; font-weight: 700; }
+    .also-card-desc { font-size: 14px; color: var(--text2); }
+
+    /* ========== FOOTER ========== */
+    footer {
+      padding: 60px 0 40px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    .footer-tagline {
+      color: var(--text2);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .footer-links a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    .footer-copy {
+      color: #ccc;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .hero { padding: 100px 0 60px; min-height: auto; }
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+      .hero-content { max-width: 100%; }
+      .logo { font-size: 42px; }
+      .tagline { font-size: 14px; }
+      .subtitle { font-size: 17px; }
+      .iphone { width: 200px; height: 410px; border-radius: 36px; padding: 10px; }
+      .iphone-screen { border-radius: 28px; }
+      .mockup-container .iphone:last-child { margin-left: -30px; margin-top: 30px; }
+      .iphone-notch { width: 80px; height: 24px; }
+      .section-title { font-size: 30px; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .unlimited { margin: 0 16px; padding: 60px 0; border-radius: 24px; }
+      .unlimited-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+      .unlimited-features { align-items: center; }
+      .price-section { display: flex; flex-direction: column; align-items: center; }
+    }
+
+    /* Scroll-triggered fade */
+    .scroll-fade {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+
+    .scroll-fade.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    ::selection { background: rgba(242,69,101,0.15); color: var(--text); }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================ -->
+  <!-- HERO -->
+  <!-- ============================================ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <img src="logo.png" alt="ShapeSnap logo" class="fade-in" style="width: 80px; height: 80px; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.1);">
+          <p class="tagline fade-in delay-1">Memorize. Redraw. Master.</p>
+          <h1 class="logo fade-in delay-2">Shape<span class="gradient-text">snap</span></h1>
+          <p class="subtitle fade-in delay-3">A shape memory game.<br>See it. Remember it. Redraw it.</p>
+          <a href="https://apps.apple.com/us/app/shapesnap/id6763502906" target="_blank" rel="noopener" class="app-store-badge fade-in delay-4">
+            <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+              <rect width="120" height="40" rx="6" fill="#111"/>
+              <text x="42" y="13" fill="#fff" font-family="DM Sans,system-ui" font-size="7" font-weight="500">Download on the</text>
+              <text x="42" y="27" fill="#fff" font-family="DM Sans,system-ui" font-size="13" font-weight="700">App Store</text>
+              <g transform="translate(14,8)" fill="#fff">
+                <path d="M12.5 2.3c-.7.8-1.8 1.4-2.9 1.3-.1-1.2.4-2.4 1.1-3.2C11.4-.4 12.6-1 13.6-1c.1 1.2-.4 2.4-1.1 3.3zm1.1 1.7c-1.6-.1-3 .9-3.8.9s-2-.9-3.3-.9C4.7 4.1 3 5.2 2 6.9.1 10.3.9 15.5 2.9 18.3c1 1.4 2.1 2.9 3.7 2.9 1.5-.1 2-.9 3.8-.9s2.3.9 3.8.9c1.6 0 2.6-1.4 3.5-2.8.7-1 1.2-2 1.5-2.5-1.6-.6-2.7-2.3-2.7-4.2 0-1.7.9-3.2 2.3-4-.9-1.3-2.2-2-3.5-2h.3z" transform="scale(0.75)"/>
+              </g>
+            </svg>
+          </a>
+        </div>
+
+        <div class="mockup-container fade-in delay-5">
+          <div class="iphone" style="transform: rotate(-3deg);">
+            <div class="iphone-notch"></div>
+            <div class="iphone-screen">
+              <img src="screen-memorize.png" alt="ShapeSnap — Memorize the shape">
+            </div>
+          </div>
+          <div class="iphone" style="transform: rotate(3deg); margin-left: -40px; margin-top: 40px;">
+            <div class="iphone-notch"></div>
+            <div class="iphone-screen">
+              <img src="screen-redraw.png" alt="ShapeSnap — Redraw from memory">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- HOW IT WORKS -->
+  <!-- ============================================ -->
+  <section id="how">
+    <div class="container">
+      <div class="scroll-fade">
+        <p class="section-label">How it works</p>
+        <h2 class="section-title">Simple rules.<br>Surprisingly hard.</h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card scroll-fade">
+          <div class="step-number">1</div>
+          <h3 class="step-title">Memorize</h3>
+          <p class="step-desc">A random shape appears on screen. You have a few seconds to study its outline before it disappears.</p>
+          <div class="step-visual">
+            <img src="screen-memorize.png" alt="Memorize step">
+          </div>
+        </div>
+
+        <div class="step-card scroll-fade">
+          <div class="step-number">2</div>
+          <h3 class="step-title">Redraw</h3>
+          <p class="step-desc">Drag the vertices to recreate the shape from memory. No guide, no trace — just you and your recall.</p>
+          <div class="step-visual">
+            <img src="screen-redraw.png" alt="Redraw step">
+          </div>
+        </div>
+
+        <div class="step-card scroll-fade">
+          <div class="step-number">3</div>
+          <h3 class="step-title">Score</h3>
+          <p class="step-desc">See your drawing overlaid on the original. Each shape is scored out of 10. Five shapes per round.</p>
+          <div class="step-visual">
+            <img src="screen-result.png" alt="Score step">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FEATURES -->
+  <!-- ============================================ -->
+  <section id="features">
+    <div class="container">
+      <div class="scroll-fade">
+        <p class="section-label">Features</p>
+        <h2 class="section-title">Train your spatial memory.</h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card scroll-fade">
+          <div class="feature-icon feature-icon-1">✏️</div>
+          <h3 class="feature-title">5 Shapes per Round</h3>
+          <p class="feature-desc">Each game challenges you with 5 random shapes. Final score out of 50. Can you hit a perfect round?</p>
+        </div>
+
+        <div class="feature-card scroll-fade">
+          <div class="feature-icon feature-icon-2">🎯</div>
+          <h3 class="feature-title">Precision Scoring</h3>
+          <p class="feature-desc">Your drawing is overlaid on the original shape. The closer the match, the higher your score out of 10.</p>
+        </div>
+
+        <div class="feature-card scroll-fade">
+          <div class="feature-icon feature-icon-3">🏆</div>
+          <h3 class="feature-title">Global Leaderboard</h3>
+          <p class="feature-desc">Compete with players worldwide. Sign in with Apple to submit your score and climb the ranks.</p>
+        </div>
+
+        <div class="feature-card scroll-fade">
+          <div class="feature-icon feature-icon-4">📊</div>
+          <h3 class="feature-title">Share Your Results</h3>
+          <p class="feature-desc">Share your round summary with friends. Beautiful score cards make it easy to challenge others.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SCREENSHOT GALLERY -->
+  <!-- ============================================ -->
+  <section style="padding: 40px 0 80px;">
+    <div class="container">
+      <div class="scroll-fade" style="text-align: center; margin-bottom: 48px;">
+        <p class="section-label">In action</p>
+        <h2 class="section-title">See it in action.</h2>
+      </div>
+      <div class="scroll-fade" style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;">
+        <div class="iphone" style="width: 220px; height: 450px; border-radius: 40px; padding: 12px;">
+          <div class="iphone-notch" style="width: 80px; height: 24px;"></div>
+          <div class="iphone-screen" style="border-radius: 30px;">
+            <img src="screen-memorize.png" alt="Memorize phase">
+          </div>
+        </div>
+        <div class="iphone" style="width: 220px; height: 450px; border-radius: 40px; padding: 12px;">
+          <div class="iphone-notch" style="width: 80px; height: 24px;"></div>
+          <div class="iphone-screen" style="border-radius: 30px;">
+            <img src="screen-redraw.png" alt="Redraw phase">
+          </div>
+        </div>
+        <div class="iphone" style="width: 220px; height: 450px; border-radius: 40px; padding: 12px;">
+          <div class="iphone-notch" style="width: 80px; height: 24px;"></div>
+          <div class="iphone-screen" style="border-radius: 30px;">
+            <img src="screen-result.png" alt="Result phase">
+          </div>
+        </div>
+        <div class="iphone" style="width: 220px; height: 450px; border-radius: 40px; padding: 12px;">
+          <div class="iphone-notch" style="width: 80px; height: 24px;"></div>
+          <div class="iphone-screen" style="border-radius: 30px;">
+            <img src="screen-score.png" alt="Final score">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PREMIUM -->
+  <!-- ============================================ -->
+  <section style="padding: 40px 0 100px;">
+    <div class="unlimited">
+      <div class="container">
+        <div class="unlimited-inner">
+          <div class="scroll-fade">
+            <p class="section-label" style="color: rgba(255,255,255,0.4);">Premium</p>
+            <h2 class="section-title">Go Unlimited.</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">3 free games per day. Love it? Unlock unlimited play — one-time purchase, no subscription.</p>
+
+            <ul class="unlimited-features">
+              <li>
+                <div class="unlimited-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                Unlimited games, any time
+              </li>
+              <li>
+                <div class="unlimited-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                Detailed accuracy charts
+              </li>
+              <li>
+                <div class="unlimited-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                Track your progression over time
+              </li>
+              <li>
+                <div class="unlimited-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                One-time purchase. Yours forever.
+              </li>
+            </ul>
+
+            <div class="price-section">
+              <div class="price-badge">
+                <span class="price-amount">2.99 €</span>
+                <span class="price-label">One-time</span>
+              </div>
+              <br><br>
+              <a href="https://apps.apple.com/us/app/shapesnap/id6763502906" target="_blank" rel="noopener" class="app-store-badge">
+                <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="120" height="40" rx="6" fill="#fff"/>
+                  <text x="42" y="13" fill="#111" font-family="DM Sans,system-ui" font-size="7" font-weight="500">Download on the</text>
+                  <text x="42" y="27" fill="#111" font-family="DM Sans,system-ui" font-size="13" font-weight="700">App Store</text>
+                  <g transform="translate(14,8)" fill="#111">
+                    <path d="M12.5 2.3c-.7.8-1.8 1.4-2.9 1.3-.1-1.2.4-2.4 1.1-3.2C11.4-.4 12.6-1 13.6-1c.1 1.2-.4 2.4-1.1 3.3zm1.1 1.7c-1.6-.1-3 .9-3.8.9s-2-.9-3.3-.9C4.7 4.1 3 5.2 2 6.9.1 10.3.9 15.5 2.9 18.3c1 1.4 2.1 2.9 3.7 2.9 1.5-.1 2-.9 3.8-.9s2.3.9 3.8.9c1.6 0 2.6-1.4 3.5-2.8.7-1 1.2-2 1.5-2.5-1.6-.6-2.7-2.3-2.7-4.2 0-1.7.9-3.2 2.3-4-.9-1.3-2.2-2-3.5-2h.3z" transform="scale(0.75)"/>
+                  </g>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="unlimited-visual scroll-fade">
+            <div class="unlock-card">
+              <div class="unlock-icon">∞</div>
+              <h3 class="unlock-title">Unlimited</h3>
+              <p class="unlock-desc">Play as many rounds as you want. Track every game.</p>
+              <div class="unlock-shapes">
+                <div class="unlock-shape" style="background: var(--gradient); clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);"></div>
+                <div class="unlock-shape" style="background: linear-gradient(135deg, #38C773, #3F8DF2); clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);"></div>
+                <div class="unlock-shape" style="background: linear-gradient(135deg, #FCBA33, #F24565); clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);"></div>
+                <div class="unlock-shape" style="background: linear-gradient(135deg, #3F8DF2, #A855F7); clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- ALSO BY US -->
+  <!-- ============================================ -->
+  <section class="also-section">
+    <div class="container">
+      <div class="scroll-fade">
+        <p class="section-label">Also by us</p>
+        <h2 class="section-title" style="font-size: 28px;">Love ShapeSnap? Try ColorSnap.</h2>
+        <p style="color: var(--text2); margin-bottom: 32px;">Same concept — but for colors. Memorize a color, recreate it with HSB sliders.</p>
+        <a href="/colorsnap/" class="also-card">
+          <img src="/colorsnap/colorsnap_logo.png" alt="ColorSnap">
+          <div class="also-card-text">
+            <div class="also-card-title">ColorSnap</div>
+            <div class="also-card-desc">A pure color memory game.</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FOOTER -->
+  <!-- ============================================ -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo">Shape<span class="gradient-text">snap</span></div>
+      <p class="footer-tagline">Memorize. Redraw. Master.</p>
+      <div class="footer-links">
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="mailto:contact@digitme.fun">Support</a>
+        <a href="https://digitme.fun">digitme.fun</a>
+      </div>
+      <p class="footer-copy">
+        &copy; 2025 Digitme. All rights reserved.<br>
+        Apple and the App Store are trademarks of Apple Inc.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scroll animation script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.scroll-fade').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
