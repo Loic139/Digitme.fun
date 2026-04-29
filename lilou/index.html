@@ -431,6 +431,59 @@
 
     .story-emoji { font-size: 22px; flex-shrink: 0; }
 
+    /* ========== SCREENSHOTS ========== */
+    .screenshots-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    .phone-mockup {
+      width: 220px;
+      height: 450px;
+      background: #111;
+      border-radius: 40px;
+      padding: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
+      position: relative;
+    }
+
+    .phone-notch {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 24px;
+      background: #111;
+      border-radius: 0 0 16px 16px;
+      z-index: 2;
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 30px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .phone-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .phone-mockup { width: 180px; height: 370px; border-radius: 34px; padding: 10px; }
+      .phone-screen { border-radius: 26px; }
+      .phone-notch { width: 64px; height: 20px; }
+      .screenshots-row { gap: 16px; }
+    }
+
     /* ========== CTA ========== */
     .cta-section {
       text-align: center;
@@ -642,7 +695,7 @@
     </div>
 
     <div class="hero-content">
-      <div class="hero-emoji fade-in">&#128214;</div>
+      <img src="icone.png" alt="Lilou" class="fade-in" style="width: 100px; height: 100px; border-radius: 24px; margin: 0 auto 20px; display: block; box-shadow: 0 8px 32px rgba(0,0,0,0.12);">
       <div class="hero-badge fade-in delay-1">&#9989; iPhone &amp; iPad</div>
       <h1 class="hero-title fade-in delay-2">Lilou</h1>
       <p class="hero-tagline fade-in delay-3">Les histoires qui donnent envie de lire</p>
@@ -690,6 +743,38 @@
           <div class="feature-emoji">&#127775;</div>
           <h3 class="feature-title">Histoires a choix multiples</h3>
           <p class="feature-desc">L'enfant choisit la suite de l'histoire. Chaque lecture devient une aventure unique.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SCREENSHOTS -->
+  <!-- ============================================ -->
+  <section style="padding: 40px 0 80px;">
+    <div class="container">
+      <div class="scroll-fade" style="text-align: center;">
+        <p class="section-label">L'app en images</p>
+        <h2 class="section-title">Un univers magique</h2>
+      </div>
+      <div class="screenshots-row scroll-fade">
+        <div class="phone-mockup" style="transform: rotate(-3deg);">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <img src="home.png" alt="Lilou - Ecran d'accueil">
+          </div>
+        </div>
+        <div class="phone-mockup" style="transform: rotate(0deg); margin-top: 24px;">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <img src="story1.png" alt="Lilou - Mini-jeu ecriture">
+          </div>
+        </div>
+        <div class="phone-mockup" style="transform: rotate(3deg);">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <img src="story2.png" alt="Lilou - Mini-jeu association">
+          </div>
         </div>
       </div>
     </div>
