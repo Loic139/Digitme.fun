@@ -50,24 +50,11 @@ jobs:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
-          pages=$(find . -name '*.html' -not -path './node_modules/*' -not -path './.git/*' | sed 's|^\./||' | sort)
-          echo "$pages" | sed 's/^/  /'
-          cmds=""
-          for f in $pages; do
-            dir=$(dirname "$f")
-            base=$(basename "$f")
-            # dir vaut "." pour les fichiers racine : sans ce cas particulier
-            # la cible devenait "//index.html" et le renommage ne remettait
-            # jamais la page en place.
-            if [ "$dir" = "." ]; then target="/"; else target="/$dir/"; fi
-            cmds="$cmds
-              mkdir -p -f '$target';
-              put -O '$target' './$f' -o '$base.uploading';
-              mv '$target$base.uploading' '$target$base';"
-          done
-          for attempt in $(seq 1 15); do
-            echo "::group::pages - passe $attempt"
-            if lftp -c "
+          # put + mv laissait index.html absent sans remonter d'erreur, alors
+          # que mirror a deja cree des fichiers a la racine sans probleme :
+          # les pages passent donc par mirror, restreint au HTML.
+          pages_once() {
+            lftp -c "
               set cmd:fail-exit yes;
               set net:max-retries 100;
               set net:reconnect-interval-base 3;
@@ -75,9 +62,22 @@ jobs:
               set net:timeout 20;
               set ftp:ssl-allow no;
               set ftp:passive-mode on;
+              set mirror:parallel-transfer-count 1;
+              set xfer:clobber on;
               open -u '$FTP_USERNAME','$FTP_PASSWORD' '$FTP_SERVER';
-              $cmds
-            "; then
+              mirror -R --verbose=1 --ignore-time --no-perms \
+                --include-glob '*/' \
+                --include-glob '*.html' \
+                --exclude-glob '.git*' \
+                --exclude-glob 'node_modules/' \
+                --exclude-glob 'src/' \
+                --exclude-glob '.claude/' \
+                ./ /;
+            "
+          }
+          for attempt in $(seq 1 15); do
+            echo "::group::pages - passe $attempt"
+            if pages_once; then
               echo "::endgroup::"
               echo "pages en ligne (passe $attempt)"
               break
