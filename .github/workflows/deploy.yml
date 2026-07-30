@@ -45,27 +45,46 @@ jobs:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
-          lftp -c "
-            set cmd:fail-exit yes;
-            set net:max-retries 30;
-            set net:reconnect-interval-base 5;
-            set net:reconnect-interval-multiplier 1;
-            set net:timeout 30;
-            set ftp:ssl-allow no;
-            set ftp:passive-mode on;
-            set mirror:parallel-transfer-count 1;
-            set xfer:clobber on;
-            open -u '$FTP_USERNAME','$FTP_PASSWORD' '$FTP_SERVER';
-            mirror -R --verbose=1 --ignore-time --no-perms \
-              --exclude-glob '.git*' \
-              --exclude-glob 'node_modules/' \
-              --exclude-glob 'src/' \
-              --exclude-glob '.claude/' \
-              --exclude-glob 'package*.json' \
-              --exclude-glob 'tailwind.config.js' \
-              --exclude-glob 'CNAME' \
-              ./ /;
-          "
+          # Le serveur coupe la session toutes les quelques fichiers. lftp
+          # reconnecte, mais finit par epuiser son budget de reconnexions :
+          # on le relance donc plusieurs fois, chaque passe ne reprenant que
+          # ce qui manque encore (comparaison sur la taille).
+          mirror_once() {
+            lftp -c "
+              set cmd:fail-exit yes;
+              set net:max-retries 50;
+              set net:reconnect-interval-base 3;
+              set net:reconnect-interval-multiplier 1;
+              set net:timeout 20;
+              set ftp:ssl-allow no;
+              set ftp:passive-mode on;
+              set mirror:parallel-transfer-count 1;
+              set xfer:clobber on;
+              open -u '$FTP_USERNAME','$FTP_PASSWORD' '$FTP_SERVER';
+              mirror -R --verbose=1 --ignore-time --no-perms \
+                --exclude-glob '.git*' \
+                --exclude-glob 'node_modules/' \
+                --exclude-glob 'src/' \
+                --exclude-glob '.claude/' \
+                --exclude-glob 'package*.json' \
+                --exclude-glob 'tailwind.config.js' \
+                --exclude-glob 'CNAME' \
+                ./ /;
+            "
+          }
+          for attempt in 1 2 3 4 5 6 7 8; do
+            echo "::group::miroir - passe $attempt"
+            if mirror_once; then
+              echo "::endgroup::"
+              echo "miroir complet a la passe $attempt"
+              exit 0
+            fi
+            echo "::endgroup::"
+            echo "passe $attempt interrompue par le serveur, reprise"
+            sleep 5
+          done
+          echo "8 passes n'ont pas suffi a terminer le miroir"
+          exit 1
 
       - name: Verifier quelques fichiers en ligne
         run: |
