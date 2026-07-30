@@ -52,7 +52,7 @@ jobs:
           mirror_once() {
             lftp -c "
               set cmd:fail-exit yes;
-              set net:max-retries 50;
+              set net:max-retries 100;
               set net:reconnect-interval-base 3;
               set net:reconnect-interval-multiplier 1;
               set net:timeout 20;
@@ -72,7 +72,7 @@ jobs:
                 ./ /;
             "
           }
-          for attempt in 1 2 3 4 5 6 7 8; do
+          for attempt in $(seq 1 30); do
             echo "::group::miroir - passe $attempt"
             if mirror_once; then
               echo "::endgroup::"
@@ -83,7 +83,7 @@ jobs:
             echo "passe $attempt interrompue par le serveur, reprise"
             sleep 5
           done
-          echo "8 passes n'ont pas suffi a terminer le miroir"
+          echo "30 passes n'ont pas suffi a terminer le miroir"
           exit 1
 
       - name: Verifier quelques fichiers en ligne
