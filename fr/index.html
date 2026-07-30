@@ -11,24 +11,15 @@
   <!-- Language Detection -->
   <script src="/js/lang.js"></script>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            dark: '#0a0a0a',
-            'dark-light': '#141414',
-            'dark-card': '#1a1a2e',
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          },
-        }
-      }
+  <!-- Tailwind CSS (build statique : npm run build:css) -->
+  <link rel="stylesheet" href="/css/tailwind.css">
+  <style>
+    :root {
+      --c-dark: 10 10 10;
+      --c-dark-light: 20 20 20;
+      --c-dark-card: 26 26 46;
     }
-  </script>
+  </style>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -162,21 +153,6 @@
         </a>
       </div>
 
-      <!-- Stats -->
-      <div data-aos="fade-up" data-aos-delay="400" class="grid grid-cols-3 gap-8 mt-20 max-w-lg mx-auto">
-        <div>
-          <div class="text-3xl font-bold gradient-text counter" data-target="50">0</div>
-          <div class="text-gray-500 text-sm mt-1">Projets livrés</div>
-        </div>
-        <div>
-          <div class="text-3xl font-bold gradient-text counter" data-target="30">0</div>
-          <div class="text-gray-500 text-sm mt-1">Clients satisfaits</div>
-        </div>
-        <div>
-          <div class="text-3xl font-bold gradient-text counter" data-target="99">0</div>
-          <div class="text-gray-500 text-sm mt-1">% Satisfaction</div>
-        </div>
-      </div>
     </div>
 
     <!-- Scroll indicator -->
@@ -463,72 +439,39 @@
   </section>
 
   <!-- ============================================ -->
-  <!-- TESTIMONIALS SECTION -->
+  <!-- RESULTS SECTION -->
   <!-- ============================================ -->
-  <section id="testimonials" class="py-24">
+  <section id="results" class="py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16" data-aos="fade-up">
-        <span class="text-cyan-400 font-semibold text-sm uppercase tracking-wider">Témoignages</span>
-        <h2 class="text-4xl sm:text-5xl font-bold mt-3 mb-4">Ce que disent <span class="gradient-text">nos clients</span></h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">La satisfaction de nos clients est notre meilleure carte de visite.</p>
+        <span class="text-cyan-400 font-semibold text-sm uppercase tracking-wider">Résultats</span>
+        <h2 class="text-4xl sm:text-5xl font-bold mt-3 mb-4">Ce que vous obtenez <span class="gradient-text">concrètement</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Des livrables et des délais précis, fixés avant de commencer.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Testimonial 1 -->
         <div data-aos="fade-up" class="bg-dark-card/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:border-violet-500/20 transition-all duration-300">
-          <div class="flex items-center gap-1 mb-4">
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+          <div class="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center mb-6">
+            <i data-lucide="layout-template" class="w-6 h-6 text-violet-400"></i>
           </div>
-          <p class="text-gray-300 leading-relaxed mb-6">"Digitme.fun a transformé notre présence en ligne. Le site est magnifique et les résultats sont au rendez-vous. Je recommande à 100% !"</p>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-pink-500 flex items-center justify-center font-bold text-sm">MC</div>
-            <div>
-              <div class="font-semibold text-sm">Marie Dupont</div>
-              <div class="text-gray-500 text-xs">CEO, FashionStore</div>
-            </div>
-          </div>
+          <h3 class="text-xl font-bold mb-3">Un site en ligne en 2 semaines</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Structure claire, pages légères, pensé mobile d'abord, et une prise de contact en un geste : WhatsApp ou appel réservé. Hébergement et domaine mis en place avec vous.</p>
         </div>
 
-        <!-- Testimonial 2 -->
         <div data-aos="fade-up" data-aos-delay="100" class="bg-dark-card/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:border-pink-500/20 transition-all duration-300">
-          <div class="flex items-center gap-1 mb-4">
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+          <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center mb-6">
+            <i data-lucide="bot" class="w-6 h-6 text-pink-400"></i>
           </div>
-          <p class="text-gray-300 leading-relaxed mb-6">"Le chatbot IA qu'ils ont créé a réduit nos tickets support de 60%. Un travail incroyable et une équipe super réactive."</p>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-yellow-500 flex items-center justify-center font-bold text-sm">TL</div>
-            <div>
-              <div class="font-semibold text-sm">Thomas Laurent</div>
-              <div class="text-gray-500 text-xs">CTO, TechService</div>
-            </div>
-          </div>
+          <h3 class="text-xl font-bold mb-3">Un assistant IA nourri par vos contenus</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Un chatbot entraîné sur vos documents, vos tarifs et vos questions fréquentes. Il répond en continu et vous passe la main dès qu'un humain est nécessaire.</p>
         </div>
 
-        <!-- Testimonial 3 -->
         <div data-aos="fade-up" data-aos-delay="200" class="bg-dark-card/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:border-cyan-500/20 transition-all duration-300">
-          <div class="flex items-center gap-1 mb-4">
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-6">
+            <i data-lucide="workflow" class="w-6 h-6 text-cyan-400"></i>
           </div>
-          <p class="text-gray-300 leading-relaxed mb-6">"L'automatisation de nos processus nous fait gagner 20h par semaine. L'investissement le plus rentable de l'année !"</p>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center font-bold text-sm">SB</div>
-            <div>
-              <div class="font-semibold text-sm">Sophie Bernard</div>
-              <div class="text-gray-500 text-xs">Directrice, AgenceMarketing</div>
-            </div>
-          </div>
+          <h3 class="text-xl font-bold mb-3">Les tâches répétitives, automatisées</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Vos outils reliés de bout en bout — boîte mail, CRM, agenda, facturation — pour que devis, relances et rappels ne passent plus par du copier-coller.</p>
         </div>
       </div>
     </div>
@@ -800,7 +743,7 @@
             <i data-lucide="plus" class="w-5 h-5 text-gray-400 flex-shrink-0 faq-icon transition-transform duration-300"></i>
           </button>
           <div class="faq-content hidden px-6 pb-6">
-            <p class="text-gray-400 text-sm leading-relaxed">Absolument ! Nous travaillons avec des clients en France et à l'international. Grâce aux outils collaboratifs modernes, la distance n'est jamais un obstacle. Nos échanges se font en français et en anglais.</p>
+            <p class="text-gray-400 text-sm leading-relaxed">Absolument ! Nous travaillons avec des clients en Suisse, en France et à l'international. Grâce aux outils collaboratifs modernes, la distance n'est jamais un obstacle. Nos échanges se font en français et en anglais.</p>
           </div>
         </div>
       </div>
@@ -859,7 +802,7 @@
             <i data-lucide="map-pin" class="w-6 h-6 text-cyan-400"></i>
           </div>
           <span class="font-semibold text-sm">100% Remote</span>
-          <span class="text-gray-500 text-xs">France & International</span>
+          <span class="text-gray-500 text-xs">Suisse &amp; international</span>
         </div>
       </div>
     </div>

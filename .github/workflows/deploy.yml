@@ -13,6 +13,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Tailwind CSS
+        run: npm run build:css
+
       - name: Deploy to Infomaniak FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -25,4 +37,9 @@ jobs:
             **/.git*
             **/.git*/**
             **/.claude/**
+            **/node_modules/**
+            **/src/**
             **/CNAME
+            package.json
+            package-lock.json
+            tailwind.config.js

@@ -11,24 +11,15 @@
   <!-- Language Detection -->
   <script src="/js/lang.js"></script>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            dark: '#0a0a0a',
-            'dark-light': '#111111',
-            'dark-card': '#0f1a14',
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          },
-        }
-      }
+  <!-- Tailwind CSS (build statique : npm run build:css) -->
+  <link rel="stylesheet" href="/css/tailwind.css">
+  <style>
+    :root {
+      --c-dark: 10 10 10;
+      --c-dark-light: 17 17 17;
+      --c-dark-card: 15 26 20;
     }
-  </script>
+  </style>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -183,7 +174,7 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <a href="/" class="flex items-center gap-2 group">
-          <img src="images//images/friendping_logo.png" alt="friendping!" class="h-9 w-auto group-hover:scale-110 transition-transform drop-shadow-lg"/>
+          <img src="/images/friendping_logo.png" alt="friendping!" class="h-9 w-auto group-hover:scale-110 transition-transform drop-shadow-lg"/>
         </a>
         <!-- Language Switcher -->
         <div class="flex items-center gap-0.5 text-sm font-semibold border border-white/20 rounded-full px-1.5 py-1 mr-2">
@@ -249,7 +240,7 @@
               <div class="px-5 pt-2 pb-3 border-b border-white/5">
                 <div class="flex items-center justify-between">
                   <div class="flex items-center gap-1">
-                    <img src="images//images/friendping_logo.png" alt="friendping!" class="h-7 w-auto"/>
+                    <img src="/images/friendping_logo.png" alt="friendping!" class="h-7 w-auto"/>
                   </div>
                   <i data-lucide="bell" class="w-4 h-4 text-gray-500"></i>
                 </div>
@@ -512,7 +503,7 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
         <div class="flex items-center gap-2">
-          <img src="images//images/friendping_logo.png" alt="friendping!" class="h-10 w-auto"/>
+          <img src="/images/friendping_logo.png" alt="friendping!" class="h-10 w-auto"/>
           <span class="font-bold">friendping!</span>
           <span class="text-gray-500 text-sm">by</span>
           <a href="/" class="text-sm font-semibold bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent hover:opacity-80 transition-opacity">Digitme.fun</a>

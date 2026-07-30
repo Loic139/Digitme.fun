@@ -11,24 +11,15 @@
   <!-- Language Detection -->
   <script src="/js/lang.js"></script>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            dark: '#0a0a0a',
-            'dark-light': '#141414',
-            'dark-card': '#1a1a2e',
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          },
-        }
-      }
+  <!-- Tailwind CSS (build statique : npm run build:css) -->
+  <link rel="stylesheet" href="/css/tailwind.css">
+  <style>
+    :root {
+      --c-dark: 10 10 10;
+      --c-dark-light: 20 20 20;
+      --c-dark-card: 26 26 46;
     }
-  </script>
+  </style>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -162,21 +153,6 @@
         </a>
       </div>
 
-      <!-- Stats -->
-      <div data-aos="fade-up" data-aos-delay="400" class="grid grid-cols-3 gap-8 mt-20 max-w-lg mx-auto">
-        <div>
-          <div class="text-3xl font-bold gradient-text counter" data-target="50">0</div>
-          <div class="text-gray-500 text-sm mt-1">Projects delivered</div>
-        </div>
-        <div>
-          <div class="text-3xl font-bold gradient-text counter" data-target="30">0</div>
-          <div class="text-gray-500 text-sm mt-1">Happy clients</div>
-        </div>
-        <div>
-          <div class="text-3xl font-bold gradient-text counter" data-target="99">0</div>
-          <div class="text-gray-500 text-sm mt-1">% Satisfaction</div>
-        </div>
-      </div>
     </div>
 
     <!-- Scroll indicator -->
@@ -463,72 +439,39 @@
   </section>
 
   <!-- ============================================ -->
-  <!-- TESTIMONIALS SECTION -->
+  <!-- RESULTS SECTION -->
   <!-- ============================================ -->
-  <section id="testimonials" class="py-24">
+  <section id="results" class="py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16" data-aos="fade-up">
-        <span class="text-cyan-400 font-semibold text-sm uppercase tracking-wider">Testimonials</span>
-        <h2 class="text-4xl sm:text-5xl font-bold mt-3 mb-4">What <span class="gradient-text">our clients</span> say</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">Client satisfaction is our best calling card.</p>
+        <span class="text-cyan-400 font-semibold text-sm uppercase tracking-wider">Results</span>
+        <h2 class="text-4xl sm:text-5xl font-bold mt-3 mb-4">What you <span class="gradient-text">actually get</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Concrete deliverables and timelines, agreed before we start.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Testimonial 1 -->
         <div data-aos="fade-up" class="bg-dark-card/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:border-violet-500/20 transition-all duration-300">
-          <div class="flex items-center gap-1 mb-4">
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+          <div class="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center mb-6">
+            <i data-lucide="layout-template" class="w-6 h-6 text-violet-400"></i>
           </div>
-          <p class="text-gray-300 leading-relaxed mb-6">"Digitme.fun transformed our online presence. The website is beautiful and the results speak for themselves. 100% recommended!"</p>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-pink-500 flex items-center justify-center font-bold text-sm">MC</div>
-            <div>
-              <div class="font-semibold text-sm">Marie Dupont</div>
-              <div class="text-gray-500 text-xs">CEO, FashionStore</div>
-            </div>
-          </div>
+          <h3 class="text-xl font-bold mb-3">A site live in 2 weeks</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Clear structure, lightweight pages, mobile-first, and a contact path that takes one tap: WhatsApp or a booked call. Hosting and domain set up with you.</p>
         </div>
 
-        <!-- Testimonial 2 -->
         <div data-aos="fade-up" data-aos-delay="100" class="bg-dark-card/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:border-pink-500/20 transition-all duration-300">
-          <div class="flex items-center gap-1 mb-4">
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+          <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center mb-6">
+            <i data-lucide="bot" class="w-6 h-6 text-pink-400"></i>
           </div>
-          <p class="text-gray-300 leading-relaxed mb-6">"The AI chatbot they built reduced our support tickets by 60%. Incredible work and an incredibly responsive team."</p>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-yellow-500 flex items-center justify-center font-bold text-sm">TL</div>
-            <div>
-              <div class="font-semibold text-sm">Thomas Laurent</div>
-              <div class="text-gray-500 text-xs">CTO, TechService</div>
-            </div>
-          </div>
+          <h3 class="text-xl font-bold mb-3">An AI assistant on your own content</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">A chatbot trained on your documents, prices and FAQs. It answers around the clock and hands over to you when a human is needed.</p>
         </div>
 
-        <!-- Testimonial 3 -->
         <div data-aos="fade-up" data-aos-delay="200" class="bg-dark-card/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:border-cyan-500/20 transition-all duration-300">
-          <div class="flex items-center gap-1 mb-4">
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-6">
+            <i data-lucide="workflow" class="w-6 h-6 text-cyan-400"></i>
           </div>
-          <p class="text-gray-300 leading-relaxed mb-6">"Automating our processes saves us 20 hours a week. The most profitable investment of the year!"</p>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center font-bold text-sm">SB</div>
-            <div>
-              <div class="font-semibold text-sm">Sophie Bernard</div>
-              <div class="text-gray-500 text-xs">Director, AgenceMarketing</div>
-            </div>
-          </div>
+          <h3 class="text-xl font-bold mb-3">Repetitive work, automated</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Your tools connected end to end — mailbox, CRM, calendar, invoicing — so quotes, follow-ups and reminders no longer go through copy and paste.</p>
         </div>
       </div>
     </div>
@@ -800,7 +743,7 @@
             <i data-lucide="plus" class="w-5 h-5 text-gray-400 flex-shrink-0 faq-icon transition-transform duration-300"></i>
           </button>
           <div class="faq-content hidden px-6 pb-6">
-            <p class="text-gray-400 text-sm leading-relaxed">Absolutely! We work with clients in France and internationally. Thanks to modern collaboration tools, distance is never a barrier. We communicate in both French and English.</p>
+            <p class="text-gray-400 text-sm leading-relaxed">Absolutely! We work with clients in Switzerland, France and internationally. Thanks to modern collaboration tools, distance is never a barrier. We communicate in both French and English.</p>
           </div>
         </div>
       </div>
@@ -858,7 +801,7 @@
             <i data-lucide="map-pin" class="w-6 h-6 text-cyan-400"></i>
           </div>
           <span class="font-semibold text-sm">100% Remote</span>
-          <span class="text-gray-500 text-xs">France & Worldwide</span>
+          <span class="text-gray-500 text-xs">Switzerland &amp; worldwide</span>
         </div>
       </div>
     </div>

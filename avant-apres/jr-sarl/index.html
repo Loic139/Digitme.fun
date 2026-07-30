@@ -6,21 +6,25 @@
   <title>JR Sàrl — Ferblanterie, Couverture, Sanitaire & Chauffage à Fribourg</title>
   <meta name="description" content="JR Sàrl à Fribourg : ferblanterie, couverture, sanitaire et chauffage. Entreprise familiale depuis 2007. Devis gratuit.">
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: { 50:'#fef7ee', 100:'#fdeed7', 200:'#f9d9ae', 300:'#f5bd7a', 400:'#ef9743', 500:'#eb7a1e', 600:'#dc6114', 700:'#b74a13', 800:'#923b17', 900:'#7a3316' },
-            slate: { 850:'#1a2332', 900:'#0f172a', 950:'#0a1120' },
-          },
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-        }
-      }
+  <!-- Tailwind CSS (build statique : npm run build:css) -->
+  <link rel="stylesheet" href="/css/tailwind.css">
+  <style>
+    :root {
+      --c-brand-50: 254 247 238;
+      --c-brand-100: 253 238 215;
+      --c-brand-200: 249 217 174;
+      --c-brand-300: 245 189 122;
+      --c-brand-400: 239 151 67;
+      --c-brand-500: 235 122 30;
+      --c-brand-600: 220 97 20;
+      --c-brand-700: 183 74 19;
+      --c-brand-800: 146 59 23;
+      --c-brand-900: 122 51 22;
+      --c-slate-850: 26 35 50;
+      --c-slate-900: 15 23 42;
+      --c-slate-950: 10 17 32;
     }
-  </script>
+  </style>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -6,29 +6,19 @@
   <title>MC Artisan Peintre — Peinture & Rénovation à Genève</title>
   <meta name="description" content="MC Artisan Peintre : 40 ans d'expérience en peinture, rénovation intérieure et extérieure à Genève et en Suisse Romande. Devis gratuit.">
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: '#C8782A',
-            'brand-dark': '#A5631F',
-            'brand-light': '#E8A54D',
-            dark: '#1a1a1a',
-            'dark-light': '#222222',
-            'dark-card': '#2a2a2a',
-            warm: '#F5F0EB',
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            display: ['Playfair Display', 'serif'],
-          },
-        }
-      }
+  <!-- Tailwind CSS (build statique : npm run build:css) -->
+  <link rel="stylesheet" href="/css/tailwind.css">
+  <style>
+    :root {
+      --c-brand: 200 120 42;
+      --c-brand-dark: 165 99 31;
+      --c-brand-light: 232 165 77;
+      --c-dark: 26 26 26;
+      --c-dark-light: 34 34 34;
+      --c-dark-card: 42 42 42;
+      --c-warm: 245 240 235;
     }
-  </script>
+  </style>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

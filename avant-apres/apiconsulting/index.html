@@ -6,22 +6,18 @@
   <title>API Consulting — Informatique PME & privé | Redesign par Digitme.fun</title>
   <meta name="description" content="API Consulting — Conseils, audit, systèmes, réseau, domotique et impression 3D pour PME et privés. Redesign par Digitme.fun.">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: { 400: '#3b9eed', 500: '#0b4e8b', 600: '#083d6e' },
-            dark: '#060b16',
-            'dark-light': '#0c1526',
-            'dark-card': '#111b2e',
-          },
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-        }
-      }
+  <!-- Tailwind CSS (build statique : npm run build:css) -->
+  <link rel="stylesheet" href="/css/tailwind.css">
+  <style>
+    :root {
+      --c-brand-400: 59 158 237;
+      --c-brand-500: 11 78 139;
+      --c-brand-600: 8 61 110;
+      --c-dark: 6 11 22;
+      --c-dark-light: 12 21 38;
+      --c-dark-card: 17 27 46;
     }
-  </script>
+  </style>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
