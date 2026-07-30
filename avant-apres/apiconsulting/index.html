@@ -19,11 +19,11 @@
     }
   </style>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <!-- Polices auto-hebergees (css/fonts.css) -->
+  <link rel="preload" href="/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/aos.css">
 
   <style>
     body { background: #060b16; }
@@ -59,7 +59,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <a href="#" class="flex items-center gap-3 group">
-          <img src="https://www.apiconsulting.ch/wp-content/uploads/2024/10/cropped-Pomme-Photoroom-1.png" alt="API Consulting" class="w-10 h-10 rounded-xl group-hover:scale-110 transition-transform">
+          <img decoding="async" loading="eager" height="512" width="512" src="/images/external/cropped-Pomme-Photoroom-1-810729f2.webp" alt="API Consulting" class="w-10 h-10 rounded-xl group-hover:scale-110 transition-transform">
           <span class="text-lg font-bold text-white">API Consulting</span>
         </a>
 
@@ -69,7 +69,7 @@
           <a href="#temoignages" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Avis</a>
           <a href="#contact" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Contact</a>
           <a href="tel:+41263213690" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full btn-primary text-white font-semibold text-sm hover:scale-105 transition-transform shadow-lg shadow-brand-500/25">
-            <i data-lucide="phone" class="w-4 h-4"></i>
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
             +41 26 321 36 90
           </a>
         </div>
@@ -96,7 +96,7 @@
   <!-- HERO -->
   <section class="hero-gradient relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
     <div class="absolute inset-0">
-      <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&q=80" alt="" class="w-full h-full object-cover opacity-10">
+      <img decoding="async" loading="eager" height="898" width="1600" src="/images/external/photo-1558494949-ef010cbdcc31-26abe29b.webp" alt="" class="w-full h-full object-cover opacity-10">
       <div class="absolute inset-0 bg-gradient-to-r from-dark via-dark/95 to-dark/70"></div>
     </div>
     <div class="absolute inset-0">
@@ -124,12 +124,12 @@
 
           <div class="flex flex-col sm:flex-row gap-4">
             <a href="tel:+41263213690" class="group flex items-center justify-center gap-2 px-8 py-4 rounded-full btn-primary text-white font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-brand-500/25">
-              <i data-lucide="phone" class="w-5 h-5"></i>
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
               Devis gratuit
             </a>
             <a href="#services" class="group flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-white/10 hover:border-brand-500/50 text-white font-semibold transition-all hover:bg-white/5">
               Nos services
-              <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
+              <svg class="w-4 h-4 group-hover:translate-y-1 transition-transform" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></svg>
             </a>
           </div>
         </div>
@@ -137,28 +137,28 @@
         <div data-aos="fade-left" class="grid grid-cols-2 gap-4">
           <div class="bg-dark-card/50 backdrop-blur border border-white/5 rounded-2xl p-6 card-hover">
             <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center mb-3">
-              <i data-lucide="shield-check" class="w-6 h-6 text-brand-400"></i>
+              <svg class="w-6 h-6 text-brand-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg>
             </div>
             <p class="text-3xl font-black text-white">100%</p>
             <p class="text-gray-400 text-sm">Sécurité réseau</p>
           </div>
           <div class="bg-dark-card/50 backdrop-blur border border-white/5 rounded-2xl p-6 card-hover float-anim" style="animation-delay: 0.5s;">
             <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-3">
-              <i data-lucide="clock" class="w-6 h-6 text-cyan-400"></i>
+              <svg class="w-6 h-6 text-cyan-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
             </div>
             <p class="text-3xl font-black text-white">&lt;24h</p>
             <p class="text-gray-400 text-sm">Temps de réponse</p>
           </div>
           <div class="bg-dark-card/50 backdrop-blur border border-white/5 rounded-2xl p-6 card-hover float-anim" style="animation-delay: 1s;">
             <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-3">
-              <i data-lucide="building-2" class="w-6 h-6 text-green-400"></i>
+              <svg class="w-6 h-6 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" /><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" /><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" /><path d="M10 6h4" /><path d="M10 10h4" /><path d="M10 14h4" /><path d="M10 18h4" /></svg>
             </div>
             <p class="text-3xl font-black text-white">PME</p>
             <p class="text-gray-400 text-sm">& particuliers</p>
           </div>
           <div class="bg-dark-card/50 backdrop-blur border border-white/5 rounded-2xl p-6 card-hover">
             <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-3">
-              <i data-lucide="map-pin" class="w-6 h-6 text-purple-400"></i>
+              <svg class="w-6 h-6 text-purple-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
             </div>
             <p class="text-3xl font-black text-white">Suisse</p>
             <p class="text-gray-400 text-sm">romande</p>
@@ -180,11 +180,11 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div data-aos="fade-up" data-aos-delay="0" class="group bg-dark-card/50 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
           <div class="h-44 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="Conseils et audits IT" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="400" width="600" src="/images/external/photo-1454165804606-c3d57bc86b40-20f465ef.webp" alt="Conseils et audits IT" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-6">
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-11 h-11 rounded-xl bg-brand-500/10 flex items-center justify-center"><i data-lucide="search" class="w-5 h-5 text-brand-400"></i></div>
+              <div class="w-11 h-11 rounded-xl bg-brand-500/10 flex items-center justify-center"><svg class="w-5 h-5 text-brand-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></div>
               <h3 class="text-lg font-bold text-white">Conseils & audits</h3>
             </div>
             <p class="text-gray-400 text-sm">Diagnostic IT, sécurité, conformité et feuille de route pragmatique pour votre infrastructure.</p>
@@ -193,11 +193,11 @@
 
         <div data-aos="fade-up" data-aos-delay="100" class="group bg-dark-card/50 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
           <div class="h-44 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=600&q=80" alt="Hardware serveurs" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="450" width="600" src="/images/external/photo-1591799264318-7e6ef8ddb7ea-a6a82bc9.webp" alt="Hardware serveurs" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-6">
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-11 h-11 rounded-xl bg-cyan-500/10 flex items-center justify-center"><i data-lucide="server" class="w-5 h-5 text-cyan-400"></i></div>
+              <div class="w-11 h-11 rounded-xl bg-cyan-500/10 flex items-center justify-center"><svg class="w-5 h-5 text-cyan-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /><rect width="20" height="8" x="2" y="14" rx="2" ry="2" /><line x1="6" x2="6.01" y1="6" y2="6" /><line x1="6" x2="6.01" y1="18" y2="18" /></svg></div>
               <h3 class="text-lg font-bold text-white">Hardware</h3>
             </div>
             <p class="text-gray-400 text-sm">Installation et maintenance de serveurs, PC, systèmes de protection et sauvegardes automatisées.</p>
@@ -206,11 +206,11 @@
 
         <div data-aos="fade-up" data-aos-delay="200" class="group bg-dark-card/50 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
           <div class="h-44 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=600&q=80" alt="Systèmes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="450" width="600" src="/images/external/photo-1629654297299-c8506221ca97-2e7dff0b.webp" alt="Systèmes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-6">
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-11 h-11 rounded-xl bg-violet-500/10 flex items-center justify-center"><i data-lucide="monitor" class="w-5 h-5 text-violet-400"></i></div>
+              <div class="w-11 h-11 rounded-xl bg-violet-500/10 flex items-center justify-center"><svg class="w-5 h-5 text-violet-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></svg></div>
               <h3 class="text-lg font-bold text-white">Système</h3>
             </div>
             <p class="text-gray-400 text-sm">Mise en place d'environnements Windows/Linux et automatisations (scripts, Ansible).</p>
@@ -219,11 +219,11 @@
 
         <div data-aos="fade-up" data-aos-delay="0" class="group bg-dark-card/50 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
           <div class="h-44 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=80" alt="Réseau sécurisé" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="400" width="600" src="/images/external/photo-1544197150-b99a580bb7a8-c726559d.webp" alt="Réseau sécurisé" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-6">
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-11 h-11 rounded-xl bg-green-500/10 flex items-center justify-center"><i data-lucide="wifi" class="w-5 h-5 text-green-400"></i></div>
+              <div class="w-11 h-11 rounded-xl bg-green-500/10 flex items-center justify-center"><svg class="w-5 h-5 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 20h.01" /><path d="M2 8.82a15 15 0 0 1 20 0" /><path d="M5 12.859a10 10 0 0 1 14 0" /><path d="M8.5 16.429a5 5 0 0 1 7 0" /></svg></div>
               <h3 class="text-lg font-bold text-white">Réseau</h3>
             </div>
             <p class="text-gray-400 text-sm">VPN, firewall, Wifi pro, segmentation et réseau sécurisé pour vos collaborateurs.</p>
@@ -232,11 +232,11 @@
 
         <div data-aos="fade-up" data-aos-delay="100" class="group bg-dark-card/50 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
           <div class="h-44 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80" alt="Domotique" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="400" width="600" src="/images/external/photo-1558002038-1055907df827-c78cf5b7.webp" alt="Domotique" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-6">
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-11 h-11 rounded-xl bg-yellow-500/10 flex items-center justify-center"><i data-lucide="home" class="w-5 h-5 text-yellow-400"></i></div>
+              <div class="w-11 h-11 rounded-xl bg-yellow-500/10 flex items-center justify-center"><svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg></div>
               <h3 class="text-lg font-bold text-white">Domotique</h3>
             </div>
             <p class="text-gray-400 text-sm">Automatisation intelligente des espaces de travail, surveillance et pilotage à distance.</p>
@@ -245,11 +245,11 @@
 
         <div data-aos="fade-up" data-aos-delay="200" class="group bg-dark-card/50 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
           <div class="h-44 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80" alt="Impression 3D" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="400" width="600" src="/images/external/photo-1581091226825-a6a2a5aee158-b092aa65.webp" alt="Impression 3D" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-6">
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-11 h-11 rounded-xl bg-pink-500/10 flex items-center justify-center"><i data-lucide="box" class="w-5 h-5 text-pink-400"></i></div>
+              <div class="w-11 h-11 rounded-xl bg-pink-500/10 flex items-center justify-center"><svg class="w-5 h-5 text-pink-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /><path d="m3.3 7 8.7 5 8.7-5" /><path d="M12 22V12" /></svg></div>
               <h3 class="text-lg font-bold text-white">Imprimerie 3D</h3>
             </div>
             <p class="text-gray-400 text-sm">Prototypage rapide et pièces fonctionnelles pour vos installations techniques.</p>
@@ -270,28 +270,28 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" data-aos="fade-up" data-aos-delay="100">
         <div class="text-center p-6">
           <div class="w-16 h-16 mx-auto rounded-2xl bg-brand-500/10 flex items-center justify-center mb-4">
-            <i data-lucide="headphones" class="w-8 h-8 text-brand-400"></i>
+            <svg class="w-8 h-8 text-brand-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3" /></svg>
           </div>
           <h3 class="font-bold text-white mb-2">Support réactif</h3>
           <p class="text-gray-400 text-sm">Réponse en moins de 24h, dépannage rapide sur site ou à distance.</p>
         </div>
         <div class="text-center p-6">
           <div class="w-16 h-16 mx-auto rounded-2xl bg-cyan-500/10 flex items-center justify-center mb-4">
-            <i data-lucide="lock" class="w-8 h-8 text-cyan-400"></i>
+            <svg class="w-8 h-8 text-cyan-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
           </div>
           <h3 class="font-bold text-white mb-2">Sécurité maximale</h3>
           <p class="text-gray-400 text-sm">Firewall, VPN, sauvegardes et audit pour protéger vos données.</p>
         </div>
         <div class="text-center p-6">
           <div class="w-16 h-16 mx-auto rounded-2xl bg-green-500/10 flex items-center justify-center mb-4">
-            <i data-lucide="puzzle" class="w-8 h-8 text-green-400"></i>
+            <svg class="w-8 h-8 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z" /></svg>
           </div>
           <h3 class="font-bold text-white mb-2">Solutions sur mesure</h3>
           <p class="text-gray-400 text-sm">Chaque infrastructure est unique. Nous adaptons nos solutions à vos besoins.</p>
         </div>
         <div class="text-center p-6">
           <div class="w-16 h-16 mx-auto rounded-2xl bg-purple-500/10 flex items-center justify-center mb-4">
-            <i data-lucide="map-pin" class="w-8 h-8 text-purple-400"></i>
+            <svg class="w-8 h-8 text-purple-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
           </div>
           <h3 class="font-bold text-white mb-2">100% local</h3>
           <p class="text-gray-400 text-sm">Basés en Suisse romande, intervention rapide dans le Valais et à Fribourg.</p>
@@ -312,7 +312,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div data-aos="fade-up" class="bg-dark-card/50 border border-white/5 rounded-2xl overflow-hidden card-hover group">
           <div class="aspect-video overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f2?w=600&q=80" alt="Audit sécurité" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="400" width="600" src="/images/external/photo-1544197150-b99a580bb7a8-c726559d.webp" alt="Audit sécurité" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-5">
             <h4 class="font-bold text-white mb-1">Audit sécurité réseau</h4>
@@ -323,7 +323,7 @@
 
         <div data-aos="fade-up" data-aos-delay="100" class="bg-dark-card/50 border border-white/5 rounded-2xl overflow-hidden card-hover group">
           <div class="aspect-video overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80" alt="Infrastructure IT" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="337" width="600" src="/images/external/photo-1558494949-ef010cbdcc31-8d8f66c0.webp" alt="Infrastructure IT" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-5">
             <h4 class="font-bold text-white mb-1">Infrastructure IT complète</h4>
@@ -334,7 +334,7 @@
 
         <div data-aos="fade-up" data-aos-delay="200" class="bg-dark-card/50 border border-white/5 rounded-2xl overflow-hidden card-hover group">
           <div class="aspect-video overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80" alt="Domotique" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="400" width="600" src="/images/external/photo-1558002038-1055907df827-c78cf5b7.webp" alt="Domotique" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-5">
             <h4 class="font-bold text-white mb-1">Salle de réunion connectée</h4>
@@ -357,11 +357,11 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div data-aos="fade-up" class="bg-dark-card/50 backdrop-blur border border-white/5 rounded-2xl p-8 card-hover">
           <div class="flex items-center gap-1 mb-4">
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <svg class="w-4 h-4 text-yellow-400 fill-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400 fill-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400 fill-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400 fill-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400 fill-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
           </div>
           <p class="text-gray-300 mb-6 italic leading-relaxed">"Intervention rapide et résultats au-delà de nos attentes. Notre réseau est stable et sûr, merci API Consulting !"</p>
           <div class="flex items-center gap-3">
@@ -375,11 +375,11 @@
 
         <div data-aos="fade-up" data-aos-delay="100" class="bg-dark-card/50 backdrop-blur border border-white/5 rounded-2xl p-8 card-hover">
           <div class="flex items-center gap-1 mb-4">
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <svg class="w-4 h-4 text-yellow-400 fill-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400 fill-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400 fill-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400 fill-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400 fill-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
           </div>
           <p class="text-gray-300 mb-6 italic leading-relaxed">"Devis clair, communication top, et support instantané. Je recommande à 100%."</p>
           <div class="flex items-center gap-3">
@@ -393,11 +393,11 @@
 
         <div data-aos="fade-up" data-aos-delay="200" class="bg-dark-card/50 backdrop-blur border border-white/5 rounded-2xl p-8 card-hover">
           <div class="flex items-center gap-1 mb-4">
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <svg class="w-4 h-4 text-yellow-400 fill-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400 fill-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400 fill-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400 fill-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
+            <svg class="w-4 h-4 text-yellow-400 fill-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
           </div>
           <p class="text-gray-300 mb-6 italic leading-relaxed">"Nous avons gagné 1 jour par semaine d'efficacité au service informatique. Quel impact !"</p>
           <div class="flex items-center gap-3">
@@ -424,7 +424,7 @@
           <div class="space-y-4 mb-8">
             <div class="flex items-center gap-4">
               <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center flex-shrink-0">
-                <i data-lucide="phone" class="w-5 h-5 text-brand-400"></i>
+                <svg class="w-5 h-5 text-brand-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
               </div>
               <div>
                 <p class="text-gray-400 text-sm">Téléphone</p>
@@ -433,7 +433,7 @@
             </div>
             <div class="flex items-center gap-4">
               <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
-                <i data-lucide="mail" class="w-5 h-5 text-cyan-400"></i>
+                <svg class="w-5 h-5 text-cyan-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
               </div>
               <div>
                 <p class="text-gray-400 text-sm">Email</p>
@@ -442,7 +442,7 @@
             </div>
             <div class="flex items-center gap-4">
               <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center flex-shrink-0">
-                <i data-lucide="map-pin" class="w-5 h-5 text-green-400"></i>
+                <svg class="w-5 h-5 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
               </div>
               <div>
                 <p class="text-gray-400 text-sm">Localisation</p>
@@ -453,11 +453,11 @@
 
           <div class="flex flex-wrap gap-3">
             <a href="tel:+41263213690" class="inline-flex items-center gap-2 px-6 py-3 rounded-full btn-primary text-white font-semibold hover:scale-105 transition-transform shadow-lg shadow-brand-500/25">
-              <i data-lucide="phone" class="w-4 h-4"></i>
+              <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
               Appeler maintenant
             </a>
             <a href="mailto:info@apiconsulting.ch" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-white/10 hover:border-brand-500/50 text-white font-semibold transition-all hover:bg-white/5">
-              <i data-lucide="mail" class="w-4 h-4"></i>
+              <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
               Envoyer un email
             </a>
           </div>
@@ -466,7 +466,7 @@
         <div data-aos="fade-left">
           <div class="bg-dark-card/50 backdrop-blur border border-white/5 rounded-2xl p-8">
             <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-              <i data-lucide="send" class="w-5 h-5 text-brand-400"></i>
+              <svg class="w-5 h-5 text-brand-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" /><path d="m21.854 2.147-10.94 10.939" /></svg>
               Demande de devis express
             </h3>
             <form class="space-y-4">
@@ -507,7 +507,7 @@
           </a>
           <a href="https://calendly.com/digitme-fun" target="_blank" rel="noopener"
              class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-violet-500 to-pink-500 text-white font-semibold transition-all hover:scale-105 shadow-lg shadow-violet-500/25">
-            <i data-lucide="calendar" class="w-5 h-5"></i>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg>
             Prendre rendez-vous
           </a>
         </div>
@@ -516,10 +516,9 @@
     </div>
   </footer>
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="/js/aos.js"></script>
   <script>
     AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
-    lucide.createIcons();
 
     const toggle = document.getElementById('mobile-toggle');
     const menu = document.getElementById('mobile-menu');

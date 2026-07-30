@@ -21,16 +21,14 @@
     }
   </style>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Polices auto-hebergees (css/fonts.css) -->
+  <link rel="preload" href="/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/fonts.css">
 
   <!-- AOS -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="/css/aos.css" rel="stylesheet">
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
     /* Gradient text */
@@ -206,7 +204,7 @@
       <!-- Left: Text -->
       <div data-aos="fade-right">
         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300 mb-6 backdrop-blur-sm">
-          <i data-lucide="mic" class="w-4 h-4 text-orange-400"></i>
+          <svg class="w-4 h-4 text-orange-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><line x1="12" x2="12" y1="19" y2="22" /></svg>
           Voice App
         </div>
 
@@ -223,13 +221,13 @@
         <div class="flex flex-col sm:flex-row gap-4">
           <a href="#download" class="btn-gradient px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-orange-500/20 text-center">
             <span class="flex items-center justify-center gap-2">
-              <i data-lucide="download" class="w-5 h-5"></i>
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
               Download Free
             </span>
           </a>
           <a href="#features" class="group flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/10 hover:border-white/30 text-gray-300 hover:text-white transition-all duration-300">
             Learn more
-            <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
+            <svg class="w-4 h-4 group-hover:translate-y-1 transition-transform" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></svg>
           </a>
         </div>
       </div>
@@ -243,7 +241,7 @@
               <!-- App UI mockup -->
               <div class="text-center px-6">
                 <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-orange-500 via-pink-500 to-violet-500 flex items-center justify-center mb-6 shadow-xl shadow-orange-500/30">
-                  <i data-lucide="rotate-ccw" class="w-10 h-10 text-white spin-reverse"></i>
+                  <svg class="w-10 h-10 text-white spin-reverse" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></svg>
                 </div>
                 <div class="text-lg font-bold mb-4">Reverse</div>
 
@@ -257,7 +255,7 @@
 
                 <!-- Record button -->
                 <div class="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-orange-500 to-pink-500 flex items-center justify-center shadow-lg shadow-orange-500/30 mb-4">
-                  <i data-lucide="mic" class="w-7 h-7 text-white"></i>
+                  <svg class="w-7 h-7 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><line x1="12" x2="12" y1="19" y2="22" /></svg>
                 </div>
                 <div class="text-xs text-gray-500">Tap to record</div>
               </div>
@@ -283,7 +281,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div data-aos="fade-up" class="text-center">
           <div class="w-16 h-16 mx-auto rounded-2xl bg-orange-500/10 flex items-center justify-center mb-5">
-            <i data-lucide="mic" class="w-8 h-8 text-orange-400"></i>
+            <svg class="w-8 h-8 text-orange-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><line x1="12" x2="12" y1="19" y2="22" /></svg>
           </div>
           <div class="text-orange-400 text-sm font-bold mb-2">Step 1</div>
           <h3 class="text-xl font-bold mb-2">Record</h3>
@@ -292,7 +290,7 @@
 
         <div data-aos="fade-up" data-aos-delay="100" class="text-center">
           <div class="w-16 h-16 mx-auto rounded-2xl bg-pink-500/10 flex items-center justify-center mb-5">
-            <i data-lucide="rotate-ccw" class="w-8 h-8 text-pink-400"></i>
+            <svg class="w-8 h-8 text-pink-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></svg>
           </div>
           <div class="text-pink-400 text-sm font-bold mb-2">Step 2</div>
           <h3 class="text-xl font-bold mb-2">Reverse</h3>
@@ -301,7 +299,7 @@
 
         <div data-aos="fade-up" data-aos-delay="200" class="text-center">
           <div class="w-16 h-16 mx-auto rounded-2xl bg-violet-500/10 flex items-center justify-center mb-5">
-            <i data-lucide="gamepad-2" class="w-8 h-8 text-violet-400"></i>
+            <svg class="w-8 h-8 text-violet-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="6" x2="10" y1="11" y2="11" /><line x1="8" x2="8" y1="9" y2="13" /><line x1="15" x2="15.01" y1="12" y2="12" /><line x1="18" x2="18.01" y1="10" y2="10" /><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" /></svg>
           </div>
           <div class="text-violet-400 text-sm font-bold mb-2">Step 3</div>
           <h3 class="text-xl font-bold mb-2">Guess & Play</h3>
@@ -326,7 +324,7 @@
         <!-- Feature 1 -->
         <div data-aos="fade-up" class="group bg-dark-card/50 border border-white/5 rounded-2xl p-6 hover:border-orange-500/20 transition-all duration-300">
           <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <i data-lucide="mic" class="w-6 h-6 text-orange-400"></i>
+            <svg class="w-6 h-6 text-orange-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><line x1="12" x2="12" y1="19" y2="22" /></svg>
           </div>
           <h3 class="font-bold mb-2">Instant Recording</h3>
           <p class="text-gray-400 text-sm">Record your voice with a single tap. No setup, no complications.</p>
@@ -335,7 +333,7 @@
         <!-- Feature 2 -->
         <div data-aos="fade-up" data-aos-delay="50" class="group bg-dark-card/50 border border-white/5 rounded-2xl p-6 hover:border-pink-500/20 transition-all duration-300">
           <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <i data-lucide="rotate-ccw" class="w-6 h-6 text-pink-400"></i>
+            <svg class="w-6 h-6 text-pink-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></svg>
           </div>
           <h3 class="font-bold mb-2">Reverse Playback</h3>
           <p class="text-gray-400 text-sm">Play any recording in reverse instantly and hear your voice like never before.</p>
@@ -344,7 +342,7 @@
         <!-- Feature 3 -->
         <div data-aos="fade-up" data-aos-delay="100" class="group bg-dark-card/50 border border-white/5 rounded-2xl p-6 hover:border-violet-500/20 transition-all duration-300">
           <div class="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <i data-lucide="save" class="w-6 h-6 text-violet-400"></i>
+            <svg class="w-6 h-6 text-violet-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" /><path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7" /><path d="M7 3v4a1 1 0 0 0 1 1h7" /></svg>
           </div>
           <h3 class="font-bold mb-2">Save Your Clips</h3>
           <p class="text-gray-400 text-sm">Keep your favorite reversed recordings and replay them anytime.</p>
@@ -353,7 +351,7 @@
         <!-- Feature 4 -->
         <div data-aos="fade-up" data-aos-delay="150" class="group bg-dark-card/50 border border-white/5 rounded-2xl p-6 hover:border-yellow-500/20 transition-all duration-300">
           <div class="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <i data-lucide="gamepad-2" class="w-6 h-6 text-yellow-400"></i>
+            <svg class="w-6 h-6 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="6" x2="10" y1="11" y2="11" /><line x1="8" x2="8" y1="9" y2="13" /><line x1="15" x2="15.01" y1="12" y2="12" /><line x1="18" x2="18.01" y1="10" y2="10" /><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" /></svg>
           </div>
           <h3 class="font-bold mb-2">Word Guessing Game</h3>
           <p class="text-gray-400 text-sm">Challenge yourself to recognize words spoken backwards. How many can you guess?</p>
@@ -362,7 +360,7 @@
         <!-- Feature 5 -->
         <div data-aos="fade-up" data-aos-delay="200" class="group bg-dark-card/50 border border-white/5 rounded-2xl p-6 hover:border-cyan-500/20 transition-all duration-300">
           <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <i data-lucide="sparkles" class="w-6 h-6 text-cyan-400"></i>
+            <svg class="w-6 h-6 text-cyan-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /><path d="M20 3v4" /><path d="M22 5h-4" /><path d="M4 17v2" /><path d="M5 18H3" /></svg>
           </div>
           <h3 class="font-bold mb-2">Clean Interface</h3>
           <p class="text-gray-400 text-sm">Simple, beautiful and intuitive design. No clutter, just fun.</p>
@@ -371,7 +369,7 @@
         <!-- Feature 6 -->
         <div data-aos="fade-up" data-aos-delay="250" class="group bg-dark-card/50 border border-white/5 rounded-2xl p-6 hover:border-green-500/20 transition-all duration-300">
           <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <i data-lucide="users" class="w-6 h-6 text-green-400"></i>
+            <svg class="w-6 h-6 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
           </div>
           <h3 class="font-bold mb-2">Fun for All Ages</h3>
           <p class="text-gray-400 text-sm">Kids, teens, adults — everyone loves hearing their voice played backwards!</p>
@@ -405,7 +403,7 @@
           </p>
 
           <a href="#download" class="inline-flex items-center gap-2 btn-gradient px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-orange-500/20">
-            <i data-lucide="play" class="w-5 h-5"></i>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><polygon points="6 3 20 12 6 21 6 3" /></svg>
             Start Playing Now
           </a>
         </div>
@@ -447,7 +445,7 @@
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
         <div class="flex items-center gap-2">
           <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-500 via-pink-500 to-violet-500 flex items-center justify-center">
-            <i data-lucide="rotate-ccw" class="w-4 h-4 text-white"></i>
+            <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></svg>
           </div>
           <span class="font-bold">Reverse</span>
           <span class="text-gray-500 text-sm">by</span>
@@ -466,11 +464,10 @@
   </footer>
 
   <!-- AOS -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="/js/aos.js"></script>
   <script>
     AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
   </script>
-  <script>lucide.createIcons();</script>
 
   <!-- Smooth scroll -->
   <script>

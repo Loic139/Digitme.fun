@@ -6,9 +6,10 @@
   <title>Lilou — Les histoires qui donnent envie de lire</title>
   <meta name="description" content="Lilou, l'app iPhone/iPad de lecture interactive pour enfants de 4 a 8 ans. 13 histoires a choix multiples, voix francaise, mini-jeux et zero pub.">
   <meta name="theme-color" content="#FFF8F0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Polices auto-hebergees (css/fonts.css) -->
+  <link rel="preload" href="/fonts/nunito-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/nunito-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/fonts.css">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -695,7 +696,7 @@
     </div>
 
     <div class="hero-content">
-      <img src="icone.png" alt="Lilou" class="fade-in" style="width: 100px; height: 100px; border-radius: 24px; margin: 0 auto 20px; display: block; box-shadow: 0 8px 32px rgba(0,0,0,0.12);">
+      <img decoding="async" loading="eager" height="512" width="512" src="/lilou/icone.webp" alt="Lilou" class="fade-in" style="width: 100px; height: 100px; border-radius: 24px; margin: 0 auto 20px; display: block; box-shadow: 0 8px 32px rgba(0,0,0,0.12);">
       <div class="hero-badge fade-in delay-1">&#9989; iPhone &amp; iPad</div>
       <h1 class="hero-title fade-in delay-2">Lilou</h1>
       <p class="hero-tagline fade-in delay-3">Les histoires qui donnent envie de lire</p>
@@ -761,19 +762,19 @@
         <div class="phone-mockup" style="transform: rotate(-3deg);">
           <div class="phone-notch"></div>
           <div class="phone-screen">
-            <img src="home.png" alt="Lilou - Ecran d'accueil">
+            <img decoding="async" loading="eager" height="1500" width="690" src="/lilou/home.webp" alt="Lilou - Ecran d'accueil">
           </div>
         </div>
         <div class="phone-mockup" style="transform: rotate(0deg); margin-top: 24px;">
           <div class="phone-notch"></div>
           <div class="phone-screen">
-            <img src="story1.png" alt="Lilou - Mini-jeu ecriture">
+            <img decoding="async" loading="lazy" height="1500" width="690" src="/lilou/story1.webp" alt="Lilou - Mini-jeu ecriture">
           </div>
         </div>
         <div class="phone-mockup" style="transform: rotate(3deg);">
           <div class="phone-notch"></div>
           <div class="phone-screen">
-            <img src="story2.png" alt="Lilou - Mini-jeu association">
+            <img decoding="async" loading="lazy" height="1500" width="690" src="/lilou/story2.webp" alt="Lilou - Mini-jeu association">
           </div>
         </div>
       </div>

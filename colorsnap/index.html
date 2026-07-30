@@ -6,9 +6,10 @@
   <title>ColorSnap! — Memorize. Recreate. Repeat.</title>
   <meta name="description" content="A pure color memory game for iPhone. Memorize a color, recreate it from memory, and see how precise your eye really is.">
   <meta name="theme-color" content="#F5F4F0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
+  <!-- Polices auto-hebergees (css/fonts.css) -->
+  <link rel="preload" href="/fonts/dm-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/dm-sans-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/fonts.css">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -688,7 +689,7 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-content">
-          <img src="colorsnap_logo.png?v=2" alt="ColorSnap! logo" class="fade-in" style="width: 80px; height: 80px; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.1);">
+          <img decoding="async" loading="eager" height="512" width="512" src="/colorsnap/colorsnap_logo.webp" alt="ColorSnap! logo" class="fade-in" style="width: 80px; height: 80px; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.1);">
           <p class="tagline fade-in delay-1">Memorize. Recreate. Repeat.</p>
           <h1 class="logo fade-in delay-2">Color<span class="gradient-text">snap!</span></h1>
           <p class="subtitle fade-in delay-3">A pure color memory game.<br>No shapes. No patterns. Just color.</p>
@@ -708,13 +709,13 @@
           <div class="iphone" style="transform: rotate(-3deg);">
             <div class="iphone-notch"></div>
             <div class="iphone-screen">
-              <img src="screen-memorize.png" alt="ColorSnap — Memorize the color">
+              <img decoding="async" loading="eager" height="1500" width="693" src="/colorsnap/screen-memorize.webp" alt="ColorSnap — Memorize the color">
             </div>
           </div>
           <div class="iphone" style="transform: rotate(3deg); margin-left: -40px; margin-top: 40px;">
             <div class="iphone-notch"></div>
             <div class="iphone-screen">
-              <img src="screen-sliders.png" alt="ColorSnap — Adjust HSB sliders">
+              <img decoding="async" loading="lazy" height="1500" width="693" src="/colorsnap/screen-sliders.webp" alt="ColorSnap — Adjust HSB sliders">
             </div>
           </div>
         </div>
@@ -738,7 +739,7 @@
           <h3 class="step-title">Memorize</h3>
           <p class="step-desc">A color fills the screen. You have 5 seconds to burn it into memory.</p>
           <div class="step-visual">
-            <img src="screen-memorize.png" alt="Memorize step" style="width: 100%; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+            <img decoding="async" loading="lazy" height="1500" width="693" src="/colorsnap/screen-memorize.webp" alt="Memorize step" style="width: 100%; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
           </div>
         </div>
 
@@ -747,7 +748,7 @@
           <h3 class="step-title">Recreate</h3>
           <p class="step-desc">Adjust Hue, Saturation, and Brightness. From memory. No peeking.</p>
           <div class="step-visual" style="margin-top: 24px;">
-            <img src="screen-sliders.png" alt="Recreate step" style="width: 100%; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+            <img decoding="async" loading="lazy" height="1500" width="693" src="/colorsnap/screen-sliders.webp" alt="Recreate step" style="width: 100%; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
           </div>
         </div>
 
@@ -756,7 +757,7 @@
           <h3 class="step-title">Score</h3>
           <p class="step-desc">See how close you got. Each color is scored out of 10. Five colors per round.</p>
           <div class="step-visual" style="margin-top: 24px;">
-            <img src="screen-result.png" alt="Score step" style="width: 100%; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+            <img decoding="async" loading="lazy" height="1500" width="693" src="/colorsnap/screen-result.webp" alt="Score step" style="width: 100%; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
           </div>
         </div>
       </div>

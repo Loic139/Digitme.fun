@@ -26,16 +26,14 @@
     }
   </style>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Polices auto-hebergees (css/fonts.css) -->
+  <link rel="preload" href="/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/fonts.css">
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- AOS Animations -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="/css/aos.css">
 
   <style>
     ::-webkit-scrollbar { width: 6px; }
@@ -132,7 +130,7 @@
   <section class="hero-gradient relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden">
     <!-- Background image -->
     <div class="absolute inset-0">
-      <img src="https://images.squarespace-cdn.com/content/v1/5669b801e0327cf28eba8f18/1570953204300-OMHDRMJDK5OQR1VBTHKS/IMG_7300.jpg" alt="" class="w-full h-full object-cover opacity-15">
+      <img decoding="async" loading="eager" height="2133" width="1600" src="/images/external/IMG_7300-2bd3f058.webp" alt="" class="w-full h-full object-cover opacity-15">
       <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/95 to-slate-950/70"></div>
     </div>
     <!-- Background elements -->
@@ -162,12 +160,12 @@
 
           <div class="flex flex-col sm:flex-row gap-4">
             <a href="tel:0793778192" class="group flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-brand-500/25">
-              <i data-lucide="phone" class="w-5 h-5"></i>
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
               Devis gratuit
             </a>
             <a href="#services" class="group flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-white/10 hover:border-brand-500/50 text-white font-semibold transition-all hover:bg-white/5">
               Nos services
-              <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
+              <svg class="w-4 h-4 group-hover:translate-y-1 transition-transform" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></svg>
             </a>
           </div>
         </div>
@@ -176,28 +174,28 @@
         <div data-aos="fade-left" class="grid grid-cols-2 gap-4">
           <div class="bg-slate-800/50 backdrop-blur border border-white/5 rounded-2xl p-6 card-hover">
             <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center mb-3">
-              <i data-lucide="calendar-check" class="w-6 h-6 text-brand-400"></i>
+              <svg class="w-6 h-6 text-brand-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /><path d="m9 16 2 2 4-4" /></svg>
             </div>
             <p class="text-3xl font-black text-white">17+</p>
             <p class="text-gray-400 text-sm">Années d'expérience</p>
           </div>
           <div class="bg-slate-800/50 backdrop-blur border border-white/5 rounded-2xl p-6 card-hover float-anim" style="animation-delay: 0.5s;">
             <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-3">
-              <i data-lucide="home" class="w-6 h-6 text-blue-400"></i>
+              <svg class="w-6 h-6 text-blue-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
             </div>
             <p class="text-3xl font-black text-white">500+</p>
             <p class="text-gray-400 text-sm">Projets réalisés</p>
           </div>
           <div class="bg-slate-800/50 backdrop-blur border border-white/5 rounded-2xl p-6 card-hover float-anim" style="animation-delay: 1s;">
             <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-3">
-              <i data-lucide="shield-check" class="w-6 h-6 text-green-400"></i>
+              <svg class="w-6 h-6 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg>
             </div>
             <p class="text-3xl font-black text-white">CFC</p>
             <p class="text-gray-400 text-sm">Artisans certifiés</p>
           </div>
           <div class="bg-slate-800/50 backdrop-blur border border-white/5 rounded-2xl p-6 card-hover">
             <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-3">
-              <i data-lucide="map-pin" class="w-6 h-6 text-purple-400"></i>
+              <svg class="w-6 h-6 text-purple-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
             </div>
             <p class="text-3xl font-black text-white">Fribourg</p>
             <p class="text-gray-400 text-sm">& environs</p>
@@ -223,12 +221,12 @@
         <!-- Ferblanterie -->
         <div data-aos="fade-up" data-aos-delay="0" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
           <div class="h-48 overflow-hidden">
-            <img src="https://images.squarespace-cdn.com/content/v1/5669b801e0327cf28eba8f18/9d86f3f6-5bd6-4fd3-bbe9-2012871353da/IMG_6264.JPG" alt="Ferblanterie — travail du zinc et du cuivre" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="eager" height="1200" width="1600" src="/images/external/IMG_6264-ddc7ef8a.webp" alt="Ferblanterie — travail du zinc et du cuivre" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-8">
           <div class="flex items-center gap-4 mb-6">
             <div class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center group-hover:bg-brand-500/20 transition-colors">
-              <i data-lucide="wrench" class="w-7 h-7 text-brand-400"></i>
+              <svg class="w-7 h-7 text-brand-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></svg>
             </div>
             <div>
               <h3 class="text-xl font-bold text-white">Ferblanterie</h3>
@@ -237,10 +235,10 @@
           </div>
           <p class="text-gray-400 mb-4">Travail artisanal de précision avec des matériaux nobles pour protéger et embellir votre bâtiment.</p>
           <ul class="space-y-2 text-sm text-gray-300">
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Chéneaux & descentes d'eau pluviale</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Revêtements de vire-vent & larmier</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Garnitures de ventilation & cheminée</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Placage métallique & lucarne</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Chéneaux & descentes d'eau pluviale</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Revêtements de vire-vent & larmier</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Garnitures de ventilation & cheminée</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Placage métallique & lucarne</li>
           </ul>
           <div class="mt-4 pt-4 border-t border-white/5">
             <p class="text-xs text-gray-500">Matériaux : cuivre, zinc, inox, uginox, mattplus inox, galvanisé</p>
@@ -251,12 +249,12 @@
         <!-- Couverture -->
         <div data-aos="fade-up" data-aos-delay="100" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
           <div class="h-48 overflow-hidden">
-            <img src="https://images.squarespace-cdn.com/content/v1/5669b801e0327cf28eba8f18/1663495148315-UBI09B0VEX4D6S0HODGH/IMG_0682.jpg" alt="Couverture — toiture en tuiles" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="1200" width="1600" src="/images/external/IMG_0682-6edb0412.webp" alt="Couverture — toiture en tuiles" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-8">
           <div class="flex items-center gap-4 mb-6">
             <div class="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
-              <i data-lucide="home" class="w-7 h-7 text-blue-400"></i>
+              <svg class="w-7 h-7 text-blue-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
             </div>
             <div>
               <h3 class="text-xl font-bold text-white">Couverture</h3>
@@ -265,10 +263,10 @@
           </div>
           <p class="text-gray-400 mb-4">Toitures neuves et rénovations complètes avec isolation performante pour un confort optimal.</p>
           <ul class="space-y-2 text-sm text-gray-300">
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-400"></i> Tuiles mécaniques & plates</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-400"></i> Ardoise & plaques Eternit</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-400"></i> Étanchéité bitumineuse</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-400"></i> Isolation (Isover, Flumroc, Pavatex)</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Tuiles mécaniques & plates</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Ardoise & plaques Eternit</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Étanchéité bitumineuse</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Isolation (Isover, Flumroc, Pavatex)</li>
           </ul>
           <div class="mt-4 pt-4 border-t border-white/5">
             <p class="text-xs text-gray-500">Entretien : nettoyage haute pression, inspections, nettoyage chéneaux</p>
@@ -279,12 +277,12 @@
         <!-- Sanitaire -->
         <div data-aos="fade-up" data-aos-delay="200" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
           <div class="h-48 overflow-hidden">
-            <img src="https://images.squarespace-cdn.com/content/v1/5669b801e0327cf28eba8f18/1455038500385-5EX50H4W0CRLG8OJ0B9L/IMG-20160201-WA0000.jpg" alt="Sanitaire — salle de bain moderne" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="1600" width="582" src="/images/external/IMG-20160201-WA0000-4c23cdbd.webp" alt="Sanitaire — salle de bain moderne" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-8">
           <div class="flex items-center gap-4 mb-6">
             <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
-              <i data-lucide="droplets" class="w-7 h-7 text-cyan-400"></i>
+              <svg class="w-7 h-7 text-cyan-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z" /><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97" /></svg>
             </div>
             <div>
               <h3 class="text-xl font-bold text-white">Sanitaire</h3>
@@ -293,10 +291,10 @@
           </div>
           <p class="text-gray-400 mb-4">Installation et dépannage de vos équipements sanitaires avec un technicien local réactif.</p>
           <ul class="space-y-2 text-sm text-gray-300">
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Appareillage & robinetterie</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Douches à l'italienne</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Conduites eau usée & eau propre</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i> Panneaux solaires & photovoltaïques</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cyan-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Appareillage & robinetterie</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cyan-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Douches à l'italienne</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cyan-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Conduites eau usée & eau propre</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cyan-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Panneaux solaires & photovoltaïques</li>
           </ul>
           <div class="mt-4 pt-4 border-t border-white/5">
             <p class="text-xs text-gray-500">Intervention rapide dans tout le canton de Fribourg</p>
@@ -307,12 +305,12 @@
         <!-- Chauffage -->
         <div data-aos="fade-up" data-aos-delay="300" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
           <div class="h-48 overflow-hidden">
-            <img src="https://images.squarespace-cdn.com/content/v1/5669b801e0327cf28eba8f18/1455038955853-H04MMG2P98J2I1AGCWX1/DSC_0249.JPG" alt="Chauffage — pompe à chaleur moderne" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="2844" width="1600" src="/images/external/DSC_0249-a04ae00e.webp" alt="Chauffage — pompe à chaleur moderne" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-8">
           <div class="flex items-center gap-4 mb-6">
             <div class="w-14 h-14 rounded-2xl bg-red-500/10 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
-              <i data-lucide="flame" class="w-7 h-7 text-red-400"></i>
+              <svg class="w-7 h-7 text-red-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" /></svg>
             </div>
             <div>
               <h3 class="text-xl font-bold text-white">Chauffage</h3>
@@ -321,10 +319,10 @@
           </div>
           <p class="text-gray-400 mb-4">Solutions de chauffage adaptées à vos besoins, des systèmes traditionnels aux pompes à chaleur.</p>
           <ul class="space-y-2 text-sm text-gray-300">
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-red-400"></i> Pompes à chaleur (PAC)</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-red-400"></i> Chauffage au sol</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-red-400"></i> Distribution radiateurs</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-red-400"></i> Mazout & gaz</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Pompes à chaleur (PAC)</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Chauffage au sol</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Distribution radiateurs</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Mazout & gaz</li>
           </ul>
           <div class="mt-4 pt-4 border-t border-white/5">
             <p class="text-xs text-gray-500">Conseil en transition énergétique & solutions durables</p>
@@ -349,28 +347,28 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" data-aos="fade-up" data-aos-delay="100">
         <div class="text-center p-6">
           <div class="w-16 h-16 mx-auto rounded-2xl bg-brand-500/10 flex items-center justify-center mb-4">
-            <i data-lucide="users" class="w-8 h-8 text-brand-400"></i>
+            <svg class="w-8 h-8 text-brand-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
           </div>
           <h3 class="font-bold text-white mb-2">Entreprise familiale</h3>
           <p class="text-gray-400 text-sm">Julien & José, deux frères passionnés à votre service depuis 2007.</p>
         </div>
         <div class="text-center p-6">
           <div class="w-16 h-16 mx-auto rounded-2xl bg-blue-500/10 flex items-center justify-center mb-4">
-            <i data-lucide="award" class="w-8 h-8 text-blue-400"></i>
+            <svg class="w-8 h-8 text-blue-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" /><circle cx="12" cy="8" r="6" /></svg>
           </div>
           <h3 class="font-bold text-white mb-2">Artisans certifiés CFC</h3>
           <p class="text-gray-400 text-sm">Formation d'apprentis et savoir-faire reconnu dans le métier.</p>
         </div>
         <div class="text-center p-6">
           <div class="w-16 h-16 mx-auto rounded-2xl bg-green-500/10 flex items-center justify-center mb-4">
-            <i data-lucide="zap" class="w-8 h-8 text-green-400"></i>
+            <svg class="w-8 h-8 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></svg>
           </div>
           <h3 class="font-bold text-white mb-2">Un seul interlocuteur</h3>
           <p class="text-gray-400 text-sm">4 corps de métier, une seule entreprise. Simplifiez vos travaux.</p>
         </div>
         <div class="text-center p-6">
           <div class="w-16 h-16 mx-auto rounded-2xl bg-purple-500/10 flex items-center justify-center mb-4">
-            <i data-lucide="map-pin" class="w-8 h-8 text-purple-400"></i>
+            <svg class="w-8 h-8 text-purple-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
           </div>
           <h3 class="font-bold text-white mb-2">100% local</h3>
           <p class="text-gray-400 text-sm">Basés à Fribourg, nous intervenons rapidement dans tout le canton.</p>
@@ -393,7 +391,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div data-aos="fade-up" data-aos-delay="0" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover group">
           <div class="aspect-video overflow-hidden">
-            <img src="https://images.squarespace-cdn.com/content/v1/5669b801e0327cf28eba8f18/1454169833805-QMYP23CQITVTSO1FFSSI/Maison+mansard%C3%A9e+avec+tourelle.+Granges-Paccots%3AFR.JPG" alt="Villa familiale Marly" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="1200" width="1600" src="/images/external/MaisonmansardC3A9eavectourelle.Granges-P-6bafa171.webp" alt="Villa familiale Marly" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-5">
             <h4 class="font-bold text-white mb-1">Maison mansardée — Granges-Paccots</h4>
@@ -404,7 +402,7 @@
 
         <div data-aos="fade-up" data-aos-delay="100" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover group">
           <div class="aspect-video overflow-hidden">
-            <img src="https://images.squarespace-cdn.com/content/v1/5669b801e0327cf28eba8f18/1570993337173-70FEOJLE8UR0LQG37BOX/Immeuble%2Brte%2Bdes%2BAlpes.%2Bcentre%2Bville%2BFribourg.JPG" alt="Immeuble Chavannes-les-Forts" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="1200" width="1600" src="/images/external/Immeuble2Brte2Bdes2BAlpes.2Bcentre2Bvill-d3380223.webp" alt="Immeuble Chavannes-les-Forts" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-5">
             <h4 class="font-bold text-white mb-1">Immeuble — Route des Alpes, Fribourg</h4>
@@ -415,7 +413,7 @@
 
         <div data-aos="fade-up" data-aos-delay="200" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover group">
           <div class="aspect-video overflow-hidden">
-            <img src="https://images.squarespace-cdn.com/content/v1/5669b801e0327cf28eba8f18/1455037471160-V1A0AKQ4R6KA40GZ0XJ2/Banque+Raiffeisen.+S%C3%A2les%3AFR.jpg" alt="Café des Arcades Fribourg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="2133" width="1600" src="/images/external/BanqueRaiffeisen.SC3A2les3AFR-321806a5.webp" alt="Café des Arcades Fribourg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-5">
             <h4 class="font-bold text-white mb-1">Banque Raiffeisen — Sâles</h4>
@@ -426,7 +424,7 @@
 
         <div data-aos="fade-up" data-aos-delay="300" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover group">
           <div class="aspect-video overflow-hidden">
-            <img src="https://images.squarespace-cdn.com/content/v1/5669b801e0327cf28eba8f18/1454169834444-IVTWCCMHNNARY0FGON29/maison+individuelle+Villars-sur-Gl%C3%A2ne%3AFR.+2009.JPG" alt="Maison individuelle Bulle" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="1200" width="1600" src="/images/external/maisonindividuelleVillars-sur-GlC3A2ne3A-da8fac72.webp" alt="Maison individuelle Bulle" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-5">
             <h4 class="font-bold text-white mb-1">Villa — Villars-sur-Glâne</h4>
@@ -437,7 +435,7 @@
 
         <div data-aos="fade-up" data-aos-delay="400" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover group">
           <div class="aspect-video overflow-hidden">
-            <img src="https://images.squarespace-cdn.com/content/v1/5669b801e0327cf28eba8f18/1454169859043-3QJAWBAPT2UQHMTRL597/Maison%2C+Grand-Rue.+Centre+ville+Fribourg..jpg" alt="Grand-Rue Fribourg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="2133" width="1600" src="/images/external/Maison2CGrand-Rue.CentrevilleFribourg.-241cd93e.webp" alt="Grand-Rue Fribourg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-5">
             <h4 class="font-bold text-white mb-1">Maison Grand-Rue — Fribourg</h4>
@@ -448,7 +446,7 @@
 
         <div data-aos="fade-up" data-aos-delay="500" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover group">
           <div class="aspect-video overflow-hidden">
-            <img src="https://images.squarespace-cdn.com/content/v1/5669b801e0327cf28eba8f18/1455037495214-QLF1NA00ATXUP8KD5OO6/Terrasse.+Ch.+du+Palatina.JPG" alt="Toiture plate et balcon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="900" width="1600" src="/images/external/Terrasse.Ch.duPalatina-bbbe9b18.webp" alt="Toiture plate et balcon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-5">
             <h4 class="font-bold text-white mb-1">Terrasse — Ch. du Palatina</h4>
@@ -471,7 +469,7 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div data-aos="fade-up" class="bg-slate-800/30 border border-white/5 rounded-3xl p-8 sm:p-12 text-center relative">
         <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-brand-500 flex items-center justify-center">
-          <i data-lucide="quote" class="w-5 h-5 text-white"></i>
+          <svg class="w-5 h-5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /></svg>
         </div>
         <p class="text-xl sm:text-2xl text-gray-200 italic leading-relaxed mb-6">
           « J'apprécie à quel point vous avez été correct et la qualité de votre travail. »
@@ -504,7 +502,7 @@
           <p class="text-brand-400 font-medium mb-4">Ferblanterie & Couverture</p>
           <p class="text-gray-400 text-sm mb-4">Titulaire du CFC/AFP pour la formation d'apprentis ferblantiers depuis 2018. Expert en toitures et travaux de ferblanterie.</p>
           <a href="tel:0793778192" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-500/10 text-brand-400 hover:bg-brand-500/20 font-semibold text-sm transition-colors">
-            <i data-lucide="phone" class="w-4 h-4"></i>
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
             079 377 81 92
           </a>
         </div>
@@ -518,7 +516,7 @@
           <p class="text-cyan-400 font-medium mb-4">Sanitaire & Chauffage</p>
           <p class="text-gray-400 text-sm mb-4">Spécialiste en installations sanitaires et systèmes de chauffage. Intervention rapide et travail soigné.</p>
           <a href="tel:0794143037" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-cyan-500/10 text-cyan-400 hover:bg-cyan-500/20 font-semibold text-sm transition-colors">
-            <i data-lucide="phone" class="w-4 h-4"></i>
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
             079 414 30 37
           </a>
         </div>
@@ -536,11 +534,11 @@
         <p class="text-gray-400 text-lg mb-8 max-w-xl mx-auto">Toiture à rénover, salle de bain à refaire, chauffage à remplacer ? Appelez-nous pour un devis gratuit et sans engagement.</p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href="tel:0793778192" class="flex items-center gap-2 px-8 py-4 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-brand-500/25">
-            <i data-lucide="phone" class="w-5 h-5"></i>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
             Julien — 079 377 81 92
           </a>
           <a href="tel:0794143037" class="flex items-center gap-2 px-8 py-4 rounded-full border-2 border-cyan-500/30 hover:border-cyan-500 text-cyan-400 font-bold text-lg transition-all hover:scale-105">
-            <i data-lucide="phone" class="w-5 h-5"></i>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
             José — 079 414 30 37
           </a>
         </div>
@@ -563,7 +561,7 @@
         <div data-aos="fade-right" class="space-y-6">
           <div class="bg-slate-800/30 border border-white/5 rounded-2xl p-6 flex items-start gap-4">
             <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center flex-shrink-0">
-              <i data-lucide="map-pin" class="w-6 h-6 text-brand-400"></i>
+              <svg class="w-6 h-6 text-brand-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
             </div>
             <div>
               <h4 class="font-bold text-white mb-1">Adresse</h4>
@@ -573,7 +571,7 @@
 
           <div class="bg-slate-800/30 border border-white/5 rounded-2xl p-6 flex items-start gap-4">
             <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center flex-shrink-0">
-              <i data-lucide="phone" class="w-6 h-6 text-brand-400"></i>
+              <svg class="w-6 h-6 text-brand-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
             </div>
             <div>
               <h4 class="font-bold text-white mb-1">Téléphone</h4>
@@ -584,7 +582,7 @@
 
           <div class="bg-slate-800/30 border border-white/5 rounded-2xl p-6 flex items-start gap-4">
             <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center flex-shrink-0">
-              <i data-lucide="mail" class="w-6 h-6 text-brand-400"></i>
+              <svg class="w-6 h-6 text-brand-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
             </div>
             <div>
               <h4 class="font-bold text-white mb-1">Email</h4>
@@ -683,13 +681,11 @@
   </div>
 
   <!-- AOS -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="/js/aos.js"></script>
   <script>
     AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
   </script>
 
-  <!-- Lucide Icons -->
-  <script>lucide.createIcons();</script>
 
   <!-- Mobile Menu Toggle -->
   <script>

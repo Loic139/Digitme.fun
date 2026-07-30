@@ -16,16 +16,14 @@
     }
   </style>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Polices auto-hebergees (css/fonts.css) -->
+  <link rel="preload" href="/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/fonts.css">
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- AOS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="/css/aos.css">
 
   <style>
     .gradient-text {
@@ -69,7 +67,7 @@
           <span class="text-sm font-bold bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">Digitme.fun</span>
         </a>
         <a href="/" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1">
-          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
           Retour à l'accueil
         </a>
       </div>
@@ -81,7 +79,7 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <div data-aos="fade-up">
         <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-sm font-medium mb-6">
-          <i data-lucide="sparkles" class="w-4 h-4"></i>
+          <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /><path d="M20 3v4" /><path d="M22 5h-4" /><path d="M4 17v2" /><path d="M5 18H3" /></svg>
           Portfolio de redesigns
         </span>
       </div>
@@ -99,7 +97,7 @@
         </a>
         <a href="https://calendly.com/digitme-fun" target="_blank" rel="noopener"
            class="inline-flex items-center gap-2 px-6 py-3 rounded-full btn-gradient text-white font-semibold transition-all hover:scale-105 shadow-lg shadow-violet-500/25">
-          <i data-lucide="calendar" class="w-5 h-5"></i>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg>
           Devis gratuit
         </a>
       </div>
@@ -124,7 +122,7 @@
               <p class="text-gray-400 text-sm mt-1">Peinture & rénovation — Genève, Suisse</p>
             </div>
             <a href="/avant-apres/mc-artisan-peintre/" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full btn-gradient text-white font-semibold text-sm hover:scale-105 transition-transform shadow-lg shadow-violet-500/20">
-              <i data-lucide="eye" class="w-4 h-4"></i>
+              <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg>
               Voir le redesign
             </a>
           </div>
@@ -139,13 +137,13 @@
               <span class="text-red-400 font-semibold text-sm uppercase tracking-wider">Avant</span>
             </div>
             <div class="card-before rounded-xl overflow-hidden bg-dark-card aspect-video">
-              <img src="/avant-apres/mc-artisan-peintre/before.png" alt="MC Artisan Peintre — Site original" class="w-full h-full object-cover object-top">
+              <img decoding="async" loading="eager" height="750" width="1200" src="/avant-apres/mc-artisan-peintre/before.webp" alt="MC Artisan Peintre — Site original" class="w-full h-full object-cover object-top">
             </div>
             <ul class="mt-4 space-y-1.5 text-sm text-gray-500">
-              <li class="flex items-center gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400/50"></i> Design template générique</li>
-              <li class="flex items-center gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400/50"></i> Aucun appel à l'action visible</li>
-              <li class="flex items-center gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400/50"></i> Pas de témoignages clients</li>
-              <li class="flex items-center gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400/50"></i> Non optimisé mobile</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Design template générique</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Aucun appel à l'action visible</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Pas de témoignages clients</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Non optimisé mobile</li>
             </ul>
           </div>
 
@@ -156,13 +154,13 @@
               <span class="text-green-400 font-semibold text-sm uppercase tracking-wider">Après</span>
             </div>
             <a href="/avant-apres/mc-artisan-peintre/" class="block card-after rounded-xl overflow-hidden bg-dark-card aspect-video transition-all duration-300 relative group">
-              <img src="/avant-apres/mc-artisan-peintre/after.png" alt="MC Artisan Peintre — Redesign par Digitme.fun" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+              <img decoding="async" loading="eager" height="750" width="1200" src="/avant-apres/mc-artisan-peintre/after.webp" alt="MC Artisan Peintre — Redesign par Digitme.fun" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
             </a>
             <ul class="mt-4 space-y-1.5 text-sm text-gray-400">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Design sur-mesure, adapté au secteur</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> CTA "Devis gratuit" visible partout</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Section témoignages & chiffres clés</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> 100% responsive & animations</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Design sur-mesure, adapté au secteur</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> CTA "Devis gratuit" visible partout</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Section témoignages & chiffres clés</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> 100% responsive & animations</li>
             </ul>
           </div>
         </div>
@@ -182,7 +180,7 @@
               <p class="text-gray-400 text-sm mt-1">Ferblanterie · Couverture · Sanitaire · Chauffage — Fribourg, Suisse</p>
             </div>
             <a href="/avant-apres/jr-sarl/" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full btn-gradient text-white font-semibold text-sm hover:scale-105 transition-transform shadow-lg shadow-violet-500/20">
-              <i data-lucide="eye" class="w-4 h-4"></i>
+              <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg>
               Voir le redesign
             </a>
           </div>
@@ -198,16 +196,16 @@
             </div>
             <div class="card-before rounded-xl overflow-hidden bg-dark-card aspect-video flex items-center justify-center">
               <div class="text-center p-4">
-                <i data-lucide="monitor" class="w-10 h-10 text-gray-600 mx-auto mb-2"></i>
+                <svg class="w-10 h-10 text-gray-600 mx-auto mb-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></svg>
                 <p class="text-gray-500 text-xs">jr-sarl.ch</p>
                 <p class="text-gray-600 text-xs">Site Squarespace basique</p>
               </div>
             </div>
             <ul class="mt-4 space-y-1.5 text-sm text-gray-500">
-              <li class="flex items-center gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400/50"></i> Pas de téléphone visible en accueil</li>
-              <li class="flex items-center gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400/50"></i> Aucun appel à l'action</li>
-              <li class="flex items-center gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400/50"></i> Design daté, peu engageant</li>
-              <li class="flex items-center gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400/50"></i> Pas de formulaire de devis</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Pas de téléphone visible en accueil</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Aucun appel à l'action</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Design daté, peu engageant</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Pas de formulaire de devis</li>
             </ul>
           </div>
 
@@ -220,17 +218,17 @@
             <a href="/avant-apres/jr-sarl/" class="block card-after rounded-xl overflow-hidden bg-dark-card aspect-video transition-all duration-300 relative group flex items-center justify-center">
               <div class="text-center p-4">
                 <div class="w-12 h-12 mx-auto rounded-xl bg-orange-500/10 flex items-center justify-center mb-2">
-                  <i data-lucide="sparkles" class="w-6 h-6 text-orange-400"></i>
+                  <svg class="w-6 h-6 text-orange-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /><path d="M20 3v4" /><path d="M22 5h-4" /><path d="M4 17v2" /><path d="M5 18H3" /></svg>
                 </div>
                 <p class="text-white text-xs font-semibold">Site moderne & professionnel</p>
                 <p class="text-gray-400 text-xs mt-1">CTA · Formulaire · Équipe · Animations</p>
               </div>
             </a>
             <ul class="mt-4 space-y-1.5 text-sm text-gray-400">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Numéros de téléphone en évidence</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> CTA "Devis gratuit" visible partout</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Section équipe avec contacts directs</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Formulaire de devis intégré</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Numéros de téléphone en évidence</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> CTA "Devis gratuit" visible partout</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Section équipe avec contacts directs</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Formulaire de devis intégré</li>
             </ul>
           </div>
         </div>
@@ -249,7 +247,7 @@
               <p class="text-gray-400 text-sm mt-1">Informatique PME & privé — Valais, Suisse</p>
             </div>
             <a href="/avant-apres/apiconsulting/" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full btn-gradient text-white font-semibold text-sm hover:scale-105 transition-transform shadow-lg shadow-violet-500/20">
-              <i data-lucide="eye" class="w-4 h-4"></i>
+              <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg>
               Voir le redesign
             </a>
           </div>
@@ -263,16 +261,16 @@
             </div>
             <div class="card-before rounded-xl overflow-hidden bg-dark-card aspect-video flex items-center justify-center">
               <div class="text-center p-4">
-                <i data-lucide="monitor" class="w-10 h-10 text-gray-600 mx-auto mb-2"></i>
+                <svg class="w-10 h-10 text-gray-600 mx-auto mb-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></svg>
                 <p class="text-gray-500 text-xs">apiconsulting.ch</p>
                 <p class="text-gray-600 text-xs">Site Divi Wordpress long et dense</p>
               </div>
             </div>
             <ul class="mt-4 space-y-1.5 text-sm text-gray-500">
-              <li class="flex items-center gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400/50"></i> CTA dispersés et peu visibles</li>
-              <li class="flex items-center gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400/50"></i> Peu de focus sur la conversion rapide</li>
-              <li class="flex items-center gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400/50"></i> Long scrolling sans structure claire</li>
-              <li class="flex items-center gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400/50"></i> Temps de chargement élevé dans l'état</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> CTA dispersés et peu visibles</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Peu de focus sur la conversion rapide</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Long scrolling sans structure claire</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Temps de chargement élevé dans l'état</li>
             </ul>
           </div>
           <div class="p-6 sm:p-8">
@@ -281,13 +279,13 @@
               <span class="text-green-400 font-semibold text-sm uppercase tracking-wider">Après</span>
             </div>
             <a href="/avant-apres/apiconsulting/" class="block card-after rounded-xl overflow-hidden bg-dark-card aspect-video transition-all duration-300 relative group">
-              <img src="https://images.unsplash.com/photo-1626824969224-7a2730501940?auto=format&fit=crop&w=1280&q=80" alt="API Consulting redesign" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+              <img decoding="async" loading="lazy" height="337" width="600" src="/images/external/photo-1558494949-ef010cbdcc31-8d8f66c0.webp" alt="API Consulting redesign" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
             </a>
             <ul class="mt-4 space-y-1.5 text-sm text-gray-400">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Message clair et bien structuré</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Bannière Digitme.fun sticky + CTA WhatsApp/Calendly</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> 100% responsive & vitrine conversion</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Contact & formulaire visibles dès l’arrivée</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Message clair et bien structuré</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Bannière Digitme.fun sticky + CTA WhatsApp/Calendly</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> 100% responsive & vitrine conversion</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Contact & formulaire visibles dès l’arrivée</li>
             </ul>
           </div>
         </div>
@@ -307,7 +305,7 @@
               <p class="text-gray-400 text-sm mt-1">Installations sanitaires — Noréaz / Fribourg, Suisse</p>
             </div>
             <a href="/avant-apres/patrick-berger-sarl/" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full btn-gradient text-white font-semibold text-sm hover:scale-105 transition-transform shadow-lg shadow-violet-500/20">
-              <i data-lucide="eye" class="w-4 h-4"></i>
+              <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg>
               Voir le redesign
             </a>
           </div>
@@ -323,16 +321,16 @@
             </div>
             <div class="card-before rounded-xl overflow-hidden bg-dark-card aspect-video flex items-center justify-center">
               <div class="text-center p-4">
-                <i data-lucide="monitor" class="w-10 h-10 text-gray-600 mx-auto mb-2"></i>
+                <svg class="w-10 h-10 text-gray-600 mx-auto mb-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></svg>
                 <p class="text-gray-500 text-xs">patrickbergersarl.ch</p>
                 <p class="text-gray-600 text-xs">Site Duda Builder</p>
               </div>
             </div>
             <ul class="mt-4 space-y-1.5 text-sm text-gray-500">
-              <li class="flex items-center gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400/50"></i> Design template générique</li>
-              <li class="flex items-center gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400/50"></i> Chargement JavaScript très lent</li>
-              <li class="flex items-center gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400/50"></i> Structure peu lisible</li>
-              <li class="flex items-center gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400/50"></i> Pas de mise en avant des certifications</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Design template générique</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Chargement JavaScript très lent</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Structure peu lisible</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Pas de mise en avant des certifications</li>
             </ul>
           </div>
 
@@ -345,17 +343,17 @@
             <a href="/avant-apres/patrick-berger-sarl/" class="block card-after rounded-xl overflow-hidden bg-dark-card aspect-video transition-all duration-300 relative group flex items-center justify-center">
               <div class="text-center p-4">
                 <div class="w-12 h-12 mx-auto rounded-xl bg-blue-500/10 flex items-center justify-center mb-2">
-                  <i data-lucide="sparkles" class="w-6 h-6 text-blue-400"></i>
+                  <svg class="w-6 h-6 text-blue-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /><path d="M20 3v4" /><path d="M22 5h-4" /><path d="M4 17v2" /><path d="M5 18H3" /></svg>
                 </div>
                 <p class="text-white text-xs font-semibold">Site moderne & professionnel</p>
                 <p class="text-gray-400 text-xs mt-1">CTA · SSIGE · Réalisations · Contact</p>
               </div>
             </a>
             <ul class="mt-4 space-y-1.5 text-sm text-gray-400">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Design adapté au secteur sanitaire</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Certification SSIGE mise en avant</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> CTA "Devis gratuit" et téléphone visible</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> 100% responsive & chargement rapide</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Design adapté au secteur sanitaire</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> Certification SSIGE mise en avant</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> CTA "Devis gratuit" et téléphone visible</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg> 100% responsive & chargement rapide</li>
             </ul>
           </div>
         </div>
@@ -363,7 +361,7 @@
 
       <!-- More coming soon -->
       <div data-aos="fade-up" class="text-center py-16 bg-dark-light border border-dashed border-white/10 rounded-2xl">
-        <i data-lucide="plus-circle" class="w-12 h-12 text-gray-600 mx-auto mb-4"></i>
+        <svg class="w-12 h-12 text-gray-600 mx-auto mb-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /><path d="M12 8v8" /></svg>
         <h3 class="text-xl font-bold text-gray-400 mb-2">D'autres redesigns arrivent bientôt</h3>
         <p class="text-gray-600 text-sm">Votre site pourrait être le prochain sur cette page.</p>
       </div>
@@ -384,7 +382,7 @@
           </a>
           <a href="https://calendly.com/digitme-fun" target="_blank" rel="noopener"
              class="inline-flex items-center gap-2 px-6 py-3 rounded-full btn-gradient text-white font-semibold transition-all hover:scale-105">
-            <i data-lucide="calendar" class="w-5 h-5"></i>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg>
             Prendre rendez-vous
           </a>
         </div>
@@ -400,8 +398,7 @@
   </footer>
 
   <!-- AOS -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="/js/aos.js"></script>
   <script>AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });</script>
-  <script>lucide.createIcons();</script>
 </body>
 </html>

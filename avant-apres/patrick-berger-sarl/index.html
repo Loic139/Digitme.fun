@@ -24,16 +24,14 @@
     }
   </style>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Polices auto-hebergees (css/fonts.css) -->
+  <link rel="preload" href="/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/fonts.css">
 
   <!-- AOS -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="/css/aos.css" rel="stylesheet">
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
     .text-gradient {
@@ -84,7 +82,7 @@
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
         <a href="#" class="flex items-center gap-3 group">
-          <img src="https://le-de.cdn-website.com/42c57c0b25564eb9ba4bff43991561cd/dms3rep/multi/opt/logo-1-redimentionn-C3-A9-2--Copie-654w.jpg" alt="Patrick Berger Sàrl" class="h-10 w-auto rounded-lg group-hover:scale-105 transition-transform">
+          <img decoding="async" loading="eager" height="228" width="650" src="/images/external/logo-1-redimentionn-C3-A9-2--Copie-654w-8423928a.webp" alt="Patrick Berger Sàrl" class="h-10 w-auto rounded-lg group-hover:scale-105 transition-transform">
           <div class="hidden sm:block">
             <span class="text-white font-bold text-sm">Patrick Berger Sàrl</span>
             <span class="block text-blue-400 text-xs">Installations sanitaires</span>
@@ -98,7 +96,7 @@
           <a href="#apropos" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Qui suis-je</a>
           <a href="#contact" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Contact</a>
           <a href="tel:0264700279" class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-500 hover:bg-brand-600 text-white text-sm font-semibold transition-all hover:scale-105 shadow-lg shadow-brand-500/25">
-            <i data-lucide="phone" class="w-4 h-4"></i>
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
             026 470 02 79
           </a>
         </div>
@@ -130,7 +128,7 @@
   <section class="hero-gradient relative min-h-screen flex items-center pt-36 pb-20 overflow-hidden">
     <!-- Background image -->
     <div class="absolute inset-0">
-      <img src="https://le-de.cdn-website.com/42c57c0b25564eb9ba4bff43991561cd/dms3rep/multi/opt/20200213_143858_617_561_712_64_401-683w.jpeg" alt="" class="w-full h-full object-cover opacity-15">
+      <img decoding="async" loading="eager" height="357" width="680" src="/images/external/20200213_143858_617_561_712_64_401-683w-a50637ad.webp" alt="" class="w-full h-full object-cover opacity-15">
       <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/95 to-slate-950/70"></div>
     </div>
     <!-- Decorative elements -->
@@ -159,12 +157,12 @@
 
           <div class="flex flex-col sm:flex-row gap-4">
             <a href="tel:0264700279" class="group flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-brand-500/25">
-              <i data-lucide="phone" class="w-5 h-5"></i>
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
               Devis gratuit
             </a>
             <a href="#prestations" class="group flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-white/10 hover:border-brand-500/50 text-white font-semibold transition-all hover:bg-white/5">
               Nos prestations
-              <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
+              <svg class="w-4 h-4 group-hover:translate-y-1 transition-transform" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></svg>
             </a>
           </div>
         </div>
@@ -173,28 +171,28 @@
         <div data-aos="fade-left" class="grid grid-cols-2 gap-4">
           <div class="bg-slate-800/50 backdrop-blur border border-white/5 rounded-2xl p-6 card-hover">
             <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center mb-3">
-              <i data-lucide="award" class="w-6 h-6 text-brand-400"></i>
+              <svg class="w-6 h-6 text-brand-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" /><circle cx="12" cy="8" r="6" /></svg>
             </div>
             <p class="text-3xl font-black text-white">16+</p>
             <p class="text-gray-400 text-sm">Années d'expérience</p>
           </div>
           <div class="bg-slate-800/50 backdrop-blur border border-white/5 rounded-2xl p-6 card-hover float-anim" style="animation-delay: 0.5s;">
             <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-3">
-              <i data-lucide="shield-check" class="w-6 h-6 text-green-400"></i>
+              <svg class="w-6 h-6 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg>
             </div>
             <p class="text-3xl font-black text-white">SSIGE</p>
             <p class="text-gray-400 text-sm">Agréé eau & gaz</p>
           </div>
           <div class="bg-slate-800/50 backdrop-blur border border-white/5 rounded-2xl p-6 card-hover float-anim" style="animation-delay: 1s;">
             <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-3">
-              <i data-lucide="wrench" class="w-6 h-6 text-cyan-400"></i>
+              <svg class="w-6 h-6 text-cyan-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></svg>
             </div>
             <p class="text-3xl font-black text-white">CFC</p>
             <p class="text-gray-400 text-sm">Contremaître sanitaire</p>
           </div>
           <div class="bg-slate-800/50 backdrop-blur border border-white/5 rounded-2xl p-6 card-hover">
             <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-3">
-              <i data-lucide="map-pin" class="w-6 h-6 text-purple-400"></i>
+              <svg class="w-6 h-6 text-purple-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
             </div>
             <p class="text-3xl font-black text-white">Fribourg</p>
             <p class="text-gray-400 text-sm">& environs</p>
@@ -220,12 +218,12 @@
         <!-- Prestation 1 -->
         <div data-aos="fade-up" data-aos-delay="0" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
           <div class="h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80" alt="Salle de bains moderne" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="400" width="600" src="/images/external/photo-1584622650111-993a426fbf0a-6181095e.webp" alt="Salle de bains moderne" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-6">
             <div class="flex items-center gap-3 mb-4">
               <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center">
-                <i data-lucide="bath" class="w-6 h-6 text-brand-400"></i>
+                <svg class="w-6 h-6 text-brand-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10 4 8 6" /><path d="M17 19v2" /><path d="M2 12h20" /><path d="M7 19v2" /><path d="M9 5 7.621 3.621A2.121 2.121 0 0 0 4 5v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5" /></svg>
               </div>
               <h3 class="text-lg font-bold text-white">Salle de bains</h3>
             </div>
@@ -236,12 +234,12 @@
         <!-- Prestation 2 -->
         <div data-aos="fade-up" data-aos-delay="100" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
           <div class="h-48 overflow-hidden">
-            <img src="https://le-de.cdn-website.com/42c57c0b25564eb9ba4bff43991561cd/dms3rep/multi/opt/20200213_143858_617_561_712_64_401-683w.jpeg" alt="Local technique" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="357" width="680" src="/images/external/20200213_143858_617_561_712_64_401-683w-a50637ad.webp" alt="Local technique" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-6">
             <div class="flex items-center gap-3 mb-4">
               <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center">
-                <i data-lucide="settings" class="w-6 h-6 text-cyan-400"></i>
+                <svg class="w-6 h-6 text-cyan-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" /><circle cx="12" cy="12" r="3" /></svg>
               </div>
               <h3 class="text-lg font-bold text-white">Installations sanitaires</h3>
             </div>
@@ -252,12 +250,12 @@
         <!-- Prestation 3 -->
         <div data-aos="fade-up" data-aos-delay="200" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
           <div class="h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=600&q=80" alt="Dépannage sanitaire" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="450" width="600" src="/images/external/photo-1607472586893-edb57bdc0e39-8cafeeb8.webp" alt="Dépannage sanitaire" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-6">
             <div class="flex items-center gap-3 mb-4">
               <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center">
-                <i data-lucide="alert-circle" class="w-6 h-6 text-red-400"></i>
+                <svg class="w-6 h-6 text-red-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><line x1="12" x2="12" y1="8" y2="12" /><line x1="12" x2="12.01" y1="16" y2="16" /></svg>
               </div>
               <h3 class="text-lg font-bold text-white">Dépannage</h3>
             </div>
@@ -268,12 +266,12 @@
         <!-- Prestation 4 -->
         <div data-aos="fade-up" data-aos-delay="0" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
           <div class="h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&q=80" alt="Rénovation" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="401" width="600" src="/images/external/photo-1513694203232-719a280e022f-aae67de1.webp" alt="Rénovation" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-6">
             <div class="flex items-center gap-3 mb-4">
               <div class="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center">
-                <i data-lucide="hard-hat" class="w-6 h-6 text-yellow-400"></i>
+                <svg class="w-6 h-6 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5" /><path d="M14 6a6 6 0 0 1 6 6v3" /><path d="M4 15v-3a6 6 0 0 1 6-6" /><rect x="2" y="15" width="20" height="4" rx="1" /></svg>
               </div>
               <h3 class="text-lg font-bold text-white">Rénovation</h3>
             </div>
@@ -284,12 +282,12 @@
         <!-- Prestation 5 -->
         <div data-aos="fade-up" data-aos-delay="100" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
           <div class="h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1585128903994-9788298932a4?w=600&q=80" alt="Entretien détartrage" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="450" width="600" src="/images/external/photo-1607472586893-edb57bdc0e39-8cafeeb8.webp" alt="Entretien détartrage" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-6">
             <div class="flex items-center gap-3 mb-4">
               <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center">
-                <i data-lucide="droplets" class="w-6 h-6 text-green-400"></i>
+                <svg class="w-6 h-6 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z" /><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97" /></svg>
               </div>
               <h3 class="text-lg font-bold text-white">Entretien</h3>
             </div>
@@ -300,12 +298,12 @@
         <!-- Prestation 6 -->
         <div data-aos="fade-up" data-aos-delay="200" class="group bg-slate-800/30 backdrop-blur border border-white/5 rounded-2xl overflow-hidden card-hover">
           <div class="h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80" alt="Aspirateur central" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="401" width="600" src="/images/external/photo-1513694203232-719a280e022f-aae67de1.webp" alt="Aspirateur central" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-6">
             <div class="flex items-center gap-3 mb-4">
               <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center">
-                <i data-lucide="wind" class="w-6 h-6 text-purple-400"></i>
+                <svg class="w-6 h-6 text-purple-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12.8 19.6A2 2 0 1 0 14 16H2" /><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2" /><path d="M9.8 4.4A2 2 0 1 1 11 8H2" /></svg>
               </div>
               <h3 class="text-lg font-bold text-white">Aspirateur central</h3>
             </div>
@@ -330,28 +328,28 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" data-aos="fade-up" data-aos-delay="100">
         <div class="text-center p-6">
           <div class="w-16 h-16 mx-auto rounded-2xl bg-brand-500/10 flex items-center justify-center mb-4">
-            <i data-lucide="shield-check" class="w-8 h-8 text-brand-400"></i>
+            <svg class="w-8 h-8 text-brand-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg>
           </div>
           <h3 class="font-bold text-white mb-2">Agréé SSIGE</h3>
           <p class="text-gray-400 text-sm">Concessions SSIGE eau et gaz — votre garantie de qualité et de conformité.</p>
         </div>
         <div class="text-center p-6">
           <div class="w-16 h-16 mx-auto rounded-2xl bg-cyan-500/10 flex items-center justify-center mb-4">
-            <i data-lucide="award" class="w-8 h-8 text-cyan-400"></i>
+            <svg class="w-8 h-8 text-cyan-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" /><circle cx="12" cy="8" r="6" /></svg>
           </div>
           <h3 class="font-bold text-white mb-2">Brevet fédéral</h3>
           <p class="text-gray-400 text-sm">Contremaître sanitaire diplômé avec brevet fédéral reconnu.</p>
         </div>
         <div class="text-center p-6">
           <div class="w-16 h-16 mx-auto rounded-2xl bg-green-500/10 flex items-center justify-center mb-4">
-            <i data-lucide="clock" class="w-8 h-8 text-green-400"></i>
+            <svg class="w-8 h-8 text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
           </div>
           <h3 class="font-bold text-white mb-2">Réactivité</h3>
           <p class="text-gray-400 text-sm">Intervention rapide pour les dépannages, devis gratuit sous 48h.</p>
         </div>
         <div class="text-center p-6">
           <div class="w-16 h-16 mx-auto rounded-2xl bg-purple-500/10 flex items-center justify-center mb-4">
-            <i data-lucide="map-pin" class="w-8 h-8 text-purple-400"></i>
+            <svg class="w-8 h-8 text-purple-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
           </div>
           <h3 class="font-bold text-white mb-2">100% local</h3>
           <p class="text-gray-400 text-sm">Basé à Noréaz, nous intervenons dans tout le canton de Fribourg.</p>
@@ -361,7 +359,7 @@
       <!-- SSIGE Badge -->
       <div class="mt-12 flex justify-center" data-aos="fade-up">
         <div class="bg-slate-800/30 border border-white/5 rounded-2xl p-6 flex items-center gap-6 max-w-md">
-          <img src="https://le-de.cdn-website.com/42c57c0b25564eb9ba4bff43991561cd/dms3rep/multi/opt/SSIGE-194w.jpeg" alt="SSIGE certification" class="h-16 w-auto rounded-lg">
+          <img decoding="async" loading="lazy" height="73" width="162" src="/images/external/SSIGE-194w-2e9a7b2c.webp" alt="SSIGE certification" class="h-16 w-auto rounded-lg">
           <div>
             <h4 class="font-bold text-white">Nous sommes agréés SSIGE eau et gaz</h4>
             <p class="text-gray-400 text-sm mt-1">Gage de qualité et respect des normes suisses.</p>
@@ -385,7 +383,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div data-aos="fade-up" data-aos-delay="0" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover group">
           <div class="aspect-video overflow-hidden">
-            <img src="https://le-de.cdn-website.com/42c57c0b25564eb9ba4bff43991561cd/dms3rep/multi/opt/20200213_143858_617_561_712_64_401-683w.jpeg" alt="Local technique" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="357" width="680" src="/images/external/20200213_143858_617_561_712_64_401-683w-a50637ad.webp" alt="Local technique" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-5">
             <h4 class="font-bold text-white mb-1">Local technique</h4>
@@ -396,7 +394,7 @@
 
         <div data-aos="fade-up" data-aos-delay="100" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover group">
           <div class="aspect-video overflow-hidden">
-            <img src="https://le-de.cdn-website.com/42c57c0b25564eb9ba4bff43991561cd/dms3rep/multi/opt/AdobeStock_54933137_892-680w.jpeg" alt="Salle de bains" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="358" width="680" src="/images/external/AdobeStock_54933137_892-680w-7ca5ee74.webp" alt="Salle de bains" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-5">
             <h4 class="font-bold text-white mb-1">Salle de bains</h4>
@@ -407,7 +405,7 @@
 
         <div data-aos="fade-up" data-aos-delay="200" class="bg-slate-800/30 border border-white/5 rounded-2xl overflow-hidden card-hover group">
           <div class="aspect-video overflow-hidden">
-            <img src="https://le-de.cdn-website.com/42c57c0b25564eb9ba4bff43991561cd/dms3rep/multi/opt/FourgonPatrickBerger2_218_679-687w.jpeg" alt="Fourgon Patrick Berger" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img decoding="async" loading="lazy" height="357" width="690" src="/images/external/FourgonPatrickBerger2_218_679-687w-5729e8ee.webp" alt="Fourgon Patrick Berger" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
           <div class="p-5">
             <h4 class="font-bold text-white mb-1">Intervention sur site</h4>
@@ -426,7 +424,7 @@
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div data-aos="fade-right">
-          <img src="https://le-de.cdn-website.com/42c57c0b25564eb9ba4bff43991561cd/dms3rep/multi/opt/logopatrickberger-1920w.jpeg" alt="Patrick Berger Sàrl" class="rounded-2xl border border-white/5 shadow-2xl w-full">
+          <img decoding="async" loading="lazy" height="119" width="545" src="/images/external/logopatrickberger-1920w-09a1facf.webp" alt="Patrick Berger Sàrl" class="rounded-2xl border border-white/5 shadow-2xl w-full">
         </div>
         <div data-aos="fade-left">
           <span class="text-brand-400 font-semibold text-sm uppercase tracking-wider">Qui suis-je ?</span>
@@ -464,14 +462,14 @@
           <h3 class="font-bold text-white text-lg mb-6">Coordonnées</h3>
           <ul class="space-y-4">
             <li class="flex items-start gap-3">
-              <i data-lucide="phone" class="w-5 h-5 text-brand-400 mt-0.5"></i>
+              <svg class="w-5 h-5 text-brand-400 mt-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
               <div>
                 <p class="text-white font-semibold">Téléphone</p>
                 <a href="tel:0264700279" class="text-gray-400 hover:text-brand-400 transition-colors">026 470 02 79</a>
               </div>
             </li>
             <li class="flex items-start gap-3">
-              <i data-lucide="mail" class="w-5 h-5 text-brand-400 mt-0.5"></i>
+              <svg class="w-5 h-5 text-brand-400 mt-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
               <div>
                 <p class="text-white font-semibold">E-mails</p>
                 <a href="mailto:info@patrickbergersarl.ch" class="text-gray-400 hover:text-brand-400 transition-colors text-sm">info@patrickbergersarl.ch</a><br>
@@ -487,14 +485,14 @@
           <h3 class="font-bold text-white text-lg mb-6">Adresses</h3>
           <ul class="space-y-4">
             <li class="flex items-start gap-3">
-              <i data-lucide="building-2" class="w-5 h-5 text-cyan-400 mt-0.5"></i>
+              <svg class="w-5 h-5 text-cyan-400 mt-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" /><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" /><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" /><path d="M10 6h4" /><path d="M10 10h4" /><path d="M10 14h4" /><path d="M10 18h4" /></svg>
               <div>
                 <p class="text-white font-semibold">Siège</p>
                 <p class="text-gray-400 text-sm">Route du Pâqui 6<br>1720 Corminboeuf</p>
               </div>
             </li>
             <li class="flex items-start gap-3">
-              <i data-lucide="warehouse" class="w-5 h-5 text-cyan-400 mt-0.5"></i>
+              <svg class="w-5 h-5 text-cyan-400 mt-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-3.2a2 2 0 0 1 1.48 0l8 3.2A2 2 0 0 1 22 8.35Z" /><path d="M6 18h12" /><path d="M6 14h12" /><rect width="12" height="12" x="6" y="10" /></svg>
               <div>
                 <p class="text-white font-semibold">Bureau & atelier</p>
                 <p class="text-gray-400 text-sm">Impasse du Ferrajoz 28<br>1757 Noréaz</p>
@@ -518,7 +516,7 @@
           </ul>
           <div class="mt-6 pt-6 border-t border-white/5">
             <a href="tel:0264700279" class="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-semibold transition-all hover:scale-105 shadow-lg shadow-brand-500/25">
-              <i data-lucide="phone" class="w-4 h-4"></i>
+              <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
               Appeler maintenant
             </a>
           </div>
@@ -536,11 +534,11 @@
       <p class="text-gray-400 mb-8 max-w-xl mx-auto">Demandez votre devis gratuit dès aujourd'hui. Nous vous répondons sous 48h.</p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="tel:0264700279" class="flex items-center gap-2 px-8 py-4 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-brand-500/25">
-          <i data-lucide="phone" class="w-5 h-5"></i>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
           026 470 02 79
         </a>
         <a href="mailto:info@patrickbergersarl.ch" class="flex items-center gap-2 px-8 py-4 rounded-full border-2 border-white/10 hover:border-brand-500/50 text-white font-semibold transition-all hover:bg-white/5">
-          <i data-lucide="mail" class="w-5 h-5"></i>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
           Envoyer un email
         </a>
       </div>
@@ -567,7 +565,7 @@
             WhatsApp
           </a>
           <a href="https://calendly.com/digitme-fun" class="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-violet-500 to-pink-500 text-white font-semibold transition-all hover:scale-105">
-            <i data-lucide="calendar" class="w-5 h-5"></i>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg>
             Prendre rendez-vous
           </a>
         </div>
@@ -583,13 +581,11 @@
   </footer>
 
   <!-- AOS -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="/js/aos.js"></script>
   <script>
     AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
   </script>
 
-  <!-- Lucide Icons -->
-  <script>lucide.createIcons();</script>
 
   <!-- Mobile Menu -->
   <script>
