@@ -64,8 +64,9 @@ jobs:
               set ftp:passive-mode on;
               set mirror:parallel-transfer-count 1;
               set xfer:clobber on;
+              set ftp:rest-stor yes;
               open -u '$FTP_USERNAME','$FTP_PASSWORD' '$FTP_SERVER';
-              mirror -R --verbose=1 --ignore-time --no-perms \
+              mirror -R --continue --verbose=1 --ignore-time --no-perms \
                 --include-glob '*/' \
                 --include-glob '*.html' \
                 --exclude-glob '.git*' \
@@ -123,8 +124,9 @@ jobs:
               set ftp:passive-mode on;
               set mirror:parallel-transfer-count 1;
               set xfer:clobber on;
+              set ftp:rest-stor yes;
               open -u '$FTP_USERNAME','$FTP_PASSWORD' '$FTP_SERVER';
-              mirror -R --verbose=1 --ignore-time --no-perms \
+              mirror -R --continue --verbose=1 --ignore-time --no-perms \
                 --exclude-glob '.git*' \
                 --exclude-glob 'node_modules/' \
                 --exclude-glob 'src/' \
