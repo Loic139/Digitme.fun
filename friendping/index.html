@@ -5,14 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>friendping! — Stay in touch with the people who matter.</title>
   <meta name="description" content="friendping! randomly picks a friend from your contacts and invites you to call or message them. Because 5 minutes is all it takes to rekindle a friendship.">
-  <link rel="alternate" hreflang="en" href="/friendping/">
-  <link rel="alternate" hreflang="fr" href="/fr/friendping/">
+  <!-- SEO -->
+  <link rel="canonical" href="https://digitme.fun/friendping/">
+  <link rel="alternate" hreflang="en" href="https://digitme.fun/friendping/">
+  <link rel="alternate" hreflang="fr" href="https://digitme.fun/fr/friendping/">
+  <link rel="alternate" hreflang="x-default" href="https://digitme.fun/friendping/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Digitme.fun">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://digitme.fun/friendping/">
+  <meta property="og:title" content="friendping! — Stay in touch with the people who matter.">
+  <meta property="og:description" content="friendping! randomly picks a friend from your contacts and invites you to call or message them. Because 5 minutes is all it takes to rekindle a friendship.">
+  <meta property="og:image" content="https://digitme.fun/images/og-en.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="friendping! — Stay in touch with the people who matter.">
+  <meta name="twitter:description" content="friendping! randomly picks a friend from your contacts and invites you to call or message them. Because 5 minutes is all it takes to rekindle a friendship.">
+  <meta name="twitter:image" content="https://digitme.fun/images/og-en.jpg">
+
+  <!-- Icones -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0a0a0a">
 
   <!-- Language Detection -->
-  <script src="/js/lang.js"></script>
+  <script src="/js/lang.js?v=1"></script>
 
   <!-- Tailwind CSS (build statique : npm run build:css) -->
-  <link rel="stylesheet" href="/css/tailwind.css">
+  <link rel="stylesheet" href="/css/tailwind.css?v=1">
   <style>
     :root {
       --c-dark: 10 10 10;
@@ -24,10 +49,10 @@
   <!-- Polices auto-hebergees (css/fonts.css) -->
   <link rel="preload" href="/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/inter-900-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/fonts.css?v=1">
 
   <!-- AOS -->
-  <link href="/css/aos.css" rel="stylesheet">
+  <link href="/css/aos.css?v=1" rel="stylesheet">
 
 
   <style>
@@ -162,8 +187,32 @@
       color: white;
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "friendping!",
+    "url": "https://digitme.fun/friendping/",
+    "description": "friendping! randomly picks a friend from your contacts and invites you to call or message them. Because 5 minutes is all it takes to rekindle a friendship.",
+    "applicationCategory": "MobileApplication",
+    "operatingSystem": "iOS",
+    "image": "https://digitme.fun/images/og-en.jpg",
+    "author": {
+      "@type": "Organization",
+      "name": "Digitme.fun",
+      "url": "https://digitme.fun"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "CHF"
+    }
+  }
+  </script>
 </head>
 <body class="bg-dark text-white font-sans antialiased overflow-x-hidden">
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- ============================================ -->
   <!-- NAVBAR -->
@@ -190,7 +239,7 @@
   <!-- ============================================ -->
   <!-- HERO -->
   <!-- ============================================ -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+  <section id="main-content" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
     <!-- Orbs -->
     <div class="orb w-[420px] h-[420px] bg-emerald-500/25 top-[5%] left-[-8%]"></div>
     <div class="orb w-[300px] h-[300px] bg-cyan-500/20 bottom-[10%] right-[-5%]" style="animation-delay:-7s"></div>
@@ -240,7 +289,7 @@
                   <div class="flex items-center gap-1">
                     <img decoding="async" loading="eager" height="512" width="512" src="/images/friendping_logo.webp" alt="friendping!" class="h-7 w-auto"/>
                   </div>
-                  <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10.268 21a2 2 0 0 0 3.464 0" /><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" /></svg>
+                  <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10.268 21a2 2 0 0 0 3.464 0" /><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" /></svg>
                 </div>
               </div>
 
@@ -258,7 +307,7 @@
                 <!-- Contact name -->
                 <div class="text-center mb-5">
                   <div class="text-base font-bold mb-0.5">Marie D.</div>
-                  <div class="text-xs text-gray-500">Haven't talked in 3 months</div>
+                  <div class="text-xs text-gray-400">Haven't talked in 3 months</div>
                 </div>
 
                 <!-- Action buttons -->
@@ -274,7 +323,7 @@
                 </div>
 
                 <!-- Skip -->
-                <button class="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-300">
+                <button class="flex items-center gap-1.5 text-xs text-gray-400 hover:text-gray-300">
                   <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m18 14 4 4-4 4" /><path d="m18 2 4 4-4 4" /><path d="M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22" /><path d="M2 6h1.972a4 4 0 0 1 3.6 2.2" /><path d="M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45" /></svg>
                   Someone else
                 </button>
@@ -503,25 +552,26 @@
         <div class="flex items-center gap-2">
           <img decoding="async" loading="lazy" height="512" width="512" src="/images/friendping_logo.webp" alt="friendping!" class="h-10 w-auto"/>
           <span class="font-bold">friendping!</span>
-          <span class="text-gray-500 text-sm">by</span>
+          <span class="text-gray-400 text-sm">by</span>
           <a href="/" class="text-sm font-semibold bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent hover:opacity-80 transition-opacity">Digitme.fun</a>
         </div>
-        <div class="flex gap-6 text-sm text-gray-500">
+        <div class="flex gap-6 text-sm text-gray-400">
           <a href="/" class="hover:text-white transition-colors">Home</a>
           <a href="mailto:contact@digitme.fun" class="hover:text-white transition-colors">Contact</a>
           <a href="/friendping/privacy-policy/" class="hover:text-white transition-colors">Privacy Policy</a>
         </div>
       </div>
-      <div class="text-center mt-6 text-gray-600 text-xs">
+      <div class="text-center mt-6 text-gray-400 text-xs">
         &copy; 2026 Digitme.fun — All rights reserved.
       </div>
     </div>
   </footer>
 
   <!-- AOS -->
-  <script src="/js/aos.js"></script>
+  <script src="/js/aos.js?v=1"></script>
   <script>
-    AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+    AOS.init({
+      disable: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches, duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
   </script>
 
   <!-- Smooth scroll -->

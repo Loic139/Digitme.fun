@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Digitme.fun">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8b5cf6"/>
+      <stop offset="0.5" stop-color="#ec4899"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#g)"/>
+  <path d="M20 15h11c9.4 0 16 6.9 16 17s-6.6 17-16 17H20V15zm9.6 8.4v19.2H31c5 0 8.2-3.7 8.2-9.6s-3.2-9.6-8.2-9.6h-1.4z" fill="#fff"/>
+</svg>

@@ -5,9 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Avant / Après — Redesigns par Digitme.fun</title>
   <meta name="description" content="Découvrez nos propositions de redesign de sites web. Avant / Après : la preuve par l'exemple.">
+  <!-- SEO -->
+  <link rel="canonical" href="https://digitme.fun/avant-apres/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Digitme.fun">
+  <meta property="og:locale" content="fr_CH">
+  <meta property="og:url" content="https://digitme.fun/avant-apres/">
+  <meta property="og:title" content="Avant / Après — Redesigns par Digitme.fun">
+  <meta property="og:description" content="Découvrez nos propositions de redesign de sites web. Avant / Après : la preuve par l'exemple.">
+  <meta property="og:image" content="https://digitme.fun/images/og-default.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Avant / Après — Redesigns par Digitme.fun">
+  <meta name="twitter:description" content="Découvrez nos propositions de redesign de sites web. Avant / Après : la preuve par l'exemple.">
+  <meta name="twitter:image" content="https://digitme.fun/images/og-default.jpg">
+
+  <!-- Icones -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0a0a0a">
 
   <!-- Tailwind CSS (build statique : npm run build:css) -->
-  <link rel="stylesheet" href="/css/tailwind.css">
+  <link rel="stylesheet" href="/css/tailwind.css?v=1">
   <style>
     :root {
       --c-dark: 10 10 10;
@@ -19,11 +43,11 @@
   <!-- Polices auto-hebergees (css/fonts.css) -->
   <link rel="preload" href="/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/inter-900-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/fonts.css?v=1">
 
 
   <!-- AOS -->
-  <link rel="stylesheet" href="/css/aos.css">
+  <link rel="stylesheet" href="/css/aos.css?v=1">
 
   <style>
     .gradient-text {
@@ -58,6 +82,8 @@
 </head>
 <body class="bg-dark text-white font-sans antialiased">
 
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
   <!-- Navbar -->
   <nav class="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-xl border-b border-white/5">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,7 +101,7 @@
   </nav>
 
   <!-- Hero -->
-  <section class="pt-28 pb-16">
+  <section id="main-content" class="pt-28 pb-16">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <div data-aos="fade-up">
         <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-sm font-medium mb-6">
@@ -139,7 +165,7 @@
             <div class="card-before rounded-xl overflow-hidden bg-dark-card aspect-video">
               <img decoding="async" loading="eager" height="750" width="1200" src="/avant-apres/mc-artisan-peintre/before.webp" alt="MC Artisan Peintre — Site original" class="w-full h-full object-cover object-top">
             </div>
-            <ul class="mt-4 space-y-1.5 text-sm text-gray-500">
+            <ul class="mt-4 space-y-1.5 text-sm text-gray-400">
               <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Design template générique</li>
               <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Aucun appel à l'action visible</li>
               <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Pas de témoignages clients</li>
@@ -196,12 +222,12 @@
             </div>
             <div class="card-before rounded-xl overflow-hidden bg-dark-card aspect-video flex items-center justify-center">
               <div class="text-center p-4">
-                <svg class="w-10 h-10 text-gray-600 mx-auto mb-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></svg>
-                <p class="text-gray-500 text-xs">jr-sarl.ch</p>
-                <p class="text-gray-600 text-xs">Site Squarespace basique</p>
+                <svg class="w-10 h-10 text-gray-400 mx-auto mb-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></svg>
+                <p class="text-gray-400 text-xs">jr-sarl.ch</p>
+                <p class="text-gray-400 text-xs">Site Squarespace basique</p>
               </div>
             </div>
-            <ul class="mt-4 space-y-1.5 text-sm text-gray-500">
+            <ul class="mt-4 space-y-1.5 text-sm text-gray-400">
               <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Pas de téléphone visible en accueil</li>
               <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Aucun appel à l'action</li>
               <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Design daté, peu engageant</li>
@@ -261,12 +287,12 @@
             </div>
             <div class="card-before rounded-xl overflow-hidden bg-dark-card aspect-video flex items-center justify-center">
               <div class="text-center p-4">
-                <svg class="w-10 h-10 text-gray-600 mx-auto mb-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></svg>
-                <p class="text-gray-500 text-xs">apiconsulting.ch</p>
-                <p class="text-gray-600 text-xs">Site Divi Wordpress long et dense</p>
+                <svg class="w-10 h-10 text-gray-400 mx-auto mb-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></svg>
+                <p class="text-gray-400 text-xs">apiconsulting.ch</p>
+                <p class="text-gray-400 text-xs">Site Divi Wordpress long et dense</p>
               </div>
             </div>
-            <ul class="mt-4 space-y-1.5 text-sm text-gray-500">
+            <ul class="mt-4 space-y-1.5 text-sm text-gray-400">
               <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> CTA dispersés et peu visibles</li>
               <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Peu de focus sur la conversion rapide</li>
               <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Long scrolling sans structure claire</li>
@@ -321,12 +347,12 @@
             </div>
             <div class="card-before rounded-xl overflow-hidden bg-dark-card aspect-video flex items-center justify-center">
               <div class="text-center p-4">
-                <svg class="w-10 h-10 text-gray-600 mx-auto mb-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></svg>
-                <p class="text-gray-500 text-xs">patrickbergersarl.ch</p>
-                <p class="text-gray-600 text-xs">Site Duda Builder</p>
+                <svg class="w-10 h-10 text-gray-400 mx-auto mb-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></svg>
+                <p class="text-gray-400 text-xs">patrickbergersarl.ch</p>
+                <p class="text-gray-400 text-xs">Site Duda Builder</p>
               </div>
             </div>
-            <ul class="mt-4 space-y-1.5 text-sm text-gray-500">
+            <ul class="mt-4 space-y-1.5 text-sm text-gray-400">
               <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Design template générique</li>
               <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Chargement JavaScript très lent</li>
               <li class="flex items-center gap-2"><svg class="w-4 h-4 text-red-400/50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg> Structure peu lisible</li>
@@ -361,9 +387,9 @@
 
       <!-- More coming soon -->
       <div data-aos="fade-up" class="text-center py-16 bg-dark-light border border-dashed border-white/10 rounded-2xl">
-        <svg class="w-12 h-12 text-gray-600 mx-auto mb-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /><path d="M12 8v8" /></svg>
+        <svg class="w-12 h-12 text-gray-400 mx-auto mb-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /><path d="M12 8v8" /></svg>
         <h3 class="text-xl font-bold text-gray-400 mb-2">D'autres redesigns arrivent bientôt</h3>
-        <p class="text-gray-600 text-sm">Votre site pourrait être le prochain sur cette page.</p>
+        <p class="text-gray-400 text-sm">Votre site pourrait être le prochain sur cette page.</p>
       </div>
     </div>
   </section>
@@ -393,12 +419,13 @@
   <!-- Footer -->
   <footer class="bg-dark border-t border-white/5 py-8">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-gray-600 text-sm">&copy; 2026 <a href="https://digitme.fun" class="text-gray-500 hover:text-white transition-colors">Digitme.fun</a> — Création de sites web, applications & automatisation IA</p>
+      <p class="text-gray-400 text-sm">&copy; 2026 <a href="https://digitme.fun" class="text-gray-400 hover:text-white transition-colors">Digitme.fun</a> — Création de sites web, applications & automatisation IA</p>
     </div>
   </footer>
 
   <!-- AOS -->
-  <script src="/js/aos.js"></script>
-  <script>AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });</script>
+  <script src="/js/aos.js?v=1"></script>
+  <script>AOS.init({
+      disable: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches, duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });</script>
 </body>
 </html>

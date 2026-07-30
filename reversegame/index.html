@@ -5,14 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reverse — Reverse Your Voice. Discover Hidden Words.</title>
   <meta name="description" content="Record any sound and play it in reverse. Challenge yourself with the built-in word guessing game. Fun for all ages!">
-  <link rel="alternate" hreflang="en" href="/reversegame/">
-  <link rel="alternate" hreflang="fr" href="/fr/reversegame/">
+  <!-- SEO -->
+  <link rel="canonical" href="https://digitme.fun/reversegame/">
+  <link rel="alternate" hreflang="en" href="https://digitme.fun/reversegame/">
+  <link rel="alternate" hreflang="fr" href="https://digitme.fun/fr/reversegame/">
+  <link rel="alternate" hreflang="x-default" href="https://digitme.fun/reversegame/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Digitme.fun">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://digitme.fun/reversegame/">
+  <meta property="og:title" content="Reverse — Reverse Your Voice. Discover Hidden Words.">
+  <meta property="og:description" content="Record any sound and play it in reverse. Challenge yourself with the built-in word guessing game. Fun for all ages!">
+  <meta property="og:image" content="https://digitme.fun/images/og-en.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Reverse — Reverse Your Voice. Discover Hidden Words.">
+  <meta name="twitter:description" content="Record any sound and play it in reverse. Challenge yourself with the built-in word guessing game. Fun for all ages!">
+  <meta name="twitter:image" content="https://digitme.fun/images/og-en.jpg">
+
+  <!-- Icones -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0a0a0a">
 
   <!-- Language Detection -->
-  <script src="/js/lang.js"></script>
+  <script src="/js/lang.js?v=1"></script>
 
   <!-- Tailwind CSS (build statique : npm run build:css) -->
-  <link rel="stylesheet" href="/css/tailwind.css">
+  <link rel="stylesheet" href="/css/tailwind.css?v=1">
   <style>
     :root {
       --c-dark: 10 10 10;
@@ -24,10 +49,10 @@
   <!-- Polices auto-hebergees (css/fonts.css) -->
   <link rel="preload" href="/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/inter-900-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/fonts.css?v=1">
 
   <!-- AOS -->
-  <link href="/css/aos.css" rel="stylesheet">
+  <link href="/css/aos.css?v=1" rel="stylesheet">
 
 
   <style>
@@ -165,8 +190,32 @@
       color: white;
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Reverse",
+    "url": "https://digitme.fun/reversegame/",
+    "description": "Record any sound and play it in reverse. Challenge yourself with the built-in word guessing game. Fun for all ages!",
+    "applicationCategory": "MobileApplication",
+    "operatingSystem": "iOS",
+    "image": "https://digitme.fun/images/og-en.jpg",
+    "author": {
+      "@type": "Organization",
+      "name": "Digitme.fun",
+      "url": "https://digitme.fun"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "CHF"
+    }
+  }
+  </script>
 </head>
 <body class="bg-dark text-white font-sans antialiased overflow-x-hidden">
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- ============================================ -->
   <!-- NAVBAR -->
@@ -194,7 +243,7 @@
   <!-- ============================================ -->
   <!-- HERO -->
   <!-- ============================================ -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+  <section id="main-content" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
     <!-- Orbs -->
     <div class="orb w-[400px] h-[400px] bg-orange-500/30 top-[10%] left-[-5%]"></div>
     <div class="orb w-[300px] h-[300px] bg-pink-500/25 bottom-[10%] right-[-5%]" style="animation-delay:-7s"></div>
@@ -257,7 +306,7 @@
                 <div class="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-orange-500 to-pink-500 flex items-center justify-center shadow-lg shadow-orange-500/30 mb-4">
                   <svg class="w-7 h-7 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><line x1="12" x2="12" y1="19" y2="22" /></svg>
                 </div>
-                <div class="text-xs text-gray-500">Tap to record</div>
+                <div class="text-xs text-gray-400">Tap to record</div>
               </div>
             </div>
           </div>
@@ -448,25 +497,26 @@
             <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></svg>
           </div>
           <span class="font-bold">Reverse</span>
-          <span class="text-gray-500 text-sm">by</span>
+          <span class="text-gray-400 text-sm">by</span>
           <a href="/" class="text-sm font-semibold bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent hover:opacity-80 transition-opacity">Digitme.fun</a>
         </div>
-        <div class="flex gap-6 text-sm text-gray-500">
+        <div class="flex gap-6 text-sm text-gray-400">
           <a href="/" class="hover:text-white transition-colors">Home</a>
           <a href="mailto:contact@digitme.fun" class="hover:text-white transition-colors">Contact</a>
           <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
         </div>
       </div>
-      <div class="text-center mt-6 text-gray-600 text-xs">
+      <div class="text-center mt-6 text-gray-400 text-xs">
         &copy; 2026 Digitme.fun — All rights reserved.
       </div>
     </div>
   </footer>
 
   <!-- AOS -->
-  <script src="/js/aos.js"></script>
+  <script src="/js/aos.js?v=1"></script>
   <script>
-    AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+    AOS.init({
+      disable: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches, duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
   </script>
 
   <!-- Smooth scroll -->

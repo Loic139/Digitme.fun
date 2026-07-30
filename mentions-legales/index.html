@@ -5,14 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Legal Notice — Digitme.fun</title>
   <meta name="description" content="Legal notice for the Digitme.fun website.">
-  <link rel="alternate" hreflang="en" href="/mentions-legales/">
-  <link rel="alternate" hreflang="fr" href="/fr/mentions-legales/">
+  <!-- SEO -->
+  <link rel="canonical" href="https://digitme.fun/mentions-legales/">
+  <link rel="alternate" hreflang="en" href="https://digitme.fun/mentions-legales/">
+  <link rel="alternate" hreflang="fr" href="https://digitme.fun/fr/mentions-legales/">
+  <link rel="alternate" hreflang="x-default" href="https://digitme.fun/mentions-legales/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Digitme.fun">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://digitme.fun/mentions-legales/">
+  <meta property="og:title" content="Legal Notice — Digitme.fun">
+  <meta property="og:description" content="Legal notice for the Digitme.fun website.">
+  <meta property="og:image" content="https://digitme.fun/images/og-en.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Legal Notice — Digitme.fun">
+  <meta name="twitter:description" content="Legal notice for the Digitme.fun website.">
+  <meta name="twitter:image" content="https://digitme.fun/images/og-en.jpg">
+
+  <!-- Icones -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0a0a0a">
 
   <!-- Language Detection -->
-  <script src="/js/lang.js"></script>
+  <script src="/js/lang.js?v=1"></script>
 
   <!-- Tailwind CSS (build statique : npm run build:css) -->
-  <link rel="stylesheet" href="/css/tailwind.css">
+  <link rel="stylesheet" href="/css/tailwind.css?v=1">
   <style>
     :root {
       --c-dark: 10 10 10;
@@ -24,7 +49,7 @@
   <!-- Polices auto-hebergees (css/fonts.css) -->
   <link rel="preload" href="/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/inter-900-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/fonts.css?v=1">
 
 
   <style>
@@ -59,6 +84,8 @@
 </head>
 <body class="bg-dark text-white font-sans antialiased">
 
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- Navbar -->
   <nav class="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-xl border-b border-white/5">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -84,7 +111,7 @@
   </nav>
 
   <!-- Content -->
-  <main class="pt-28 pb-20">
+  <main id="main-content" class="pt-28 pb-20">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- Header -->
@@ -104,8 +131,13 @@
           </h2>
           <div class="bg-dark-card/50 border border-white/5 rounded-xl p-6 space-y-2">
             <p><strong class="text-white">Site name:</strong> Digitme.fun</p>
+            <p><strong class="text-white">Legal name:</strong> <span class="text-yellow-400">[TODO: registered company or sole-trader name]</span></p>
+            <p><strong class="text-white">Registered address:</strong> <span class="text-yellow-400">[TODO: street, postcode, town, Switzerland]</span></p>
+            <p><strong class="text-white">Company identifier (UID/IDE):</strong> <span class="text-yellow-400">[TODO: CHE-xxx.xxx.xxx, or "not registered" if none]</span></p>
+            <p><strong class="text-white">Person responsible for the site:</strong> <span class="text-yellow-400">[TODO: first and last name]</span></p>
             <p><strong class="text-white">URL:</strong> <a href="https://digitme.fun" class="text-violet-400 hover:text-violet-300 transition-colors">https://digitme.fun</a></p>
             <p><strong class="text-white">Contact:</strong> <a href="mailto:contact@digitme.fun" class="text-violet-400 hover:text-violet-300 transition-colors">contact@digitme.fun</a></p>
+            <p><strong class="text-white">Phone:</strong> <a href="tel:+41795731387" class="text-violet-400 hover:text-violet-300 transition-colors">+41 79 573 13 87</a></p>
           </div>
         </section>
 
@@ -156,7 +188,7 @@
             <span class="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center text-sm font-black text-orange-400">6</span>
             Personal Data
           </h2>
-          <p>This site does not collect any personal data. For more details, please consult our <a href="/privacy-policy/" class="text-violet-400 hover:text-violet-300 transition-colors font-semibold">Privacy Policy</a>.</p>
+          <p>This site collects no personal data and embeds no third-party service: fonts, icons, stylesheets and images are all served from digitme.fun. The only data kept on your device is the language you picked (browser local storage), which the site needs to work and never transmits. For more details, see our <a href="/privacy-policy/" class="text-violet-400 hover:text-violet-300 transition-colors font-semibold">Privacy Policy</a>.</p>
         </section>
 
         <!-- Section 7 -->
@@ -165,7 +197,7 @@
             <span class="w-8 h-8 rounded-lg bg-violet-500/10 flex items-center justify-center text-sm font-black text-violet-400">7</span>
             Applicable Law
           </h2>
-          <p>These legal notices are governed by French law. In the event of a dispute, the French courts shall have sole jurisdiction.</p>
+          <p>These legal notices are governed by Swiss law. In the event of a dispute, and unless a mandatory provision of law provides otherwise, the courts at the registered office of the publisher shall have sole jurisdiction.</p>
         </section>
 
         <!-- Section 8 -->
@@ -194,7 +226,7 @@
   <!-- Footer -->
   <footer class="bg-dark-light border-t border-white/5 py-8">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-gray-600 text-sm">&copy; 2026 Digitme.fun — All rights reserved.</p>
+      <p class="text-gray-400 text-sm">&copy; 2026 Digitme.fun — All rights reserved.</p>
     </div>
   </footer>
 

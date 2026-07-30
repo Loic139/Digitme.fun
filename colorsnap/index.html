@@ -5,11 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ColorSnap! — Memorize. Recreate. Repeat.</title>
   <meta name="description" content="A pure color memory game for iPhone. Memorize a color, recreate it from memory, and see how precise your eye really is.">
+  <!-- SEO -->
+  <link rel="canonical" href="https://digitme.fun/colorsnap/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Digitme.fun">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://digitme.fun/colorsnap/">
+  <meta property="og:title" content="ColorSnap! — Memorize. Recreate. Repeat.">
+  <meta property="og:description" content="A pure color memory game for iPhone. Memorize a color, recreate it from memory, and see how precise your eye really is.">
+  <meta property="og:image" content="https://digitme.fun/images/og-en.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ColorSnap! — Memorize. Recreate. Repeat.">
+  <meta name="twitter:description" content="A pure color memory game for iPhone. Memorize a color, recreate it from memory, and see how precise your eye really is.">
+  <meta name="twitter:image" content="https://digitme.fun/images/og-en.jpg">
+
+  <!-- Icones -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0a0a0a">
   <meta name="theme-color" content="#F5F4F0">
   <!-- Polices auto-hebergees (css/fonts.css) -->
   <link rel="preload" href="/fonts/dm-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-sans-700-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/fonts.css?v=1">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -678,14 +702,47 @@
 
     /* Selection color */
     ::selection { background: rgba(242,69,69,0.15); color: var(--text); }
+
+    /* Accessibilite : lien d evitement + respect de prefers-reduced-motion */
+    .skip-link { position:absolute; left:1rem; top:-3rem; z-index:100; padding:.75rem 1.25rem; border-radius:9999px; background:#8b5cf6; color:#fff; font-weight:600; transition:top .2s ease; }
+    .skip-link:focus { top:1rem; outline:2px solid #fff; outline-offset:2px; }
+    :focus-visible { outline:2px solid #a78bfa; outline-offset:2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
+      [data-aos] { opacity:1 !important; transform:none !important; }
+    }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ColorSnap!",
+    "url": "https://digitme.fun/colorsnap/",
+    "description": "A pure color memory game for iPhone. Memorize a color, recreate it from memory, and see how precise your eye really is.",
+    "applicationCategory": "MobileApplication",
+    "operatingSystem": "iOS",
+    "image": "https://digitme.fun/images/og-en.jpg",
+    "author": {
+      "@type": "Organization",
+      "name": "Digitme.fun",
+      "url": "https://digitme.fun"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "CHF"
+    }
+  }
+  </script>
 </head>
 <body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- ============================================ -->
   <!-- HERO -->
   <!-- ============================================ -->
-  <section class="hero">
+  <section id="main-content" class="hero">
     <div class="container">
       <div class="hero-inner">
         <div class="hero-content">

@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Maquettes de refonte client : accessibles par lien, hors index.
+Disallow: /avant-apres/apiconsulting/
+Disallow: /avant-apres/jr-sarl/
+Disallow: /avant-apres/mc-artisan-peintre/
+Disallow: /avant-apres/patrick-berger-sarl/
+
+Sitemap: https://digitme.fun/sitemap.xml

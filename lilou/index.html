@@ -5,11 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lilou — Les histoires qui donnent envie de lire</title>
   <meta name="description" content="Lilou, l'app iPhone/iPad de lecture interactive pour enfants de 4 a 8 ans. 13 histoires a choix multiples, voix francaise, mini-jeux et zero pub.">
+  <!-- SEO -->
+  <link rel="canonical" href="https://digitme.fun/lilou/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Digitme.fun">
+  <meta property="og:locale" content="fr_CH">
+  <meta property="og:url" content="https://digitme.fun/lilou/">
+  <meta property="og:title" content="Lilou — Les histoires qui donnent envie de lire">
+  <meta property="og:description" content="Lilou, l'app iPhone/iPad de lecture interactive pour enfants de 4 a 8 ans. 13 histoires a choix multiples, voix francaise, mini-jeux et zero pub.">
+  <meta property="og:image" content="https://digitme.fun/images/og-default.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lilou — Les histoires qui donnent envie de lire">
+  <meta name="twitter:description" content="Lilou, l'app iPhone/iPad de lecture interactive pour enfants de 4 a 8 ans. 13 histoires a choix multiples, voix francaise, mini-jeux et zero pub.">
+  <meta name="twitter:image" content="https://digitme.fun/images/og-default.jpg">
+
+  <!-- Icones -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0a0a0a">
   <meta name="theme-color" content="#FFF8F0">
   <!-- Polices auto-hebergees (css/fonts.css) -->
   <link rel="preload" href="/fonts/nunito-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/nunito-900-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/fonts.css?v=1">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -677,14 +701,47 @@
     }
 
     ::selection { background: rgba(245,148,59,0.2); }
+
+    /* Accessibilite : lien d evitement + respect de prefers-reduced-motion */
+    .skip-link { position:absolute; left:1rem; top:-3rem; z-index:100; padding:.75rem 1.25rem; border-radius:9999px; background:#8b5cf6; color:#fff; font-weight:600; transition:top .2s ease; }
+    .skip-link:focus { top:1rem; outline:2px solid #fff; outline-offset:2px; }
+    :focus-visible { outline:2px solid #a78bfa; outline-offset:2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
+      [data-aos] { opacity:1 !important; transform:none !important; }
+    }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Lilou",
+    "url": "https://digitme.fun/lilou/",
+    "description": "Lilou, l'app iPhone/iPad de lecture interactive pour enfants de 4 a 8 ans. 13 histoires a choix multiples, voix francaise, mini-jeux et zero pub.",
+    "applicationCategory": "MobileApplication",
+    "operatingSystem": "iOS",
+    "image": "https://digitme.fun/images/og-default.jpg",
+    "author": {
+      "@type": "Organization",
+      "name": "Digitme.fun",
+      "url": "https://digitme.fun"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "CHF"
+    }
+  }
+  </script>
 </head>
 <body>
+
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
   <!-- ============================================ -->
   <!-- HERO -->
   <!-- ============================================ -->
-  <section class="hero">
+  <section id="main-content" class="hero">
     <div class="hero-bg"></div>
     <div class="hero-stars">
       <div class="star">&#10024;</div>
