@@ -41,6 +41,10 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      /* etend la zone peinte sous la baseline : sinon background-clip: text
+         coupe les jambages (g, y, p, q). Le margin negatif annule le decalage. */
+      padding-bottom: 0.18em;
+      margin-bottom: -0.18em;
     }
 
     /* Fade-in animation */
