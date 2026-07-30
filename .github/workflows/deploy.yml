@@ -55,12 +55,15 @@ jobs:
           cmds=""
           for f in $pages; do
             dir=$(dirname "$f")
-            [ "$dir" = "." ] && dir=""
             base=$(basename "$f")
+            # dir vaut "." pour les fichiers racine : sans ce cas particulier
+            # la cible devenait "//index.html" et le renommage ne remettait
+            # jamais la page en place.
+            if [ "$dir" = "." ]; then target="/"; else target="/$dir/"; fi
             cmds="$cmds
-              mkdir -p -f /$dir;
-              put -O /$dir './$f' -o '$base.uploading';
-              mv '/$dir/$base.uploading' '/$dir/$base';"
+              mkdir -p -f '$target';
+              put -O '$target' './$f' -o '$base.uploading';
+              mv '$target$base.uploading' '$target$base';"
           done
           for attempt in $(seq 1 15); do
             echo "::group::pages - passe $attempt"
@@ -83,6 +86,21 @@ jobs:
             echo "passe $attempt interrompue, reprise"
             sleep 5
           done
+
+      # La home est la page critique : si elle manque, Apache sert un listing
+      # de repertoire. On le verifie avant d'aller plus loin.
+      - name: Verifier la home tout de suite
+        run: |
+          body=$(curl -s https://digitme.fun/)
+          if printf '%s' "$body" | grep -q 'Index of /'; then
+            echo "ECHEC: la racine sert un listing de repertoire, index.html manque"
+            exit 1
+          fi
+          if ! printf '%s' "$body" | grep -q 'rel="canonical"'; then
+            echo "ECHEC: la home ne contient pas la nouvelle version"
+            exit 1
+          fi
+          echo "home a jour"
 
       - name: Deploy assets via lftp
         env:
