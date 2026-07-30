@@ -41,7 +41,7 @@ jobs:
           local-dir: ./
           server-dir: /
           timeout: 600000
-          log-level: minimal
+          log-level: standard
           exclude: |
             **/.git*
             **/.git*/**
@@ -64,8 +64,10 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
           server-dir: /
+          protocol: ftps
+          security: loose
           timeout: 600000
-          log-level: minimal
+          log-level: standard
           exclude: |
             **/.git*
             **/.git*/**
@@ -88,7 +90,7 @@ jobs:
           local-dir: ./
           server-dir: /
           timeout: 600000
-          log-level: minimal
+          log-level: verbose
           exclude: |
             **/.git*
             **/.git*/**
