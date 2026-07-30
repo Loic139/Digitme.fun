@@ -25,7 +25,14 @@ jobs:
       - name: Build Tailwind CSS
         run: npm run build:css
 
-      - name: Deploy to Infomaniak FTP
+      # The FTP step used to fail on large changesets: the action's default
+      # per-operation timeout is 30 s and a full asset refresh is several MB
+      # over shared FTP. Each attempt resumes from what is already uploaded,
+      # so a retry finishes the job instead of starting over.
+      # (GitHub Actions does not support YAML anchors, hence the repetition.)
+      - name: Deploy to Infomaniak FTP (attempt 1)
+        id: ftp1
+        continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -33,6 +40,55 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
           server-dir: /
+          timeout: 600000
+          log-level: minimal
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.claude/**
+            **/node_modules/**
+            **/src/**
+            **/CNAME
+            package.json
+            package-lock.json
+            tailwind.config.js
+
+      - name: Deploy to Infomaniak FTP (attempt 2)
+        id: ftp2
+        if: steps.ftp1.outcome == 'failure'
+        continue-on-error: true
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: /
+          timeout: 600000
+          log-level: minimal
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.claude/**
+            **/node_modules/**
+            **/src/**
+            **/CNAME
+            package.json
+            package-lock.json
+            tailwind.config.js
+
+      - name: Deploy to Infomaniak FTP (attempt 3)
+        id: ftp3
+        if: steps.ftp1.outcome == 'failure' && steps.ftp2.outcome == 'failure'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: /
+          timeout: 600000
+          log-level: minimal
           exclude: |
             **/.git*
             **/.git*/**
