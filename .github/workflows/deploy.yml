@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:        # permet de relancer un deploiement sans commit
 
 jobs:
   deploy:
@@ -25,14 +26,13 @@ jobs:
       - name: Build Tailwind CSS
         run: npm run build:css
 
-      # The FTP step used to fail on large changesets: the action's default
-      # per-operation timeout is 30 s and a full asset refresh is several MB
-      # over shared FTP. Each attempt resumes from what is already uploaded,
-      # so a retry finishes the job instead of starting over.
-      # (GitHub Actions does not support YAML anchors, hence the repetition.)
-      - name: Deploy to Infomaniak FTP (attempt 1)
-        id: ftp1
-        continue-on-error: true
+      # Un seul gros upload echouait systematiquement : la session FTP tombe
+      # apres ~12 s quel que soit le timeout configure (anti-flood cote
+      # hebergeur sur le nombre de connexions data). Le deploiement est donc
+      # decoupe en lots courts, chacun avec sa propre session et son propre
+      # fichier d'etat, pour qu'un lot deja passe ne soit jamais rejoue.
+
+      - name: Fichiers racine
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -40,7 +40,8 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
           server-dir: /
-          timeout: 600000
+          state-name: .ftp-state-root.json
+          timeout: 300000
           log-level: standard
           exclude: |
             **/.git*
@@ -52,52 +53,186 @@ jobs:
             package.json
             package-lock.json
             tailwind.config.js
+            css/**
+            js/**
+            fonts/**
+            images/**
+            avant-apres/**
+            colorsnap/**
+            shapesnap/**
+            lilou/**
+            friendping/**
+            reversegame/**
+            fr/**
+            mentions-legales/**
+            privacy-policy/**
 
-      - name: Deploy to Infomaniak FTP (attempt 2)
-        id: ftp2
-        if: steps.ftp1.outcome == 'failure'
-        continue-on-error: true
+      - name: css
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
-          server-dir: /
-          protocol: ftps
-          security: loose
-          timeout: 600000
+          local-dir: ./css/
+          server-dir: /css/
+          state-name: .ftp-state-css.json
+          timeout: 300000
+          log-level: standard
+
+      - name: js
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./js/
+          server-dir: /js/
+          state-name: .ftp-state-js.json
+          timeout: 300000
+          log-level: standard
+
+      - name: fonts
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./fonts/
+          server-dir: /fonts/
+          state-name: .ftp-state-fonts.json
+          timeout: 300000
+          log-level: standard
+
+      - name: images (racine du dossier)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./images/
+          server-dir: /images/
+          state-name: .ftp-state-images.json
+          timeout: 300000
           log-level: standard
           exclude: |
-            **/.git*
-            **/.git*/**
-            **/.claude/**
-            **/node_modules/**
-            **/src/**
-            **/CNAME
-            package.json
-            package-lock.json
-            tailwind.config.js
+            external/**
 
-      - name: Deploy to Infomaniak FTP (attempt 3)
-        id: ftp3
-        if: steps.ftp1.outcome == 'failure' && steps.ftp2.outcome == 'failure'
+      - name: avant-apres
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
-          server-dir: /
-          timeout: 600000
-          log-level: verbose
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.claude/**
-            **/node_modules/**
-            **/src/**
-            **/CNAME
-            package.json
-            package-lock.json
-            tailwind.config.js
+          local-dir: ./avant-apres/
+          server-dir: /avant-apres/
+          state-name: .ftp-state-avant-apres.json
+          timeout: 300000
+          log-level: standard
+
+      - name: colorsnap
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./colorsnap/
+          server-dir: /colorsnap/
+          state-name: .ftp-state-colorsnap.json
+          timeout: 300000
+          log-level: standard
+
+      - name: shapesnap
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./shapesnap/
+          server-dir: /shapesnap/
+          state-name: .ftp-state-shapesnap.json
+          timeout: 300000
+          log-level: standard
+
+      - name: lilou
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./lilou/
+          server-dir: /lilou/
+          state-name: .ftp-state-lilou.json
+          timeout: 300000
+          log-level: standard
+
+      - name: friendping
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./friendping/
+          server-dir: /friendping/
+          state-name: .ftp-state-friendping.json
+          timeout: 300000
+          log-level: standard
+
+      - name: reversegame
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./reversegame/
+          server-dir: /reversegame/
+          state-name: .ftp-state-reversegame.json
+          timeout: 300000
+          log-level: standard
+
+      - name: mentions-legales
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./mentions-legales/
+          server-dir: /mentions-legales/
+          state-name: .ftp-state-mentions-legales.json
+          timeout: 300000
+          log-level: standard
+
+      - name: privacy-policy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./privacy-policy/
+          server-dir: /privacy-policy/
+          state-name: .ftp-state-privacy-policy.json
+          timeout: 300000
+          log-level: standard
+
+      - name: fr
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./fr/
+          server-dir: /fr/
+          state-name: .ftp-state-fr.json
+          timeout: 300000
+          log-level: standard
+
+      - name: images/external
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./images/external/
+          server-dir: /images/external/
+          state-name: .ftp-state-images-external.json
+          timeout: 300000
+          log-level: standard

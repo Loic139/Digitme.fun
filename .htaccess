@@ -66,7 +66,23 @@ ErrorDocument 404 /404.html
 </IfModule>
 
 # ------------------------------------------------------------
-# 4. Compression (au cas ou elle ne serait pas globale)
+# 4. Fichiers internes non publics
+# Les fichiers d'etat du deployeur FTP etaient servis en clair
+# (https://digitme.fun/.ftp-deploy-sync-state.json) et exposaient
+# la liste complete des fichiers du site.
+# ------------------------------------------------------------
+<FilesMatch "^\.ftp-.*\.json$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# ------------------------------------------------------------
+# 5. Compression (au cas ou elle ne serait pas globale)
 # ------------------------------------------------------------
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
@@ -74,6 +90,9 @@ ErrorDocument 404 /404.html
   AddOutputFilterByType DEFLATE image/svg+xml application/manifest+json
 </IfModule>
 
+# ------------------------------------------------------------
+# 6. Types MIME
+# ------------------------------------------------------------
 <IfModule mod_mime.c>
   AddType image/webp .webp
   AddType font/woff2 .woff2
