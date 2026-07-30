@@ -39,7 +39,52 @@ jobs:
       # a chaque deploiement.
       # Pas de --delete : les anciens fichiers restent en place plutot que de
       # risquer d'effacer quelque chose qui ne vient pas du depot.
-      - name: Deploy via lftp
+      # Les pages passent d'abord, et chacune est envoyee sous un nom
+      # temporaire puis renommee. Une session coupee en pleine ecriture avait
+      # fait disparaitre index.html du serveur : la home renvoyait un listing
+      # de repertoire. Avec le renommage, l'ancienne page reste en place
+      # jusqu'a ce que la nouvelle soit entierement transferee.
+      - name: Deploy HTML pages (atomique)
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          pages=$(find . -name '*.html' -not -path './node_modules/*' -not -path './.git/*' | sed 's|^\./||' | sort)
+          echo "$pages" | sed 's/^/  /'
+          cmds=""
+          for f in $pages; do
+            dir=$(dirname "$f")
+            [ "$dir" = "." ] && dir=""
+            base=$(basename "$f")
+            cmds="$cmds
+              mkdir -p -f /$dir;
+              put -O /$dir './$f' -o '$base.uploading';
+              mv '/$dir/$base.uploading' '/$dir/$base';"
+          done
+          for attempt in $(seq 1 15); do
+            echo "::group::pages - passe $attempt"
+            if lftp -c "
+              set cmd:fail-exit yes;
+              set net:max-retries 100;
+              set net:reconnect-interval-base 3;
+              set net:reconnect-interval-multiplier 1;
+              set net:timeout 20;
+              set ftp:ssl-allow no;
+              set ftp:passive-mode on;
+              open -u '$FTP_USERNAME','$FTP_PASSWORD' '$FTP_SERVER';
+              $cmds
+            "; then
+              echo "::endgroup::"
+              echo "pages en ligne (passe $attempt)"
+              break
+            fi
+            echo "::endgroup::"
+            echo "passe $attempt interrompue, reprise"
+            sleep 5
+          done
+
+      - name: Deploy assets via lftp
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
@@ -69,6 +114,7 @@ jobs:
                 --exclude-glob 'package*.json' \
                 --exclude-glob 'tailwind.config.js' \
                 --exclude-glob 'CNAME' \
+                --exclude-glob '*.html' \
                 ./ /;
             "
           }
@@ -86,13 +132,34 @@ jobs:
           echo "30 passes n'ont pas suffi a terminer le miroir"
           exit 1
 
-      - name: Verifier quelques fichiers en ligne
+      - name: Verifier le site en ligne
         run: |
           fail=0
-          for f in index.html css/tailwind.css css/fonts.css js/main.js robots.txt sitemap.xml \
-                   site.webmanifest fonts/inter-400-latin.woff2 images/og-en.jpg; do
-            code=$(curl -s -o /dev/null -w '%{http_code}' "https://digitme.fun/$f")
-            printf '%-40s %s\n' "$f" "$code"
+
+          # Les pages : /index.html est redirige vers / par .htaccess, on teste
+          # donc les URLs reelles.
+          for u in / /fr/ /404.html /colorsnap/ /lilou/ /avant-apres/ /friendping/ /reversegame/; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "https://digitme.fun$u")
+            printf 'page   %-34s %s\n' "$u" "$code"
             [ "$code" = "200" ] || fail=1
           done
+
+          # La home doit servir la vraie page, pas un listing de repertoire.
+          if curl -s https://digitme.fun/ | grep -q 'rel="canonical"'; then
+            echo 'page   /                                  contenu a jour'
+          else
+            echo 'page   /                                  CONTENU MANQUANT OU OBSOLETE'
+            fail=1
+          fi
+
+          for f in css/tailwind.css css/fonts.css css/aos.css js/main.js js/aos.js \
+                   robots.txt sitemap.xml site.webmanifest favicon.svg \
+                   fonts/inter-400-latin.woff2 fonts/inter-900-latin.woff2 \
+                   images/og-en.jpg images/og-default.jpg images/friendping_logo.webp \
+                   lilou/home.webp colorsnap/screen-result.webp shapesnap/logo.webp; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "https://digitme.fun/$f")
+            printf 'asset  %-34s %s\n' "$f" "$code"
+            [ "$code" = "200" ] || fail=1
+          done
+
           exit $fail
