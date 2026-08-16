@@ -16,7 +16,6 @@ module.exports = {
   content: [
     './*.html',
     './fr/**/*.html',
-    './avant-apres/**/*.html',
     './friendping/**/*.html',
     './reversegame/**/*.html',
     './mentions-legales/**/*.html',
