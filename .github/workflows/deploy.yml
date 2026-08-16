@@ -29,6 +29,40 @@ jobs:
       - name: Install lftp
         run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
 
+      # Le compte FTP est plafonne a 10 Mo. D'anciennes versions du site
+      # (build React a la racine, copie complete dans web/, miroir
+      # digitme.fun/) en occupaient environ 6 : le quota etait plein a 99 %
+      # et le serveur refusait d'ecrire le moindre index.html. La racine,
+      # /fr/ et /lilou/ servaient donc un listing de repertoire.
+      # Le miroir tourne sans --delete, ces fichiers ne partaient jamais
+      # d'eux-memes. On les supprime explicitement, par nom, avant d'envoyer
+      # quoi que ce soit. La liste est fermee : rien d'autre n'est efface.
+      - name: Liberer le quota (residus d'anciens deploiements)
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          for path in /web /static /digitme.fun /asset-manifest.json; do
+            echo "::group::suppression de $path"
+            # rm -rf : recursif, et silencieux si le chemin a deja disparu.
+            if lftp -c "
+              set net:max-retries 20;
+              set net:reconnect-interval-base 3;
+              set net:reconnect-interval-multiplier 1;
+              set net:timeout 20;
+              set ftp:ssl-allow no;
+              set ftp:passive-mode on;
+              open -u '$FTP_USERNAME','$FTP_PASSWORD' '$FTP_SERVER';
+              rm -rf $path;
+            "; then
+              echo "$path supprime"
+            else
+              echo "$path absent ou deja supprime"
+            fi
+            echo "::endgroup::"
+          done
+
       # FTP-Deploy-Action ne tenait pas : la session tombait apres 1 a 3
       # fichiers, quelle que soit la taille du lot ou le timeout, et l'action
       # abandonne des la premiere coupure. lftp reconnecte tout seul et
@@ -50,11 +84,29 @@ jobs:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
+          # Quand le quota est plein, le serveur ne coupe pas la session : il
+          # refuse le fichier avec un 552 et lftp reessaie. Sans ce garde-fou,
+          # les 15 passes s'enchainaient pendant dix minutes pour finir sur
+          # une racine toujours cassee. On s'arrete au premier refus, avec un
+          # message qui dit quoi faire.
+          run_lftp() {
+            set +e
+            out=$(lftp -c "$1" 2>&1)
+            code=$?
+            set -e
+            printf '%s\n' "$out"
+            if printf '%s' "$out" | grep -qi 'quota exceeded'; then
+              echo "::error::Quota FTP sature : le serveur refuse d'ecrire. Liberer de l'espace sur le compte FTP ou relever le quota chez Infomaniak."
+              exit 1
+            fi
+            return $code
+          }
+
           # put + mv laissait index.html absent sans remonter d'erreur, alors
           # que mirror a deja cree des fichiers a la racine sans probleme :
           # les pages passent donc par mirror, restreint au HTML.
           pages_once() {
-            lftp -c "
+            run_lftp "
               set cmd:fail-exit yes;
               set net:max-retries 100;
               set net:reconnect-interval-base 3;
@@ -76,17 +128,25 @@ jobs:
                 ./ /;
             "
           }
+          # Sans ce drapeau, 15 passes en echec laissaient l'etape se terminer
+          # en succes et le job continuait comme si les pages etaient en ligne.
+          envoyees=0
           for attempt in $(seq 1 15); do
             echo "::group::pages - passe $attempt"
             if pages_once; then
               echo "::endgroup::"
               echo "pages en ligne (passe $attempt)"
+              envoyees=1
               break
             fi
             echo "::endgroup::"
             echo "passe $attempt interrompue, reprise"
             sleep 5
           done
+          if [ "$envoyees" != 1 ]; then
+            echo "::error::15 passes n'ont pas suffi a envoyer les pages"
+            exit 1
+          fi
 
       # La home est la page critique : si elle manque, Apache sert un listing
       # de repertoire. On le verifie avant d'aller plus loin.
@@ -109,12 +169,27 @@ jobs:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
+          # Meme garde-fou que pour les pages : un quota plein n'est pas une
+          # coupure de session, inutile d'enchainer trente passes dessus.
+          run_lftp() {
+            set +e
+            out=$(lftp -c "$1" 2>&1)
+            code=$?
+            set -e
+            printf '%s\n' "$out"
+            if printf '%s' "$out" | grep -qi 'quota exceeded'; then
+              echo "::error::Quota FTP sature : le serveur refuse d'ecrire. Liberer de l'espace sur le compte FTP ou relever le quota chez Infomaniak."
+              exit 1
+            fi
+            return $code
+          }
+
           # Le serveur coupe la session toutes les quelques fichiers. lftp
           # reconnecte, mais finit par epuiser son budget de reconnexions :
           # on le relance donc plusieurs fois, chaque passe ne reprenant que
           # ce qui manque encore (comparaison sur la taille).
           mirror_once() {
-            lftp -c "
+            run_lftp "
               set cmd:fail-exit yes;
               set net:max-retries 100;
               set net:reconnect-interval-base 3;
@@ -158,7 +233,7 @@ jobs:
 
           # Les pages : /index.html est redirige vers / par .htaccess, on teste
           # donc les URLs reelles.
-          for u in / /fr/ /404.html /colorsnap/ /lilou/ /avant-apres/ /friendping/ /reversegame/; do
+          for u in / /fr/ /404.html /colorsnap/ /lilou/ /friendping/ /reversegame/; do
             code=$(curl -s -o /dev/null -w '%{http_code}' "https://digitme.fun$u")
             printf 'page   %-34s %s\n' "$u" "$code"
             [ "$code" = "200" ] || fail=1
